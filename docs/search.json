@@ -7,6 +7,13 @@
     "text": "This is a quarto book project for creating materials for the second half of the MDBD workshop.\nThere is a list of planned sections in the “List of sections” chapter.\nTo add a new section, start from the “Template section”. Open template_section.qmd, save-as, and populate it; then add it to the list of sections in _quarto.yml.\nTo update the Pages site, run quarto render from a local terminal. This will render the files to the docs directory. Then push, and GitHub pages will serve the site from docs."
   },
   {
+    "objectID": "list_of_sections.html",
+    "href": "list_of_sections.html",
+    "title": "2  Planned sections",
+    "section": "",
+    "text": "4 Day 2\n\nProcess models for inference\nInference on empirical data\nReproducibility (sharing and archiving)\nWrap-up"
+  },
+  {
     "objectID": "template_section.html",
     "href": "template_section.html",
     "title": "3  Section title:",
