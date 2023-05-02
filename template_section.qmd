@@ -1,4 +1,6 @@
-# Section title:
+# Lesson template
+
+## Section title:
 
 ## Key questions
 

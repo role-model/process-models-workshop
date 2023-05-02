@@ -14,38 +14,38 @@
     "text": "4 Day 2\n\nProcess models for inference\nInference on empirical data\nReproducibility (sharing and archiving)\nWrap-up"
   },
   {
-    "objectID": "template_section.html",
-    "href": "template_section.html",
-    "title": "3  Section title:",
-    "section": "",
-    "text": "List 1-3 key questions to motivate this section of the workshop."
+    "objectID": "template_section.html#key-questions",
+    "href": "template_section.html#key-questions",
+    "title": "3  Lesson template",
+    "section": "3.2 Key questions",
+    "text": "3.2 Key questions\nList 1-3 key questions to motivate this section of the workshop."
   },
   {
     "objectID": "template_section.html#lesson-objectives",
     "href": "template_section.html#lesson-objectives",
-    "title": "3  Section title:",
-    "section": "3.2 Lesson objectives",
-    "text": "3.2 Lesson objectives\nList 1-3 lesson objectives, filling in the prompt “After this section of the workshop, participants should be able to….”"
+    "title": "3  Lesson template",
+    "section": "3.3 Lesson objectives",
+    "text": "3.3 Lesson objectives\nList 1-3 lesson objectives, filling in the prompt “After this section of the workshop, participants should be able to….”"
   },
   {
     "objectID": "template_section.html#planned-exercises",
     "href": "template_section.html#planned-exercises",
-    "title": "3  Section title:",
-    "section": "3.3 Planned exercises",
-    "text": "3.3 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
+    "title": "3  Lesson template",
+    "section": "3.4 Planned exercises",
+    "text": "3.4 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
   },
   {
     "objectID": "template_section.html#supporting-materials",
     "href": "template_section.html#supporting-materials",
-    "title": "3  Section title:",
-    "section": "3.4 Supporting materials",
-    "text": "3.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.4.1 Extant\n\n\n3.4.2 To create"
+    "title": "3  Lesson template",
+    "section": "3.5 Supporting materials",
+    "text": "3.5 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.5.1 Extant\n\n\n3.5.2 To create"
   },
   {
     "objectID": "template_section.html#key-points",
     "href": "template_section.html#key-points",
-    "title": "3  Section title:",
-    "section": "3.5 Key points",
-    "text": "3.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "3  Lesson template",
+    "section": "3.6 Key points",
+    "text": "3.6 Key points\nList 1-3 key takeaways from this section of the workshop."
   }
 ]

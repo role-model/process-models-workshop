@@ -6,7 +6,7 @@
 1. Overview of process model space leading to RoLE
 1. Introduction to RoLE
 1. Getting started running simulations with RoLE
-1. Using RoLE to develop and test intuition
+1. Using RoLE to develop and test theoretical intuition
 
 # Day 2
 
