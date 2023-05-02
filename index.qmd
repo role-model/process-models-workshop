@@ -1,9 +1,9 @@
-# Preface {.unnumbered}
+# Introduction
 
-This is a Quarto book.
+This is a quarto book project for creating materials for the second half of the MDBD workshop.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+There is a list of planned sections in the "List of sections" chapter.
 
-```{r}
-1 + 1
-```
+To add a new section, start from the "Template section". Open `template_section.qmd`, save-as, and populate it; then add it to the list of sections in `_quarto.yml`.
+
+To update the Pages site, run `quarto render` from a local terminal. This will render the files to the `docs` directory. Then push, and GitHub pages will serve the site from `docs`. 

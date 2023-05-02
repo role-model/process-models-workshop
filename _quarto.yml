@@ -5,13 +5,12 @@ project:
 
 book:
   title: "process-models-workshop"
-  author: "Jane Doe"
+  author: "The RoLE Team"
   date: "5/2/2023"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - list_of_sections.qmd
+    - template_section.qmd
 
 bibliography: references.bib
 

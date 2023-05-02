@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "process-models-workshop",
+    "section": "",
+    "text": "This is a quarto book project for creating materials for the second half of the MDBD workshop.\nThere is a list of planned sections in the “List of sections” chapter.\nTo add a new section, start from the “Template section”. Open template_section.qmd, save-as, and populate it; then add it to the list of sections in _quarto.yml.\nTo update the Pages site, run quarto render from a local terminal. This will render the files to the docs directory. Then push, and GitHub pages will serve the site from docs."
+  },
+  {
+    "objectID": "template_section.html",
+    "href": "template_section.html",
+    "title": "3  Section title:",
+    "section": "",
+    "text": "List 1-3 key questions to motivate this section of the workshop."
+  },
+  {
+    "objectID": "template_section.html#lesson-objectives",
+    "href": "template_section.html#lesson-objectives",
+    "title": "3  Section title:",
+    "section": "3.2 Lesson objectives",
+    "text": "3.2 Lesson objectives\nList 1-3 lesson objectives, filling in the prompt “After this section of the workshop, participants should be able to….”"
+  },
+  {
+    "objectID": "template_section.html#planned-exercises",
+    "href": "template_section.html#planned-exercises",
+    "title": "3  Section title:",
+    "section": "3.3 Planned exercises",
+    "text": "3.3 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
+  },
+  {
+    "objectID": "template_section.html#supporting-materials",
+    "href": "template_section.html#supporting-materials",
+    "title": "3  Section title:",
+    "section": "3.4 Supporting materials",
+    "text": "3.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.4.1 Extant\n\n\n3.4.2 To create"
+  },
+  {
+    "objectID": "template_section.html#key-points",
+    "href": "template_section.html#key-points",
+    "title": "3  Section title:",
+    "section": "3.5 Key points",
+    "text": "3.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+  }
+]
