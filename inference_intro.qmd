@@ -1,0 +1,34 @@
+# Comparing simulations to empirical data
+
+## Key questions
+
+1. What kinds of empirical data can we leverage using process modeling?
+1. How can we infer process from empirical data using simulation models?
+1. What are the challenges associated with this and how do we escape them?
+
+## Lesson objectives
+
+After this lesson, learners should be able to...
+
+1. Articulate ways in which empirical data could be elucdiated using sim models
+1. Describe the conceptual framework for going data-to-process
+1. Describe the many-to-one/model identifiability problems and how to break them
+
+## Planned exercises
+
+
+## Supporting materials
+
+_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+
+_For bonus points organize these according to whether they already exist or we need to create them!_
+
+### Extant
+
+### To create
+
+* Relevant chapters of user guide.
+
+## Key points
+
+_List 1-3 key takeaways from this section of the workshop._

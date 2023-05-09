@@ -1,0 +1,32 @@
+# Process inference using roleR 
+
+## Key questions
+
+1. How do I perform a process-inference using RoLE simulations in R?
+
+## Lesson objectives
+
+After this lesson, learners should be able to...
+
+1. Use RoLE simulations, caret/parsnip/???, and (simulated?) data to do the ML inference
+1. Interpret results in terms of story
+1. Brainstorm applications to real data
+
+## Planned exercises
+
+
+## Supporting materials
+
+_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+
+_For bonus points organize these according to whether they already exist or we need to create them!_
+
+### Extant
+
+### To create
+
+* Relevant chapters of user guide.
+
+## Key points
+
+_List 1-3 key takeaways from this section of the workshop._

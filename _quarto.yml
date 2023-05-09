@@ -16,6 +16,12 @@ book:
     - how_role_works.qmd
     - getting_started.qmd
     - exploring_theory.qmd
+    - inference_intro.qmd
+    - inference_demo.qmd
+    - reproducibility.qmd
+    - wrapup.qmd
+comments:
+  hypothesis: true
 
 
 bibliography: references.bib
