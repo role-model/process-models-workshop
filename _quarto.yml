@@ -11,8 +11,15 @@ book:
     - index.qmd
     - list_of_sections.qmd
     - template_section.qmd
+    - motivation.qmd
+    - intro_to_role.qmd
+    - how_role_works.qmd
+    - getting_started.qmd
+    - exploring_theory.qmd
+
 
 bibliography: references.bib
+
 
 format:
   html:

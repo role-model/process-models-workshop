@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="The RoLE Team">
-<meta name="dcterms.date" content="2023-05-02">
 
-<title>process-models-workshop</title>
+<title>process-models-workshop - 4&nbsp; Theory and motivation of process modeling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,7 +25,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./list_of_sections.html" rel="next">
+<link href="./intro_to_role.html" rel="next">
+<link href="./template_section.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">process-models-workshop</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -91,7 +90,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -106,7 +105,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./motivation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></a>
+  <a href="./motivation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,7 +137,15 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#key-questions" id="toc-key-questions" class="nav-link active" data-scroll-target="#key-questions"> <span class="header-section-number">4.1</span> Key questions</a></li>
+  <li><a href="#lesson-objectives" id="toc-lesson-objectives" class="nav-link" data-scroll-target="#lesson-objectives"> <span class="header-section-number">4.2</span> Lesson objectives</a></li>
+  <li><a href="#planned-exercises" id="toc-planned-exercises" class="nav-link" data-scroll-target="#planned-exercises"> <span class="header-section-number">4.3</span> Planned exercises</a></li>
+  <li><a href="#supporting-materials" id="toc-supporting-materials" class="nav-link" data-scroll-target="#supporting-materials"> <span class="header-section-number">4.4</span> Supporting materials</a>
+  <ul class="collapse">
+  <li><a href="#extant" id="toc-extant" class="nav-link" data-scroll-target="#extant"> <span class="header-section-number">4.4.1</span> Extant</a></li>
+  <li><a href="#to-create" id="toc-to-create" class="nav-link" data-scroll-target="#to-create"> <span class="header-section-number">4.4.2</span> To create</a></li>
+  </ul></li>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"> <span class="header-section-number">4.5</span> Key points</a></li>
   </ul>
 </nav>
     </div>
@@ -147,38 +154,55 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">process-models-workshop</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>The RoLE Team </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 2, 2023</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>This is a quarto book project for creating materials for the second half of the MDBD workshop.</p>
-<p>There is a list of planned sections in the “List of sections” chapter.</p>
-<p>To add a new section, start from the “Template section”. Open <code>template_section.qmd</code>, save-as, and populate it; then add it to the list of sections in <code>_quarto.yml</code>.</p>
-<p>To update the Pages site, run <code>quarto render</code> from a local terminal. This will render the files to the <code>docs</code> directory. Then push, and GitHub pages will serve the site from <code>docs</code>.</p>
+<section id="key-questions" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="key-questions"><span class="header-section-number">4.1</span> Key questions</h2>
+<ol type="1">
+<li>What is a process modeling approach?</li>
+<li>What kinds of questions can process models explore (that other methods cannot)?</li>
+<li>What are the limitations or constraints of process modeling?</li>
+</ol>
+</section>
+<section id="lesson-objectives" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="lesson-objectives"><span class="header-section-number">4.2</span> Lesson objectives</h2>
+<p>After this lesson, learners should be able to…</p>
+<ol type="1">
+<li>Describe what defines a process model.</li>
+<li>Evaluate the pros and cons of a process modeling approach.</li>
+<li>Generate questions in ecology and evolution that could be addressed using process modeling.</li>
+</ol>
+</section>
+<section id="planned-exercises" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="planned-exercises"><span class="header-section-number">4.3</span> Planned exercises</h2>
+<p><em>List planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc.</em></p>
+</section>
+<section id="supporting-materials" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="supporting-materials"><span class="header-section-number">4.4</span> Supporting materials</h2>
+<p><em>Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.</em></p>
+<p><em>For bonus points organize these according to whether they already exist or we need to create them!</em></p>
+<section id="extant" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="extant"><span class="header-section-number">4.4.1</span> Extant</h3>
+</section>
+<section id="to-create" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="to-create"><span class="header-section-number">4.4.2</span> To create</h3>
+</section>
+</section>
+<section id="key-points" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="key-points"><span class="header-section-number">4.5</span> Key points</h2>
+<p><em>List 1-3 key takeaways from this section of the workshop.</em></p>
 
 
 </section>
@@ -283,10 +307,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./template_section.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lesson template</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./list_of_sections.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Planned sections</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro_to_role.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to the RoLE Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

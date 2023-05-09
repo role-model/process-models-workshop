@@ -1,0 +1,35 @@
+# Using RoLE to explore hypotheses
+
+## Key questions
+
+1. How do I use RoLE to explore/generate theoretical predictions
+
+## Lesson objectives
+
+After this lesson, learners should be able to...
+
+1. Formulate hypotheses for how tweaking parameters will affect model outputs
+1. Use RoLE to test these hypotheses in silico
+1. Synthesize the outcomes
+
+## Planned exercises
+
+* Group brainstorming of params to tweak
+* Breakout to test them
+* Come together to debrief/synthesize
+
+## Supporting materials
+
+_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+
+_For bonus points organize these according to whether they already exist or we need to create them!_
+
+### Extant
+
+### To create
+
+* Relevant chapters of user guide.
+
+## Key points
+
+_List 1-3 key takeaways from this section of the workshop._
