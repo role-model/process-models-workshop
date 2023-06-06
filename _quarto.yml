@@ -9,8 +9,6 @@ book:
   date: "5/2/2023"
   chapters:
     - index.qmd
-    - list_of_sections.qmd
-    - template_section.qmd
     - motivation.qmd
     - intro_to_role.qmd
     - how_role_works.qmd
