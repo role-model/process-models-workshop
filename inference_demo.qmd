@@ -1,4 +1,4 @@
-# Process inference using roleR 
+# Machine learning inference with RoLE simulations
 
 ## Key questions
 
