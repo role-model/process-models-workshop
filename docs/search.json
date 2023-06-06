@@ -4,363 +4,328 @@
     "href": "index.html",
     "title": "process-models-workshop",
     "section": "",
-    "text": "This is a quarto book project for creating materials for the second half of the MDBD workshop.\nThere is a list of planned sections in the “List of sections” chapter.\nTo add a new section, start from the “Template section”. Open template_section.qmd, save-as, and populate it; then add it to the list of sections in _quarto.yml.\nTo update the Pages site, run quarto render from a local terminal. This will render the files to the docs directory. Then push, and GitHub pages will serve the site from docs."
+    "text": "1 Introduction"
   },
   {
-    "objectID": "list_of_sections.html",
-    "href": "list_of_sections.html",
-    "title": "2  Planned sections",
-    "section": "",
-    "text": "4 Day 2\n\nProcess models for inference\nInference on empirical data\nReproducibility (sharing and archiving)\nWrap-up"
+    "objectID": "index.html#workshop-outline",
+    "href": "index.html#workshop-outline",
+    "title": "process-models-workshop",
+    "section": "1.1 Workshop outline",
+    "text": "1.1 Workshop outline\n\n\n\n\n\n\n\n\nTime\nDay 1\nDay 2\n\n\n\n\n9-9:30\nIntroductions and workshop overview\nReview of previous days topics\n\n\n9:30-10:30\nTheory/conceptual motivation for process models\nProcess models for inference\n\n\n10:30-10:45\nCoffee Break\nCoffee Break\n\n\n10:45-12\nIntroduction to RoLE\nInference on empirical data\n\n\n12-1\nLunch Break\nLunch Break\n\n\n1-2:30\nGetting started running simulations with RoLE\nReproducibility (sharing and archiving)\n\n\n2:30-2:45\nCoffee Break\nCoffee Break\n\n\n2:45-4:00\nUsing RoLE to develop and test theoretical intuition\nWrap-up and Feedback Session\n\n\n\nThis is a quarto book project for creating materials for the second half of the MDBD workshop.\nThere is a list of planned sections in the “List of sections” chapter.\nTo add a new section, start from the “Template section”. Open template_section.qmd, save-as, and populate it; then add it to the list of sections in _quarto.yml.\nTo update the Pages site, run quarto render from a local terminal. This will render the files to the docs directory. Then push, and GitHub pages will serve the site from docs."
   },
   {
-    "objectID": "template_section.html#key-questions",
-    "href": "template_section.html#key-questions",
-    "title": "3  Lesson template",
-    "section": "3.2 Key questions",
-    "text": "3.2 Key questions\nList 1-3 key questions to motivate this section of the workshop."
-  },
-  {
-    "objectID": "template_section.html#lesson-objectives",
-    "href": "template_section.html#lesson-objectives",
-    "title": "3  Lesson template",
-    "section": "3.3 Lesson objectives",
-    "text": "3.3 Lesson objectives\nList 1-3 lesson objectives, filling in the prompt “After this section of the workshop, participants should be able to….”"
-  },
-  {
-    "objectID": "template_section.html#planned-exercises",
-    "href": "template_section.html#planned-exercises",
-    "title": "3  Lesson template",
-    "section": "3.4 Planned exercises",
-    "text": "3.4 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
-  },
-  {
-    "objectID": "template_section.html#supporting-materials",
-    "href": "template_section.html#supporting-materials",
-    "title": "3  Lesson template",
-    "section": "3.5 Supporting materials",
-    "text": "3.5 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.5.1 Extant\n\n\n3.5.2 To create"
-  },
-  {
-    "objectID": "template_section.html#key-points",
-    "href": "template_section.html#key-points",
-    "title": "3  Lesson template",
-    "section": "3.6 Key points",
-    "text": "3.6 Key points\nList 1-3 key takeaways from this section of the workshop."
-  },
-  {
-    "objectID": "motivation.html",
-    "href": "motivation.html",
-    "title": "4  Theory and motivation of process modeling",
-    "section": "",
-    "text": "What is a process modeling approach?\nWhat kinds of questions can process models explore (that other methods cannot)?\nWhat are the limitations or constraints of process modeling?"
+    "objectID": "motivation.html#key-questions",
+    "href": "motivation.html#key-questions",
+    "title": "2  Theory and motivation of process modeling",
+    "section": "2.1 Key questions",
+    "text": "2.1 Key questions\n\nWhat is a process modeling approach?\nWhat kinds of questions can process models explore (that other methods cannot)?\nWhat are the limitations or constraints of process modeling?"
   },
   {
     "objectID": "motivation.html#lesson-objectives",
     "href": "motivation.html#lesson-objectives",
-    "title": "4  Theory and motivation of process modeling",
-    "section": "4.2 Lesson objectives",
-    "text": "4.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe what defines a process model.\nEvaluate the pros and cons of a process modeling approach.\nGenerate questions in ecology and evolution that could be addressed using process modeling."
+    "title": "2  Theory and motivation of process modeling",
+    "section": "2.2 Lesson objectives",
+    "text": "2.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe what defines a process model.\nEvaluate the pros and cons of a process modeling approach.\nGenerate questions in ecology and evolution that could be addressed using process modeling."
   },
   {
     "objectID": "motivation.html#planned-exercises",
     "href": "motivation.html#planned-exercises",
-    "title": "4  Theory and motivation of process modeling",
-    "section": "4.3 Planned exercises",
-    "text": "4.3 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
+    "title": "2  Theory and motivation of process modeling",
+    "section": "2.3 Planned exercises",
+    "text": "2.3 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
   },
   {
     "objectID": "motivation.html#supporting-materials",
     "href": "motivation.html#supporting-materials",
-    "title": "4  Theory and motivation of process modeling",
-    "section": "4.4 Supporting materials",
-    "text": "4.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n4.4.1 Extant\n\n\n4.4.2 To create"
+    "title": "2  Theory and motivation of process modeling",
+    "section": "2.4 Supporting materials",
+    "text": "2.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n2.4.1 Extant\n\n\n2.4.2 To create"
   },
   {
     "objectID": "motivation.html#key-points",
     "href": "motivation.html#key-points",
-    "title": "4  Theory and motivation of process modeling",
-    "section": "4.5 Key points",
-    "text": "4.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "2  Theory and motivation of process modeling",
+    "section": "2.5 Key points",
+    "text": "2.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "intro_to_role.html",
-    "href": "intro_to_role.html",
-    "title": "5  Introduction to the RoLE Model",
-    "section": "",
-    "text": "What is the RoLE Model?\nWhat are some of the possible applications of the RoLE Model?\nHow do I learn more?"
+    "objectID": "intro_to_role.html#key-questions",
+    "href": "intro_to_role.html#key-questions",
+    "title": "3  Introduction to the RoLE Model",
+    "section": "3.1 Key questions",
+    "text": "3.1 Key questions\n\nWhat is the RoLE Model?\nWhat are some of the possible applications of the RoLE Model?\nHow do I learn more?"
   },
   {
     "objectID": "intro_to_role.html#lesson-objectives",
     "href": "intro_to_role.html#lesson-objectives",
-    "title": "5  Introduction to the RoLE Model",
-    "section": "5.2 Lesson objectives",
-    "text": "5.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate RoLE in the wider process modeling state space.\nDescribe the (high-level) concept for RoLE.\nFormulate scientific questions and decide if/how RoLE can be used to explore them."
+    "title": "3  Introduction to the RoLE Model",
+    "section": "3.2 Lesson objectives",
+    "text": "3.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate RoLE in the wider process modeling state space.\nDescribe the (high-level) concept for RoLE.\nFormulate scientific questions and decide if/how RoLE can be used to explore them."
   },
   {
     "objectID": "intro_to_role.html#planned-exercises",
     "href": "intro_to_role.html#planned-exercises",
-    "title": "5  Introduction to the RoLE Model",
-    "section": "5.3 Planned exercises",
-    "text": "5.3 Planned exercises\n\nLecture/visuals\nDiscussion/breakout groups"
+    "title": "3  Introduction to the RoLE Model",
+    "section": "3.3 Planned exercises",
+    "text": "3.3 Planned exercises\n\nLecture/visuals\nDiscussion/breakout groups"
   },
   {
     "objectID": "intro_to_role.html#supporting-materials",
     "href": "intro_to_role.html#supporting-materials",
-    "title": "5  Introduction to the RoLE Model",
-    "section": "5.4 Supporting materials",
-    "text": "5.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n5.4.1 Extant\n\n\n5.4.2 To create"
+    "title": "3  Introduction to the RoLE Model",
+    "section": "3.4 Supporting materials",
+    "text": "3.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.4.1 Extant\n\n\n3.4.2 To create"
   },
   {
     "objectID": "intro_to_role.html#key-points",
     "href": "intro_to_role.html#key-points",
-    "title": "5  Introduction to the RoLE Model",
-    "section": "5.5 Key points",
-    "text": "5.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "3  Introduction to the RoLE Model",
+    "section": "3.5 Key points",
+    "text": "3.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "how_role_works.html",
-    "href": "how_role_works.html",
-    "title": "6  How a RoLE model works",
-    "section": "",
-    "text": "What are the inputs and outputs of a RoLE model?\nWhat happens when a RoLE model runs?"
+    "objectID": "how_role_works.html#key-questions",
+    "href": "how_role_works.html#key-questions",
+    "title": "4  How a RoLE model works",
+    "section": "4.1 Key questions",
+    "text": "4.1 Key questions\n\nWhat are the inputs and outputs of a RoLE model?\nWhat happens when a RoLE model runs?"
   },
   {
     "objectID": "how_role_works.html#lesson-objectives",
     "href": "how_role_works.html#lesson-objectives",
-    "title": "6  How a RoLE model works",
-    "section": "6.2 Lesson objectives",
-    "text": "6.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe the structure of a RoLE model.\nDescribe the rules of a RoLE simulation.\nDescribe the outputs of a RoLE model and what they say about the system.\nDescribe some of the “special cases”/RoLE “flavors” (neutral, LV, etc)"
+    "title": "4  How a RoLE model works",
+    "section": "4.2 Lesson objectives",
+    "text": "4.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe the structure of a RoLE model.\nDescribe the rules of a RoLE simulation.\nDescribe the outputs of a RoLE model and what they say about the system.\nDescribe some of the “special cases”/RoLE “flavors” (neutral, LV, etc)"
   },
   {
     "objectID": "how_role_works.html#planned-exercises",
     "href": "how_role_works.html#planned-exercises",
-    "title": "6  How a RoLE model works",
-    "section": "6.3 Planned exercises",
-    "text": "6.3 Planned exercises\n\nWhiteboard demo/lecture"
+    "title": "4  How a RoLE model works",
+    "section": "4.3 Planned exercises",
+    "text": "4.3 Planned exercises\n\nWhiteboard demo/lecture"
   },
   {
     "objectID": "how_role_works.html#supporting-materials",
     "href": "how_role_works.html#supporting-materials",
-    "title": "6  How a RoLE model works",
-    "section": "6.4 Supporting materials",
-    "text": "6.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n6.4.1 Extant\n\n\n6.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "4  How a RoLE model works",
+    "section": "4.4 Supporting materials",
+    "text": "4.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n4.4.1 Extant\n\n\n4.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "how_role_works.html#key-points",
     "href": "how_role_works.html#key-points",
-    "title": "6  How a RoLE model works",
-    "section": "6.5 Key points",
-    "text": "6.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "4  How a RoLE model works",
+    "section": "4.5 Key points",
+    "text": "4.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "getting_started.html",
-    "href": "getting_started.html",
-    "title": "7  Getting started: roleR",
-    "section": "",
-    "text": "How do I set up and run a RoLE model in R?\nHow do I access and visualize the results of a RoLE simulation?\nHow can I store the outputs of a RoLE model?"
+    "objectID": "getting_started.html#key-questions",
+    "href": "getting_started.html#key-questions",
+    "title": "5  Getting started: roleR",
+    "section": "5.1 Key questions",
+    "text": "5.1 Key questions\n\nHow do I set up and run a RoLE model in R?\nHow do I access and visualize the results of a RoLE simulation?\nHow can I store the outputs of a RoLE model?"
   },
   {
     "objectID": "getting_started.html#lesson-objectives",
     "href": "getting_started.html#lesson-objectives",
-    "title": "7  Getting started: roleR",
-    "section": "7.2 Lesson objectives",
-    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse roleR to run a basic RoLE model.\nExtract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.\nSave RoLE models to disc."
+    "title": "5  Getting started: roleR",
+    "section": "5.2 Lesson objectives",
+    "text": "5.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse roleR to run a basic RoLE model.\nExtract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.\nSave RoLE models to disc."
   },
   {
     "objectID": "getting_started.html#planned-exercises",
     "href": "getting_started.html#planned-exercises",
-    "title": "7  Getting started: roleR",
-    "section": "7.3 Planned exercises",
-    "text": "7.3 Planned exercises\n\nCode-along demo\nExperimentation time (set a challenge and report back?)"
+    "title": "5  Getting started: roleR",
+    "section": "5.3 Planned exercises",
+    "text": "5.3 Planned exercises\n\nCode-along demo\nExperimentation time (set a challenge and report back?)"
   },
   {
     "objectID": "getting_started.html#supporting-materials",
     "href": "getting_started.html#supporting-materials",
-    "title": "7  Getting started: roleR",
-    "section": "7.4 Supporting materials",
-    "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "5  Getting started: roleR",
+    "section": "5.4 Supporting materials",
+    "text": "5.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n5.4.1 Extant\n\n\n5.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "getting_started.html#key-points",
     "href": "getting_started.html#key-points",
-    "title": "7  Getting started: roleR",
-    "section": "7.5 Key points",
-    "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "5  Getting started: roleR",
+    "section": "5.5 Key points",
+    "text": "5.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "exploring_theory.html",
-    "href": "exploring_theory.html",
-    "title": "8  Using RoLE to explore hypotheses",
-    "section": "",
-    "text": "How do I use RoLE to explore/generate theoretical predictions"
+    "objectID": "exploring_theory.html#key-questions",
+    "href": "exploring_theory.html#key-questions",
+    "title": "6  Using RoLE to explore hypotheses",
+    "section": "6.1 Key questions",
+    "text": "6.1 Key questions\n\nHow do I use RoLE to explore/generate theoretical predictions"
   },
   {
     "objectID": "exploring_theory.html#lesson-objectives",
     "href": "exploring_theory.html#lesson-objectives",
-    "title": "8  Using RoLE to explore hypotheses",
-    "section": "8.2 Lesson objectives",
-    "text": "8.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nFormulate hypotheses for how tweaking parameters will affect model outputs\nUse RoLE to test these hypotheses in silico\nSynthesize the outcomes"
+    "title": "6  Using RoLE to explore hypotheses",
+    "section": "6.2 Lesson objectives",
+    "text": "6.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nFormulate hypotheses for how tweaking parameters will affect model outputs\nUse RoLE to test these hypotheses in silico\nSynthesize the outcomes"
   },
   {
     "objectID": "exploring_theory.html#planned-exercises",
     "href": "exploring_theory.html#planned-exercises",
-    "title": "8  Using RoLE to explore hypotheses",
-    "section": "8.3 Planned exercises",
-    "text": "8.3 Planned exercises\n\nGroup brainstorming of params to tweak\nBreakout to test them\nCome together to debrief/synthesize"
+    "title": "6  Using RoLE to explore hypotheses",
+    "section": "6.3 Planned exercises",
+    "text": "6.3 Planned exercises\n\nGroup brainstorming of params to tweak\nBreakout to test them\nCome together to debrief/synthesize"
   },
   {
     "objectID": "exploring_theory.html#supporting-materials",
     "href": "exploring_theory.html#supporting-materials",
-    "title": "8  Using RoLE to explore hypotheses",
-    "section": "8.4 Supporting materials",
-    "text": "8.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n8.4.1 Extant\n\n\n8.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "6  Using RoLE to explore hypotheses",
+    "section": "6.4 Supporting materials",
+    "text": "6.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n6.4.1 Extant\n\n\n6.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "exploring_theory.html#key-points",
     "href": "exploring_theory.html#key-points",
-    "title": "8  Using RoLE to explore hypotheses",
-    "section": "8.5 Key points",
-    "text": "8.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "6  Using RoLE to explore hypotheses",
+    "section": "6.5 Key points",
+    "text": "6.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "inference_intro.html",
-    "href": "inference_intro.html",
-    "title": "9  Comparing simulations to empirical data",
-    "section": "",
-    "text": "What kinds of empirical data can we leverage using process modeling?\nHow can we infer process from empirical data using simulation models?\nWhat are the challenges associated with this and how do we escape them?"
+    "objectID": "inference_intro.html#key-questions",
+    "href": "inference_intro.html#key-questions",
+    "title": "7  Comparing simulations to empirical data",
+    "section": "7.1 Key questions",
+    "text": "7.1 Key questions\n\nWhat kinds of empirical data can we leverage using process modeling?\nHow can we infer process from empirical data using simulation models?\nWhat are the challenges associated with this and how do we escape them?"
   },
   {
     "objectID": "inference_intro.html#lesson-objectives",
     "href": "inference_intro.html#lesson-objectives",
-    "title": "9  Comparing simulations to empirical data",
-    "section": "9.2 Lesson objectives",
-    "text": "9.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nArticulate ways in which empirical data could be elucdiated using sim models\nDescribe the conceptual framework for going data-to-process\nDescribe the many-to-one/model identifiability problems and how to break them"
+    "title": "7  Comparing simulations to empirical data",
+    "section": "7.2 Lesson objectives",
+    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nArticulate ways in which empirical data could be elucdiated using sim models\nDescribe the conceptual framework for going data-to-process\nDescribe the many-to-one/model identifiability problems and how to break them"
   },
   {
     "objectID": "inference_intro.html#planned-exercises",
     "href": "inference_intro.html#planned-exercises",
-    "title": "9  Comparing simulations to empirical data",
-    "section": "9.3 Planned exercises",
-    "text": "9.3 Planned exercises"
+    "title": "7  Comparing simulations to empirical data",
+    "section": "7.3 Planned exercises",
+    "text": "7.3 Planned exercises"
   },
   {
     "objectID": "inference_intro.html#supporting-materials",
     "href": "inference_intro.html#supporting-materials",
-    "title": "9  Comparing simulations to empirical data",
-    "section": "9.4 Supporting materials",
-    "text": "9.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n9.4.1 Extant\n\n\n9.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "7  Comparing simulations to empirical data",
+    "section": "7.4 Supporting materials",
+    "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "inference_intro.html#key-points",
     "href": "inference_intro.html#key-points",
-    "title": "9  Comparing simulations to empirical data",
-    "section": "9.5 Key points",
-    "text": "9.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "7  Comparing simulations to empirical data",
+    "section": "7.5 Key points",
+    "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "inference_demo.html",
-    "href": "inference_demo.html",
-    "title": "10  Process inference using roleR",
-    "section": "",
-    "text": "How do I perform a process-inference using RoLE simulations in R?"
+    "objectID": "inference_demo.html#key-questions",
+    "href": "inference_demo.html#key-questions",
+    "title": "8  Process inference using roleR",
+    "section": "8.1 Key questions",
+    "text": "8.1 Key questions\n\nHow do I perform a process-inference using RoLE simulations in R?"
   },
   {
     "objectID": "inference_demo.html#lesson-objectives",
     "href": "inference_demo.html#lesson-objectives",
-    "title": "10  Process inference using roleR",
-    "section": "10.2 Lesson objectives",
-    "text": "10.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations, caret/parsnip/???, and (simulated?) data to do the ML inference\nInterpret results in terms of story\nBrainstorm applications to real data"
+    "title": "8  Process inference using roleR",
+    "section": "8.2 Lesson objectives",
+    "text": "8.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations, caret/parsnip/???, and (simulated?) data to do the ML inference\nInterpret results in terms of story\nBrainstorm applications to real data"
   },
   {
     "objectID": "inference_demo.html#planned-exercises",
     "href": "inference_demo.html#planned-exercises",
-    "title": "10  Process inference using roleR",
-    "section": "10.3 Planned exercises",
-    "text": "10.3 Planned exercises"
+    "title": "8  Process inference using roleR",
+    "section": "8.3 Planned exercises",
+    "text": "8.3 Planned exercises"
   },
   {
     "objectID": "inference_demo.html#supporting-materials",
     "href": "inference_demo.html#supporting-materials",
-    "title": "10  Process inference using roleR",
-    "section": "10.4 Supporting materials",
-    "text": "10.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n10.4.1 Extant\n\n\n10.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "8  Process inference using roleR",
+    "section": "8.4 Supporting materials",
+    "text": "8.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n8.4.1 Extant\n\n\n8.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "inference_demo.html#key-points",
     "href": "inference_demo.html#key-points",
-    "title": "10  Process inference using roleR",
-    "section": "10.5 Key points",
-    "text": "10.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "8  Process inference using roleR",
+    "section": "8.5 Key points",
+    "text": "8.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "reproducibility.html",
-    "href": "reproducibility.html",
-    "title": "11  roleR and Reproducibility",
-    "section": "",
-    "text": "How do I set up my workflow for reproducible research?\nHow do I store and share RoLE simulations?"
+    "objectID": "reproducibility.html#key-questions",
+    "href": "reproducibility.html#key-questions",
+    "title": "9  roleR and Reproducibility",
+    "section": "9.1 Key questions",
+    "text": "9.1 Key questions\n\nHow do I set up my workflow for reproducible research?\nHow do I store and share RoLE simulations?"
   },
   {
     "objectID": "reproducibility.html#lesson-objectives",
     "href": "reproducibility.html#lesson-objectives",
-    "title": "11  roleR and Reproducibility",
-    "section": "11.2 Lesson objectives",
-    "text": "11.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe best-practices for reproducible simulations\nExplain why RoLE is not generally numerically reproducible (yes?)\nDescribe strategies for storing and sharing code and models for works-in-progress\nExplain the importance of and appropriate repositories for long-term archiving"
+    "title": "9  roleR and Reproducibility",
+    "section": "9.2 Lesson objectives",
+    "text": "9.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe best-practices for reproducible simulations\nExplain why RoLE is not generally numerically reproducible (yes?)\nDescribe strategies for storing and sharing code and models for works-in-progress\nExplain the importance of and appropriate repositories for long-term archiving"
   },
   {
     "objectID": "reproducibility.html#planned-exercises",
     "href": "reproducibility.html#planned-exercises",
-    "title": "11  roleR and Reproducibility",
-    "section": "11.3 Planned exercises",
-    "text": "11.3 Planned exercises"
+    "title": "9  roleR and Reproducibility",
+    "section": "9.3 Planned exercises",
+    "text": "9.3 Planned exercises"
   },
   {
     "objectID": "reproducibility.html#supporting-materials",
     "href": "reproducibility.html#supporting-materials",
-    "title": "11  roleR and Reproducibility",
-    "section": "11.4 Supporting materials",
-    "text": "11.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n11.4.1 Extant\n\n\n11.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "9  roleR and Reproducibility",
+    "section": "9.4 Supporting materials",
+    "text": "9.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n9.4.1 Extant\n\n\n9.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "reproducibility.html#key-points",
     "href": "reproducibility.html#key-points",
-    "title": "11  roleR and Reproducibility",
-    "section": "11.5 Key points",
-    "text": "11.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "9  roleR and Reproducibility",
+    "section": "9.5 Key points",
+    "text": "9.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
-    "objectID": "wrapup.html",
-    "href": "wrapup.html",
-    "title": "12  Wrap-up",
-    "section": "",
-    "text": "What have we covered?\nWhere can I find information and support post-workshop?\nHow can I submit feedback on this workshop?"
+    "objectID": "wrapup.html#key-questions",
+    "href": "wrapup.html#key-questions",
+    "title": "10  Wrap-up",
+    "section": "10.1 Key questions",
+    "text": "10.1 Key questions\n\nWhat have we covered?\nWhere can I find information and support post-workshop?\nHow can I submit feedback on this workshop?"
   },
   {
     "objectID": "wrapup.html#lesson-objectives",
     "href": "wrapup.html#lesson-objectives",
-    "title": "12  Wrap-up",
-    "section": "12.2 Lesson objectives",
-    "text": "12.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
+    "title": "10  Wrap-up",
+    "section": "10.2 Lesson objectives",
+    "text": "10.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
   },
   {
     "objectID": "wrapup.html#planned-exercises",
     "href": "wrapup.html#planned-exercises",
-    "title": "12  Wrap-up",
-    "section": "12.3 Planned exercises",
-    "text": "12.3 Planned exercises"
+    "title": "10  Wrap-up",
+    "section": "10.3 Planned exercises",
+    "text": "10.3 Planned exercises"
   },
   {
     "objectID": "wrapup.html#supporting-materials",
     "href": "wrapup.html#supporting-materials",
-    "title": "12  Wrap-up",
-    "section": "12.4 Supporting materials",
-    "text": "12.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n12.4.1 Extant\n\n\n12.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "10  Wrap-up",
+    "section": "10.4 Supporting materials",
+    "text": "10.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n10.4.1 Extant\n\n\n10.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "wrapup.html#key-points",
     "href": "wrapup.html#key-points",
-    "title": "12  Wrap-up",
-    "section": "12.5 Key points",
-    "text": "12.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "10  Wrap-up",
+    "section": "10.5 Key points",
+    "text": "10.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   }
 ]
