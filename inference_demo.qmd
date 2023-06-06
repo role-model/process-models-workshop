@@ -8,12 +8,93 @@
 
 After this lesson, learners should be able to...
 
-1. Use RoLE simulations, caret/parsnip/???, and (simulated?) data to do the ML inference
+1. Use RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference
 1. Interpret results in terms of story
 1. Brainstorm applications to real data
 
 ## Planned exercises
 
+* Create and parameterize a new RoLE Experiment
+* Run RoLE model simulations
+* ML assembly model classification
+* ML parameter estimation
+* Posterior predictive simulations (if time)
+* Free time to experiment with other example datasets
+
+### Create a new RoLE Experiment
+#### Create a new roleParams(), modifying a few default values
+These are all the parameters of the model. The defaults are chosen to reflect
+a typical oceanic island arthropod community. Don't worry at this point about
+all the parameters, lets focus for now on the degree of neutrality (`neut_delta`), the
+size of the local community (`individuals_local`), and the rate of migration from the metacommunity
+to the local community (`dispersal_prob`). We will set parameter ranges for these, and each
+simulation will sample a random value from this range. In a new cell use the
+we'll create some new `roleParams` objects to reflect neutral, competition, and
+environmental filtering assembly models.
+
+```r
+p_neutral <- roleParams()
+p_comp <- roleParams()
+p_filt <- roleParams()
+```
+#### Run the role experiment encapsulating these different models
+Now we can run a bunch of simulations given our new parameterization using the
+`runRole()` method. runRole takes one argument (`nsims`) which indicates the number
+of independent community assembly realizations to perform.
+
+```r
+exp <- roleExperiment(list(p_neutral, p_comp, p_filt))
+exp <- runRole(exp)
+```
+
+#### Download the pre-baked simulations
+Since it can take quite some time to run a number of simulations sufficient for
+model selection and parameter estimation we will use a suite of pre-baked
+simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch
+them with `wget` from the workshop site:
+```
+\# FIXME
+# Make sure you're in the role-workshop directory
+cd ~/role-workshop
+wget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt
+wc -l SIMOUT.txt
+```
+    100%[======================================>] 14,234,338  50.0M/s   in 0.3s
+    2019-08-11 01:25:27 (50.0 MB/s) - "SIMOUT.txt.1" saved [14234338/14234338]
+    24440 SIMOUT.txt
+
+:::{.callout-note}
+The `wc` command counts the number of lines if you pass it the `-l` flag.
+You can see this series of ~25k simulations is about 14MB.
+:::
+
+### ML assembly model classification
+The first step is now to assess the model of community assembly that best
+fits the data. The three models are `neutral`, in which all individuals are
+ecologically equivalent; `competition`, in which species have traits, and
+differential survival probability is weighted by distance of traits from
+the trait mean in the local community (closer to the trait mean == higher
+probability of death); and `filtering`, in which there is an environmental
+optimum, and proximity of trait values to this optimum is positively
+correlated with survival probability.
+
+Basically we want to know, are individuals in the local community ecologically
+equivalent, and if not are they interacting more with each other or more
+with the local environment.
+
+#### Train the ML classifier
+#### Plot confusion matrix
+#### Perform classification of empirical data and view results
+
+### ML parameter estimation
+Now that we have identified the neutral model as the most probable, we can
+estimate parameters of the emipirical data given this model. Essentially,
+we are asking the question "What are the parameters of the model that
+generate summary statistics most similar to those of the empirical data?"
+
+#### Train the ML regressor
+#### Plot cross-validation results
+#### Perform regression to predict dispersal_prob of empirical data and view results
 
 ## Supporting materials
 

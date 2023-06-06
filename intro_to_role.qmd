@@ -16,8 +16,8 @@ After this lesson, learners should be able to...
 
 ## Planned exercises
 
-* Lecture/visuals 
-* Discussion/breakout groups
+1. Lecture: [Process-based modeling with the Rules of Life Engine (RoLE) Model](https://docs.google.com/presentation/d/1vLtGAnmaXSjEV05VTw9TpgjvN0rbBeyjc5TObPY-SFc/edit#slide=id.g437f980ed7_0_25)
+1. Hands-on: Exploring RoLE model behavior with the RoLE-Shiny app
 
 ## Supporting materials
 
