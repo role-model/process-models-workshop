@@ -4,7 +4,7 @@
 
 1. What kinds of empirical data can we leverage using process modeling?
 1. How can we infer process from empirical data using simulation models?
-1. What are the challenges associated with this and how do we escape them?
+1. What are the challenges associated with this and how do we resolve them?
 
 ## Lesson objectives
 

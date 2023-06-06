@@ -21,8 +21,29 @@ After this lesson, learners should be able to...
 
 ## Planned exercises
 
-* Code-along demo
+* Installation
+* TL;DR Run your first simulations
+* Getting started with roleR
+* Creating a roleParams object and setting model parameters
+* Run simulations using the new roleParams
+* Inspect the output of the simulation runs
+* Setting prior ranges on parameters
 * Experimentation time (set a challenge and report back?)
+
+### Installing roleR
+:::(.callout-note}
+You do not need to install roleR for this workshop, rather this is here for
+completeness and future information should you wish to install RoLE on your home cluster.
+:::
+
+roleR is currently installed directly from the github repository using the
+`remotes::github_install()` function.
+
+```r
+> install.packages("remotes")
+> library(remotes)
+> remotes::install_github('role-model/roleR')
+```
 
 ## Supporting materials
 

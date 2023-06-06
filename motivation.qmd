@@ -11,7 +11,7 @@
 After this lesson, learners should be able to...
 
 1. Describe what defines a process model.
-1. Evaluate the pros and cons of a process modeling approach.
+1. Evaluate the advantages and limitations of a process modeling approach.
 1. Generate questions in ecology and evolution that could be addressed using process modeling.
 
 ## Planned exercises

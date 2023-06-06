@@ -25,7 +25,7 @@
     "href": "motivation.html#lesson-objectives",
     "title": "2  Theory and motivation of process modeling",
     "section": "2.2 Lesson objectives",
-    "text": "2.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe what defines a process model.\nEvaluate the pros and cons of a process modeling approach.\nGenerate questions in ecology and evolution that could be addressed using process modeling."
+    "text": "2.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe what defines a process model.\nEvaluate the advantages and limitations of a process modeling approach.\nGenerate questions in ecology and evolution that could be addressed using process modeling."
   },
   {
     "objectID": "motivation.html#planned-exercises",
@@ -102,7 +102,7 @@
     "href": "getting_started.html#planned-exercises",
     "title": "4  Getting started: roleR",
     "section": "4.3 Planned exercises",
-    "text": "4.3 Planned exercises\n\nCode-along demo\nExperimentation time (set a challenge and report back?)"
+    "text": "4.3 Planned exercises\n\nInstallation\nTL;DR Run your first simulations\nGetting started with roleR\nCreating a roleParams object and setting model parameters\nRun simulations using the new roleParams\nInspect the output of the simulation runs\nSetting prior ranges on parameters\nExperimentation time (set a challenge and report back?)\n\n\n4.3.1 Installing roleR\n\nYou do not need to install roleR for this workshop, rather this is here for completeness and future information should you wish to install RoLE on your home cluster.\n\nroleR is currently installed directly from the github repository using the remotes::github_install() function.\n&gt; install.packages(\"remotes\")\n&gt; library(remotes)\n&gt; remotes::install_github('role-model/roleR')"
   },
   {
     "objectID": "getting_started.html#supporting-materials",
@@ -158,7 +158,7 @@
     "href": "inference_intro.html#key-questions",
     "title": "6  Simulation-based machine learning inference",
     "section": "6.1 Key questions",
-    "text": "6.1 Key questions\n\nWhat kinds of empirical data can we leverage using process modeling?\nHow can we infer process from empirical data using simulation models?\nWhat are the challenges associated with this and how do we escape them?"
+    "text": "6.1 Key questions\n\nWhat kinds of empirical data can we leverage using process modeling?\nHow can we infer process from empirical data using simulation models?\nWhat are the challenges associated with this and how do we resolve them?"
   },
   {
     "objectID": "inference_intro.html#lesson-objectives",
