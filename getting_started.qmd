@@ -3,6 +3,8 @@
 ## Key questions
 
 1. How do I set up and run a RoLE model in R?
+1. What are the inputs and outputs of a RoLE model?
+1. What happens when a RoLE model runs?
 1. How do I access and visualize the results of a RoLE simulation?
 1. How can I store the outputs of a RoLE model?
 
@@ -10,9 +12,12 @@
 
 After this lesson, learners should be able to...
 
+1. Describe the structure of a RoLE model.
+1. Describe the rules of a RoLE simulation.
+1. Describe the outputs of a RoLE model and what they say about the system.
 1. Use roleR to run a basic RoLE model.
 1. Extract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.
-1. Save RoLE models to disc.
+1. Save RoLE models to disk.
 
 ## Planned exercises
 
