@@ -3,7 +3,7 @@
 
 ## Key questions
 
-1. What is the RoLE Model?
+1. What is the MESS Model?
 1. What are some of the possible applications of the RoLE Model?
 1. How do I learn more?
 

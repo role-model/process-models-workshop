@@ -170,112 +170,112 @@
   {
     "objectID": "intro_mess.html",
     "href": "intro_mess.html",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "",
     "text": "7 Getting started: roleR"
   },
   {
     "objectID": "intro_mess.html#key-questions",
     "href": "intro_mess.html#key-questions",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "6.1 Key questions",
-    "text": "6.1 Key questions\n\nWhat is the RoLE Model?\nWhat are some of the possible applications of the RoLE Model?\nHow do I learn more?"
+    "text": "6.1 Key questions\n\nWhat is the MESS Model?\nWhat are some of the possible applications of the RoLE Model?\nHow do I learn more?"
   },
   {
     "objectID": "intro_mess.html#lesson-objectives",
     "href": "intro_mess.html#lesson-objectives",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "6.2 Lesson objectives",
     "text": "6.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate RoLE in the wider process modeling state space.\nDescribe the (high-level) concept for RoLE.\nFormulate scientific questions and decide if/how RoLE can be used to explore them."
   },
   {
     "objectID": "intro_mess.html#planned-exercises",
     "href": "intro_mess.html#planned-exercises",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "6.3 Planned exercises",
     "text": "6.3 Planned exercises\n\nLecture: Process-based modeling with the Rules of Life Engine (RoLE) Model\nHands-on: Exploring RoLE model behavior with the RoLE-Shiny app"
   },
   {
     "objectID": "intro_mess.html#supporting-materials",
     "href": "intro_mess.html#supporting-materials",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "6.4 Supporting materials",
     "text": "6.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n6.4.1 Extant\n\n\n6.4.2 To create"
   },
   {
     "objectID": "intro_mess.html#key-points",
     "href": "intro_mess.html#key-points",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "6.5 Key points",
     "text": "6.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "intro_mess.html#key-questions-1",
     "href": "intro_mess.html#key-questions-1",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "7.1 Key questions",
     "text": "7.1 Key questions\n\nHow do I set up and run a RoLE model in R?\nWhat are the inputs and outputs of a RoLE model?\nWhat happens when a RoLE model runs?\nHow do I access and visualize the results of a RoLE simulation?\nHow can I store the outputs of a RoLE model?"
   },
   {
     "objectID": "intro_mess.html#lesson-objectives-1",
     "href": "intro_mess.html#lesson-objectives-1",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "7.2 Lesson objectives",
     "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe the structure of a RoLE model.\nDescribe the rules of a RoLE simulation.\nDescribe the outputs of a RoLE model and what they say about the system.\nUse roleR to run a basic RoLE model.\nExtract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.\nSave RoLE models to disk."
   },
   {
     "objectID": "intro_mess.html#planned-exercises-1",
     "href": "intro_mess.html#planned-exercises-1",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "7.3 Planned exercises",
     "text": "7.3 Planned exercises\n\nInstallation\nTL;DR Run your first simulations\nGetting started with roleR\nCreating a roleParams object and setting model parameters\nRun simulations using the new roleParams\nInspect the output of the simulation runs\nSetting prior ranges on parameters\nExperimentation time (set a challenge and report back?)\n\n\n7.3.1 Installing roleR\n\nYou do not need to install roleR for this workshop, rather this is here for completeness and future information should you wish to install RoLE on your home cluster.\n\nroleR is currently installed directly from the github repository using the remotes::github_install() function.\n&gt; install.packages(\"remotes\")\n&gt; library(remotes)\n&gt; remotes::install_github('role-model/roleR')"
   },
   {
     "objectID": "intro_mess.html#supporting-materials-1",
     "href": "intro_mess.html#supporting-materials-1",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "7.4 Supporting materials",
     "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "intro_mess.html#key-points-1",
     "href": "intro_mess.html#key-points-1",
-    "title": "6  Introduction to the RoLE Model",
+    "title": "6  Introduction to the MESS Model",
     "section": "7.5 Key points",
     "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "mess_simulations.html#key-questions",
     "href": "mess_simulations.html#key-questions",
-    "title": "7  Using RoLE to explore hypotheses",
+    "title": "7  Using MESS to explore hypotheses",
     "section": "7.1 Key questions",
     "text": "7.1 Key questions\n\nHow do I use RoLE to explore/generate theoretical predictions"
   },
   {
     "objectID": "mess_simulations.html#lesson-objectives",
     "href": "mess_simulations.html#lesson-objectives",
-    "title": "7  Using RoLE to explore hypotheses",
+    "title": "7  Using MESS to explore hypotheses",
     "section": "7.2 Lesson objectives",
     "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nFormulate hypotheses for how tweaking parameters will affect model outputs\nUse RoLE to test these hypotheses in silico\nSynthesize the outcomes"
   },
   {
     "objectID": "mess_simulations.html#planned-exercises",
     "href": "mess_simulations.html#planned-exercises",
-    "title": "7  Using RoLE to explore hypotheses",
+    "title": "7  Using MESS to explore hypotheses",
     "section": "7.3 Planned exercises",
     "text": "7.3 Planned exercises\n\nGroup brainstorming of params to tweak\nBreakout to test them\nCome together to debrief/synthesize"
   },
   {
     "objectID": "mess_simulations.html#supporting-materials",
     "href": "mess_simulations.html#supporting-materials",
-    "title": "7  Using RoLE to explore hypotheses",
+    "title": "7  Using MESS to explore hypotheses",
     "section": "7.4 Supporting materials",
     "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "mess_simulations.html#key-points",
     "href": "mess_simulations.html#key-points",
-    "title": "7  Using RoLE to explore hypotheses",
+    "title": "7  Using MESS to explore hypotheses",
     "section": "7.5 Key points",
     "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
@@ -348,5 +348,40 @@
     "title": "9  Machine learning inference with RoLE simulations",
     "section": "9.5 Key points",
     "text": "9.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+  },
+  {
+    "objectID": "wrapup.html#key-questions",
+    "href": "wrapup.html#key-questions",
+    "title": "10  Wrap-up",
+    "section": "10.1 Key questions",
+    "text": "10.1 Key questions\n\nWhat have we covered?\nWhere can I find information and support post-workshop?\nHow can I submit feedback on this workshop?"
+  },
+  {
+    "objectID": "wrapup.html#lesson-objectives",
+    "href": "wrapup.html#lesson-objectives",
+    "title": "10  Wrap-up",
+    "section": "10.2 Lesson objectives",
+    "text": "10.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
+  },
+  {
+    "objectID": "wrapup.html#planned-exercises",
+    "href": "wrapup.html#planned-exercises",
+    "title": "10  Wrap-up",
+    "section": "10.3 Planned exercises",
+    "text": "10.3 Planned exercises"
+  },
+  {
+    "objectID": "wrapup.html#supporting-materials",
+    "href": "wrapup.html#supporting-materials",
+    "title": "10  Wrap-up",
+    "section": "10.4 Supporting materials",
+    "text": "10.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n10.4.1 Extant\n\n\n10.4.2 To create\n\nRelevant chapters of user guide."
+  },
+  {
+    "objectID": "wrapup.html#key-points",
+    "href": "wrapup.html#key-points",
+    "title": "10  Wrap-up",
+    "section": "10.5 Key points",
+    "text": "10.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   }
 ]
