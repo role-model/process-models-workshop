@@ -1,4 +1,4 @@
-# Using RoLE to explore hypotheses
+# Using MESS to explore hypotheses
 
 ## Key questions
 

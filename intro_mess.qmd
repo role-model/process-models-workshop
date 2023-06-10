@@ -1,5 +1,5 @@
   output-dir: docs
-# Introduction to the RoLE Model
+# Introduction to the MESS Model
 
 ## Key questions
 

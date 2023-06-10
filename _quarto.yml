@@ -17,6 +17,7 @@ book:
     - mess_simulations.qmd
     - ml_inference_classification.qmd
     - ml_inference_regression.qmd
+    - wrapup.qmd
 comments:
   hypothesis: true
 
