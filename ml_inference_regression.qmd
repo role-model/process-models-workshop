@@ -1,4 +1,4 @@
-# Machine learning inference with RoLE simulations
+# Machine learning inference with MESS simulations
 
 ## Key questions
 
