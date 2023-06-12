@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>process-models-workshop - 5&nbsp; Simulation-based machine learning inference</title>
+<title>process-models-workshop - 5&nbsp; Inferring process from result using UNTB</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation-based machine learning inference</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inferring process from result using UNTB</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -111,7 +111,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ml_inference_neutral.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation-based machine learning inference</span></a>
+  <a href="./ml_inference_neutral.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inferring process from result using UNTB</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,14 +154,15 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#key-questions" id="toc-key-questions" class="nav-link active" data-scroll-target="#key-questions"> <span class="header-section-number">5.1</span> Key questions</a></li>
-  <li><a href="#lesson-objectives" id="toc-lesson-objectives" class="nav-link" data-scroll-target="#lesson-objectives"> <span class="header-section-number">5.2</span> Lesson objectives</a></li>
-  <li><a href="#planned-exercises" id="toc-planned-exercises" class="nav-link" data-scroll-target="#planned-exercises"> <span class="header-section-number">5.3</span> Planned exercises</a></li>
-  <li><a href="#supporting-materials" id="toc-supporting-materials" class="nav-link" data-scroll-target="#supporting-materials"> <span class="header-section-number">5.4</span> Supporting materials</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"> <span class="header-section-number">5.2</span> Learning objectives</a></li>
+  <li><a href="#lesson-outline" id="toc-lesson-outline" class="nav-link" data-scroll-target="#lesson-outline"> <span class="header-section-number">5.3</span> Lesson outline</a>
   <ul class="collapse">
-  <li><a href="#extant" id="toc-extant" class="nav-link" data-scroll-target="#extant"> <span class="header-section-number">5.4.1</span> Extant</a></li>
-  <li><a href="#to-create" id="toc-to-create" class="nav-link" data-scroll-target="#to-create"> <span class="header-section-number">5.4.2</span> To create</a></li>
+  <li><a href="#lecturediscussion-going-from-outcome-to-process" id="toc-lecturediscussion-going-from-outcome-to-process" class="nav-link" data-scroll-target="#lecturediscussion-going-from-outcome-to-process"> <span class="header-section-number">5.3.1</span> (Lecture/discussion) Going from outcome to process</a></li>
+  <li><a href="#lecturediscussion-random-forest-regression" id="toc-lecturediscussion-random-forest-regression" class="nav-link" data-scroll-target="#lecturediscussion-random-forest-regression"> <span class="header-section-number">5.3.2</span> (Lecture/discussion) Random forest regression</a></li>
+  <li><a href="#coding-exercise-fitting-a-random-forest-to-our-neutral-data" id="toc-coding-exercise-fitting-a-random-forest-to-our-neutral-data" class="nav-link" data-scroll-target="#coding-exercise-fitting-a-random-forest-to-our-neutral-data"> <span class="header-section-number">5.3.3</span> (Coding exercise) Fitting a random forest to our neutral data</a></li>
+  <li><a href="#discussion-what-problems-arise-in-the-random-forest" id="toc-discussion-what-problems-arise-in-the-random-forest" class="nav-link" data-scroll-target="#discussion-what-problems-arise-in-the-random-forest"> <span class="header-section-number">5.3.4</span> (Discussion) What problems arise in the random forest?</a></li>
+  <li><a href="#discussion-how-might-we-address-these-challenges" id="toc-discussion-how-might-we-address-these-challenges" class="nav-link" data-scroll-target="#discussion-how-might-we-address-these-challenges"> <span class="header-section-number">5.3.5</span> (Discussion) How might we address these challenges?</a></li>
   </ul></li>
-  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"> <span class="header-section-number">5.5</span> Key points</a></li>
   </ul>
 </nav>
     </div>
@@ -170,7 +171,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation-based machine learning inference</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inferring process from result using UNTB</span></h1>
 </div>
 
 
@@ -187,47 +188,65 @@ ul.task-list{list-style: none;}
 <section id="key-questions" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="key-questions"><span class="header-section-number">5.1</span> Key questions</h2>
 <ol type="1">
-<li>What kinds of empirical data can we leverage using process modeling?</li>
-<li>How can we infer process from empirical data using simulation models?</li>
-<li>What are the challenges associated with this and how do we resolve them?</li>
+<li>How do we use the outcomes of a process model to guess at underlying processes?</li>
+<li>How can we leverage machine learning (random forest) to infer parameter values from the outcomes of a neutral model?</li>
+<li>What are the limiting factors in inferring process from outcome in a process model?</li>
 </ol>
 </section>
-<section id="lesson-objectives" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="lesson-objectives"><span class="header-section-number">5.2</span> Lesson objectives</h2>
-<p>After this lesson, learners should be able to…</p>
+<section id="learning-objectives" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">5.2</span> Learning objectives</h2>
 <ol type="1">
-<li>Articulate ways in which empirical data could be elucdiated using sim models</li>
-<li>Describe the conceptual framework for going data-to-process</li>
-<li>Describe the many-to-one/model identifiability problems and how to break them</li>
+<li>Understand the outcome-to-parameter inference model.</li>
+<li>Fit and evaluate a random forest model to our UNTB data.</li>
+<li>Identify the limiting features of this approach (particularly model identifiability) and brainstorm possible solutions.</li>
 </ol>
 </section>
-<section id="planned-exercises" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="planned-exercises"><span class="header-section-number">5.3</span> Planned exercises</h2>
-<p><a href="ml_neutral_test.qmd">Andy’s neutral theory / random forest page</a></p>
+<section id="lesson-outline" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="lesson-outline"><span class="header-section-number">5.3</span> Lesson outline</h2>
+<section id="lecturediscussion-going-from-outcome-to-process" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="lecturediscussion-going-from-outcome-to-process"><span class="header-section-number">5.3.1</span> (Lecture/discussion) Going from outcome to process</h3>
+<p>Key question:</p>
 <ol type="1">
-<li>Lecture: <a href="https://docs.google.com/presentation/d/16-S_72HA-xjC-Ed_UYEs6Oc-D7zMElI-/edit#slide=id.p37">Random Forest for Machine Learning Inference</a></li>
-<li>Lecture: <a href="https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30">How does machine learning work with RoLE simulations?</a></li>
+<li>How could we <em>use</em> a process model to better understand actual data?</li>
+</ol>
+<p>Key points:</p>
+<ol type="1">
+<li>We might have empirical data and we want to know how it was generated. We could compare the observed data (e.g.&nbsp;Hill numbers) to a process model to see which outcomes are (in)consistent.</li>
+<li><em>Consistent</em> is not the same as <em>confirming</em>!</li>
+<li>As a starting point, we can see if we can recover generative parameters when we know how they were produced.</li>
 </ol>
 </section>
-<section id="supporting-materials" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="supporting-materials"><span class="header-section-number">5.4</span> Supporting materials</h2>
-<p><em>Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.</em></p>
-<p><em>For bonus points organize these according to whether they already exist or we need to create them!</em></p>
-<section id="extant" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="extant"><span class="header-section-number">5.4.1</span> Extant</h3>
+<section id="lecturediscussion-random-forest-regression" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="lecturediscussion-random-forest-regression"><span class="header-section-number">5.3.2</span> (Lecture/discussion) Random forest regression</h3>
+<p>Key points:</p>
+<ol type="1">
+<li>To guess at the parameters that generated some outcome data, we’re writing a model of the general form <code>parameter ~ results</code>. This isn’t necessarily a linear or otherwise tidy relationship, so we’ll use machine learning.</li>
+<li>Random forest can do regression with many parameters predicting nonlinear relationships.</li>
+<li>We will begin by using a random forest to try to recover parameter values for known sims.</li>
+</ol>
 </section>
-<section id="to-create" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="to-create"><span class="header-section-number">5.4.2</span> To create</h3>
-<ul>
-<li>Relevant chapters of user guide.</li>
-</ul>
+<section id="coding-exercise-fitting-a-random-forest-to-our-neutral-data" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="coding-exercise-fitting-a-random-forest-to-our-neutral-data"><span class="header-section-number">5.3.3</span> (Coding exercise) Fitting a random forest to our neutral data</h3>
 </section>
+<section id="discussion-what-problems-arise-in-the-random-forest" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="discussion-what-problems-arise-in-the-random-forest"><span class="header-section-number">5.3.4</span> (Discussion) What problems arise in the random forest?</h3>
+<p>Key points:</p>
+<ol type="1">
+<li>Multiple sets of parameters can lead to the same outcomes, making it difficult to infer backwards.</li>
+</ol>
 </section>
-<section id="key-points" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="key-points"><span class="header-section-number">5.5</span> Key points</h2>
-<p><em>List 1-3 key takeaways from this section of the workshop.</em></p>
+<section id="discussion-how-might-we-address-these-challenges" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="discussion-how-might-we-address-these-challenges"><span class="header-section-number">5.3.5</span> (Discussion) How might we address these challenges?</h3>
+<p>Key points:</p>
+<ol type="1">
+<li>More data dimensions can break a many-to-one mapping.</li>
+</ol>
+<!-- [Andy's neutral theory / random forest page](ml_neutral_test.qmd) -->
+<!-- 1. Lecture: [Random Forest for Machine Learning Inference](https://docs.google.com/presentation/d/16-S_72HA-xjC-Ed_UYEs6Oc-D7zMElI-/edit#slide=id.p37) -->
+<!-- 2. Lecture: [How does machine learning work with RoLE simulations?](https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30) -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

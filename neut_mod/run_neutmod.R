@@ -1,15 +1,15 @@
-# Source code
+#### Source code ####
 
 source(here::here("neut_mod", "neutral_mod.R"))
 
 
-# Play with parameters
+#### Play with parameters ####
 
 toy_sim <- untb(Jm = 10000, Sm = 1000, J = 100, m =.01, nu = .01, niter = 1000)
 
 toy_summary <- untb_hill(toy_sim)
 
-# Run with a bunch of parameters by crossing some settings
+#### Run with a bunch of parameters ####
 
 nrep = 10000
 
@@ -37,7 +37,7 @@ all_hills <- do.call(rbind, hills)
 all_hills$Nu = allNus
 all_hills$M = allMs
 
-# Visualize - this may take some Q & A / interactive with the group. How to approach this?
+#### Visualize (or do interactively/adaptively) ####
 
 library(ggplot2)
 
@@ -77,5 +77,7 @@ ggplot(all_hills, aes(Nu, hill1, color = M)) +
 ggplot(all_hills, aes(Nu, hill2, color = M)) +
   geom_point()
 
-### Playing with visualizations, what RMD sees is a strong // of M with all hills, but relatively little variation aligned with Nu. 
 
+#### Random forest inference ####
+
+library(randomForest)

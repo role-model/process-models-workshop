@@ -1,38 +1,56 @@
-# Simulation-based machine learning inference
+# Inferring process from result using UNTB 
 
 ## Key questions
 
-1. What kinds of empirical data can we leverage using process modeling?
-1. How can we infer process from empirical data using simulation models?
-1. What are the challenges associated with this and how do we resolve them?
+1. How do we use the outcomes of a process model to guess at underlying processes?
+1. How can we leverage machine learning (random forest) to infer parameter values from the outcomes of a neutral model?
+1. What are the limiting factors in inferring process from outcome in a process model?
 
-## Lesson objectives
+## Learning objectives
 
-After this lesson, learners should be able to...
+1. Understand the outcome-to-parameter inference model.
+1. Fit and evaluate a random forest model to our UNTB data.
+1. Identify the limiting features of this approach (particularly model identifiability) and brainstorm possible solutions. 
 
-1. Articulate ways in which empirical data could be elucdiated using sim models
-1. Describe the conceptual framework for going data-to-process
-1. Describe the many-to-one/model identifiability problems and how to break them
+## Lesson outline
 
-## Planned exercises
+### (Lecture/discussion) Going from outcome to process
 
-[Andy's neutral theory / random forest page](ml_neutral_test.qmd)
+Key question:
 
-1. Lecture: [Random Forest for Machine Learning Inference](https://docs.google.com/presentation/d/16-S_72HA-xjC-Ed_UYEs6Oc-D7zMElI-/edit#slide=id.p37)
-2. Lecture: [How does machine learning work with RoLE simulations?](https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30)
+1. How could we _use_ a process model to better understand actual data?
 
-## Supporting materials
+Key points:
 
-_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+1. We might have empirical data and we want to know how it was generated. We could compare the observed data (e.g. Hill numbers) to a process model to see which outcomes are (in)consistent.
+1. _Consistent_ is not the same as _confirming_! 
+1. As a starting point, we can see if we can recover generative parameters when we know how they were produced. 
 
-_For bonus points organize these according to whether they already exist or we need to create them!_
+### (Lecture/discussion) Random forest regression
 
-### Extant
+Key points:
 
-### To create
+1. To guess at the parameters that generated some outcome data, we're writing a model of the general form `parameter ~ results`. This isn't necessarily a linear or otherwise tidy relationship, so we'll use machine learning.
+1. Random forest can do regression with many parameters predicting nonlinear relationships.
+1. We will begin by using a random forest to try to recover parameter values for known sims.
 
-* Relevant chapters of user guide.
+### (Coding exercise) Fitting a random forest to our neutral data
 
-## Key points
+### (Discussion) What problems arise in the random forest?
 
-_List 1-3 key takeaways from this section of the workshop._
+Key points: 
+
+1. Multiple sets of parameters can lead to the same outcomes, making it difficult to infer backwards.
+
+
+### (Discussion) How might we address these challenges?
+
+Key points:
+
+1. More data dimensions can break a many-to-one mapping.
+
+
+<!-- [Andy's neutral theory / random forest page](ml_neutral_test.qmd) -->
+
+<!-- 1. Lecture: [Random Forest for Machine Learning Inference](https://docs.google.com/presentation/d/16-S_72HA-xjC-Ed_UYEs6Oc-D7zMElI-/edit#slide=id.p37) -->
+<!-- 2. Lecture: [How does machine learning work with RoLE simulations?](https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30) -->
