@@ -28,11 +28,11 @@
     "text": "2.3 Lesson outline\n\n2.3.1 (Lecture + discussion) What do we mean by process modeling, anyway?\nKey points:\n\nIn a process model, we play a “game”, with a set of entities following a system of defined rules, and see how the outcomes of the game vary as we change the rules.\nThese models are often nondeterministic and often do not have closed-form, analytical solutions.\n\n\n\n2.3.2 (Lecture + discussion) What are the applications of process modeling for eco-evo?\nKey points:\n\nA process model offers almost unlimited flexibility for modeling complex, interacting processes.\nEverything depends on the rules we define! So it is very important to understand the rules of the game we are playing.\n\nDiscussion/brainstorm:\n\nWhat are some possible applications of process modeling in your area of interest?\n\n\n\n2.3.3 (Lecture + discussion) What are the constraints we encounter in a process modeling approach?\nKey points:\n\nProcess models are computationally expensive! Modern computing strategies help, but high dimensionality is a serious constraint.\nIssues like model identifiability and correlation != causation. Just because our mechanism produces results that match some data, doesn’t necessarily mean our mechanism is the same mechanism that produced that data.\nProcess models are themselves nondeterministic, so must be run many times.\n\n\n\n2.3.4 (Example) The Unified Neutral Theory of Biodiversity\nKey points:\n\nHubbell’s UNTB is a process model. Simply put, it is a game played with a set of simple rules, with emergent properties that we find interesting.\nFor the rest of today, we’ll be using UNTB as an example process model.\n\n\n\n2.3.5 (Lecture + game of chance) Playing neutral theory\nKey points:\n\nThe rules of neutral theory\nWe can play neutral theory manually. However, computers would make it considerably faster!"
   },
   {
-    "objectID": "coding_neutral_theory.html#key-questions",
-    "href": "coding_neutral_theory.html#key-questions",
+    "objectID": "coding_neutral_theory.html",
+    "href": "coding_neutral_theory.html",
     "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "3.2 Key questions",
-    "text": "3.2 Key questions\nList 1-3 key questions to motivate this section of the workshop."
+    "section": "",
+    "text": "How do we implement a process model in R?\nHow do we use this model to explore how parameter settings affect outcomes?"
   },
   {
     "objectID": "coding_neutral_theory.html#lesson-objectives",
@@ -42,32 +42,18 @@
     "text": "3.2 Lesson objectives\n\nCode up UNTB in R.\nChange parameter settings and inspect the outcomes."
   },
   {
-    "objectID": "coding_neutral_theory.html#planned-exercises",
-    "href": "coding_neutral_theory.html#planned-exercises",
+    "objectID": "coding_neutral_theory.html#lesson-outline",
+    "href": "coding_neutral_theory.html#lesson-outline",
     "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "3.3 Planned exercises",
-    "text": "3.3 Planned exercises\n\n3.3.1 (Group project) Code up UNTB in R!\n\n\n3.3.2 (Backup)\nSource the pre-coded UNTB located at https://github.com/role-model/process-models-workshop/neut_mod/neutral_mod.R.\n\n\n3.3.3 (Breakout groups or individual) Change parameter settings manually and visualize outcomes."
+    "section": "3.3 Lesson outline",
+    "text": "3.3 Lesson outline\n\n3.3.1 (Group project) Code up UNTB in R!\n\n\n3.3.2 (Backup)\nSource the pre-coded UNTB located at https://github.com/role-model/process-models-workshop/neut_mod/neutral_mod.R.\n\n\n3.3.3 (Breakout groups or individual) Change parameter settings manually and visualize outcomes."
   },
   {
-    "objectID": "coding_neutral_theory.html#supporting-materials",
-    "href": "coding_neutral_theory.html#supporting-materials",
-    "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "3.5 Supporting materials",
-    "text": "3.5 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n3.5.1 Extant\n\n\n3.5.2 To create"
-  },
-  {
-    "objectID": "coding_neutral_theory.html#key-points",
-    "href": "coding_neutral_theory.html#key-points",
-    "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "3.6 Key points",
-    "text": "3.6 Key points\nList 1-3 key takeaways from this section of the workshop."
-  },
-  {
-    "objectID": "neutral_theory_sims.html#key-questions",
-    "href": "neutral_theory_sims.html#key-questions",
+    "objectID": "neutral_theory_sims.html",
+    "href": "neutral_theory_sims.html",
     "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "4.2 Key questions",
-    "text": "4.2 Key questions\nList 1-3 key questions to motivate this section of the workshop."
+    "section": "",
+    "text": "How do we systematically explore parameter space for a process model?\nHow do the outcomes of UNTB simulations change over wide ranges of parameter space?"
   },
   {
     "objectID": "neutral_theory_sims.html#lesson-objectives",
@@ -77,25 +63,11 @@
     "text": "4.2 Lesson objectives\n\nWrite code to explore parameter space for UNTB.\nVisualize and interpret plots of outcomes (Hill numbers) for exploratory neutral simulations."
   },
   {
-    "objectID": "neutral_theory_sims.html#planned-exercises",
-    "href": "neutral_theory_sims.html#planned-exercises",
+    "objectID": "neutral_theory_sims.html#lesson-outline",
+    "href": "neutral_theory_sims.html#lesson-outline",
     "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "4.4 Planned exercises",
-    "text": "4.4 Planned exercises\nList planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc."
-  },
-  {
-    "objectID": "neutral_theory_sims.html#supporting-materials",
-    "href": "neutral_theory_sims.html#supporting-materials",
-    "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "4.5 Supporting materials",
-    "text": "4.5 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n4.5.1 Extant\n\n\n4.5.2 To create"
-  },
-  {
-    "objectID": "neutral_theory_sims.html#key-points",
-    "href": "neutral_theory_sims.html#key-points",
-    "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "4.6 Key points",
-    "text": "4.6 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "section": "4.3 Lesson outline",
+    "text": "4.3 Lesson outline\n\n4.3.1 (Coding exercise) Set up the infrastructure to explore ranges of parameters\nAs a group, write a wrapper to run our untb code over ranges of values for M and nu.\nOr (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R.\n\n\n4.3.2 (Breakout groups) Explore ranges of parameters\nOr (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R.\n\n\n4.3.3 (Dicussion) Interpret outcomes\nDiscussion questions:\n\nEach group describe their outcomes\nDid each simulation come out the same?\nDo we see unique mapping of M, Nu to Hill numbers? What relationships do we see?\nHow long did it take to run?\n\nKey points:\n\nIndividual simulations come out differently, but the overall behaviors are consistent.\nA single outcome variable (e.g. hill0) can come about from multiple combinations of parameters.\nRunning lots of models as a for loop is slow!"
   },
   {
     "objectID": "ml_inference_neutral.html",
@@ -131,6 +103,27 @@
     "title": "5  Simulation-based machine learning inference",
     "section": "5.5 Key points",
     "text": "5.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+  },
+  {
+    "objectID": "day_1_wrapup.html",
+    "href": "day_1_wrapup.html",
+    "title": "6  Day 1 wrap-up",
+    "section": "",
+    "text": "One up/one down.\nOr everyone share 1 discovery or question from the day."
+  },
+  {
+    "objectID": "day_1_wrapup.html#key-points-from-today",
+    "href": "day_1_wrapup.html#key-points-from-today",
+    "title": "6  Day 1 wrap-up",
+    "section": "6.2 Key points from today",
+    "text": "6.2 Key points from today\n\nProcess models are games, with rules and nondeterministic (but consistent) outcomes.\nThe UNTB is a foundational process model for ecology."
+  },
+  {
+    "objectID": "day_1_wrapup.html#looking-toward-tomorrow",
+    "href": "day_1_wrapup.html#looking-toward-tomorrow",
+    "title": "6  Day 1 wrap-up",
+    "section": "6.3 Looking toward tomorrow",
+    "text": "6.3 Looking toward tomorrow\n\nTomorrow, we’ll generalize from UNTB to do more involved, multidimensional process modeling.\nGet some rest!"
   },
   {
     "objectID": "intro_mess.html",
@@ -212,190 +205,141 @@
   {
     "objectID": "mess_simulations.html",
     "href": "mess_simulations.html",
-    "title": "7  Using MESS to explore hypotheses",
+    "title": "8  Using MESS to explore hypotheses",
     "section": "",
     "text": "How do I use RoLE to explore/generate theoretical predictions"
   },
   {
     "objectID": "mess_simulations.html#lesson-objectives",
     "href": "mess_simulations.html#lesson-objectives",
-    "title": "7  Using MESS to explore hypotheses",
-    "section": "7.2 Lesson objectives",
-    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nFormulate hypotheses for how tweaking parameters will affect model outputs\nUse RoLE to test these hypotheses in silico\nSynthesize the outcomes"
+    "title": "8  Using MESS to explore hypotheses",
+    "section": "8.2 Lesson objectives",
+    "text": "8.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nFormulate hypotheses for how tweaking parameters will affect model outputs\nUse RoLE to test these hypotheses in silico\nSynthesize the outcomes"
   },
   {
     "objectID": "mess_simulations.html#planned-exercises",
     "href": "mess_simulations.html#planned-exercises",
-    "title": "7  Using MESS to explore hypotheses",
-    "section": "7.3 Planned exercises",
-    "text": "7.3 Planned exercises\n\nGroup brainstorming of params to tweak\nBreakout to test them\nCome together to debrief/synthesize"
+    "title": "8  Using MESS to explore hypotheses",
+    "section": "8.3 Planned exercises",
+    "text": "8.3 Planned exercises\n\nGroup brainstorming of params to tweak\nBreakout to test them\nCome together to debrief/synthesize"
   },
   {
     "objectID": "mess_simulations.html#supporting-materials",
     "href": "mess_simulations.html#supporting-materials",
-    "title": "7  Using MESS to explore hypotheses",
-    "section": "7.4 Supporting materials",
-    "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "8  Using MESS to explore hypotheses",
+    "section": "8.4 Supporting materials",
+    "text": "8.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n8.4.1 Extant\n\n\n8.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "mess_simulations.html#key-points",
     "href": "mess_simulations.html#key-points",
-    "title": "7  Using MESS to explore hypotheses",
-    "section": "7.5 Key points",
-    "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "8  Using MESS to explore hypotheses",
+    "section": "8.5 Key points",
+    "text": "8.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "ml_inference_classification.html",
     "href": "ml_inference_classification.html",
-    "title": "8  Machine learning inference with MESS simulations",
+    "title": "9  Machine learning inference with MESS simulations",
     "section": "",
     "text": "How do I perform a process-inference using RoLE simulations in R?"
   },
   {
     "objectID": "ml_inference_classification.html#lesson-objectives",
     "href": "ml_inference_classification.html#lesson-objectives",
-    "title": "8  Machine learning inference with MESS simulations",
-    "section": "8.2 Lesson objectives",
-    "text": "8.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference\nInterpret results in terms of story\nBrainstorm applications to real data"
+    "title": "9  Machine learning inference with MESS simulations",
+    "section": "9.2 Lesson objectives",
+    "text": "9.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference\nInterpret results in terms of story\nBrainstorm applications to real data"
   },
   {
     "objectID": "ml_inference_classification.html#planned-exercises",
     "href": "ml_inference_classification.html#planned-exercises",
-    "title": "8  Machine learning inference with MESS simulations",
-    "section": "8.3 Planned exercises",
-    "text": "8.3 Planned exercises\n\nLecture: How does machine learning work with RoLE simulations?\n\n\nCreate and parameterize a new RoLE Experiment\nRun RoLE model simulations\nML assembly model classification\nML parameter estimation\nPosterior predictive simulations (if time)\nFree time to experiment with other example datasets\n\n\n8.3.1 Create a new RoLE Experiment\n\n8.3.1.1 Create a new roleParams(), modifying a few default values\nThese are all the parameters of the model. The defaults are chosen to reflect a typical oceanic island arthropod community. Don’t worry at this point about all the parameters, lets focus for now on the degree of neutrality (neut_delta), the size of the local community (individuals_local), and the rate of migration from the metacommunity to the local community (dispersal_prob). We will set parameter ranges for these, and each simulation will sample a random value from this range. In a new cell use the we’ll create some new roleParams objects to reflect neutral, competition, and environmental filtering assembly models.\np_neutral <- roleParams()\np_comp <- roleParams()\np_filt <- roleParams()\n\n\n8.3.1.2 Run the role experiment encapsulating these different models\nNow we can run a bunch of simulations given our new parameterization using the runRole() method. runRole takes one argument (nsims) which indicates the number of independent community assembly realizations to perform.\nexp <- roleExperiment(list(p_neutral, p_comp, p_filt))\nexp <- runRole(exp)\n\n\n8.3.1.3 Download the pre-baked simulations\nSince it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with wget from the workshop site:\n\\# FIXME\n# Make sure you're in the role-workshop directory\ncd ~/role-workshop\nwget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt\nwc -l SIMOUT.txt\n100%[======================================>] 14,234,338  50.0M/s   in 0.3s\n2019-08-11 01:25:27 (50.0 MB/s) - \"SIMOUT.txt.1\" saved [14234338/14234338]\n24440 SIMOUT.txt\n\n\n\n\n\n\nNote\n\n\n\nThe wc command counts the number of lines if you pass it the -l flag. You can see this series of ~25k simulations is about 14MB.\n\n\n\n\n\n8.3.2 ML assembly model classification\nThe first step is now to assess the model of community assembly that best fits the data. The three models are neutral, in which all individuals are ecologically equivalent; competition, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and filtering, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.\nBasically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.\n\n8.3.2.1 Train the ML classifier\n\n\n8.3.2.2 Plot confusion matrix\n\n\n8.3.2.3 Perform classification of empirical data and view results\n\n\n\n8.3.3 ML parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n8.3.3.1 Train the ML regressor\n\n\n8.3.3.2 Plot cross-validation results\n\n\n8.3.3.3 Perform regression to predict dispersal_prob of empirical data and view results"
+    "title": "9  Machine learning inference with MESS simulations",
+    "section": "9.3 Planned exercises",
+    "text": "9.3 Planned exercises\n\nLecture: How does machine learning work with RoLE simulations?\n\n\nCreate and parameterize a new RoLE Experiment\nRun RoLE model simulations\nML assembly model classification\nML parameter estimation\nPosterior predictive simulations (if time)\nFree time to experiment with other example datasets\n\n\n9.3.1 Create a new RoLE Experiment\n\n9.3.1.1 Create a new roleParams(), modifying a few default values\nThese are all the parameters of the model. The defaults are chosen to reflect a typical oceanic island arthropod community. Don’t worry at this point about all the parameters, lets focus for now on the degree of neutrality (neut_delta), the size of the local community (individuals_local), and the rate of migration from the metacommunity to the local community (dispersal_prob). We will set parameter ranges for these, and each simulation will sample a random value from this range. In a new cell use the we’ll create some new roleParams objects to reflect neutral, competition, and environmental filtering assembly models.\np_neutral <- roleParams()\np_comp <- roleParams()\np_filt <- roleParams()\n\n\n9.3.1.2 Run the role experiment encapsulating these different models\nNow we can run a bunch of simulations given our new parameterization using the runRole() method. runRole takes one argument (nsims) which indicates the number of independent community assembly realizations to perform.\nexp <- roleExperiment(list(p_neutral, p_comp, p_filt))\nexp <- runRole(exp)\n\n\n9.3.1.3 Download the pre-baked simulations\nSince it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with wget from the workshop site:\n\\# FIXME\n# Make sure you're in the role-workshop directory\ncd ~/role-workshop\nwget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt\nwc -l SIMOUT.txt\n100%[======================================>] 14,234,338  50.0M/s   in 0.3s\n2019-08-11 01:25:27 (50.0 MB/s) - \"SIMOUT.txt.1\" saved [14234338/14234338]\n24440 SIMOUT.txt\n\n\n\n\n\n\nNote\n\n\n\nThe wc command counts the number of lines if you pass it the -l flag. You can see this series of ~25k simulations is about 14MB.\n\n\n\n\n\n9.3.2 ML assembly model classification\nThe first step is now to assess the model of community assembly that best fits the data. The three models are neutral, in which all individuals are ecologically equivalent; competition, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and filtering, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.\nBasically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.\n\n9.3.2.1 Train the ML classifier\n\n\n9.3.2.2 Plot confusion matrix\n\n\n9.3.2.3 Perform classification of empirical data and view results\n\n\n\n9.3.3 ML parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n9.3.3.1 Train the ML regressor\n\n\n9.3.3.2 Plot cross-validation results\n\n\n9.3.3.3 Perform regression to predict dispersal_prob of empirical data and view results"
   },
   {
     "objectID": "ml_inference_classification.html#supporting-materials",
     "href": "ml_inference_classification.html#supporting-materials",
-    "title": "8  Machine learning inference with MESS simulations",
-    "section": "8.4 Supporting materials",
-    "text": "8.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n8.4.1 Extant\n\n\n8.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "9  Machine learning inference with MESS simulations",
+    "section": "9.4 Supporting materials",
+    "text": "9.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n9.4.1 Extant\n\n\n9.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "ml_inference_classification.html#key-points",
     "href": "ml_inference_classification.html#key-points",
-    "title": "8  Machine learning inference with MESS simulations",
-    "section": "8.5 Key points",
-    "text": "8.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "9  Machine learning inference with MESS simulations",
+    "section": "9.5 Key points",
+    "text": "9.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "ml_inference_regression.html",
     "href": "ml_inference_regression.html",
-    "title": "9  Machine learning inference with MESS simulations",
+    "title": "10  Machine learning inference with MESS simulations",
     "section": "",
     "text": "How do I perform a process-inference using RoLE simulations in R?"
   },
   {
     "objectID": "ml_inference_regression.html#lesson-objectives",
     "href": "ml_inference_regression.html#lesson-objectives",
-    "title": "9  Machine learning inference with MESS simulations",
-    "section": "9.2 Lesson objectives",
-    "text": "9.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference\nInterpret results in terms of story\nBrainstorm applications to real data"
+    "title": "10  Machine learning inference with MESS simulations",
+    "section": "10.2 Lesson objectives",
+    "text": "10.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference\nInterpret results in terms of story\nBrainstorm applications to real data"
   },
   {
     "objectID": "ml_inference_regression.html#planned-exercises",
     "href": "ml_inference_regression.html#planned-exercises",
-    "title": "9  Machine learning inference with MESS simulations",
-    "section": "9.3 Planned exercises",
-    "text": "9.3 Planned exercises\n\nCreate and parameterize a new RoLE Experiment\nRun RoLE model simulations\nML assembly model classification\nML parameter estimation\nPosterior predictive simulations (if time)\nFree time to experiment with other example datasets\n\n\n9.3.1 Create a new RoLE Experiment\n\n9.3.1.1 Create a new roleParams(), modifying a few default values\nThese are all the parameters of the model. The defaults are chosen to reflect a typical oceanic island arthropod community. Don’t worry at this point about all the parameters, lets focus for now on the degree of neutrality (neut_delta), the size of the local community (individuals_local), and the rate of migration from the metacommunity to the local community (dispersal_prob). We will set parameter ranges for these, and each simulation will sample a random value from this range. In a new cell use the we’ll create some new roleParams objects to reflect neutral, competition, and environmental filtering assembly models.\np_neutral <- roleParams()\np_comp <- roleParams()\np_filt <- roleParams()\n\n\n9.3.1.2 Run the role experiment encapsulating these different models\nNow we can run a bunch of simulations given our new parameterization using the runRole() method. runRole takes one argument (nsims) which indicates the number of independent community assembly realizations to perform.\nexp <- roleExperiment(list(p_neutral, p_comp, p_filt))\nexp <- runRole(exp)\n\n\n9.3.1.3 Download the pre-baked simulations\nSince it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with wget from the workshop site:\n\\# FIXME\n# Make sure you're in the role-workshop directory\ncd ~/role-workshop\nwget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt\nwc -l SIMOUT.txt\n100%[======================================>] 14,234,338  50.0M/s   in 0.3s\n2019-08-11 01:25:27 (50.0 MB/s) - \"SIMOUT.txt.1\" saved [14234338/14234338]\n24440 SIMOUT.txt\n\n\n\n\n\n\nNote\n\n\n\nThe wc command counts the number of lines if you pass it the -l flag. You can see this series of ~25k simulations is about 14MB.\n\n\n\n\n\n9.3.2 ML assembly model classification\nThe first step is now to assess the model of community assembly that best fits the data. The three models are neutral, in which all individuals are ecologically equivalent; competition, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and filtering, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.\nBasically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.\n\n9.3.2.1 Train the ML classifier\n\n\n9.3.2.2 Plot confusion matrix\n\n\n9.3.2.3 Perform classification of empirical data and view results\n\n\n\n9.3.3 ML parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n9.3.3.1 Train the ML regressor\n\n\n9.3.3.2 Plot cross-validation results\n\n\n9.3.3.3 Perform regression to predict dispersal_prob of empirical data and view results"
+    "title": "10  Machine learning inference with MESS simulations",
+    "section": "10.3 Planned exercises",
+    "text": "10.3 Planned exercises\n\nCreate and parameterize a new RoLE Experiment\nRun RoLE model simulations\nML assembly model classification\nML parameter estimation\nPosterior predictive simulations (if time)\nFree time to experiment with other example datasets\n\n\n10.3.1 Create a new RoLE Experiment\n\n10.3.1.1 Create a new roleParams(), modifying a few default values\nThese are all the parameters of the model. The defaults are chosen to reflect a typical oceanic island arthropod community. Don’t worry at this point about all the parameters, lets focus for now on the degree of neutrality (neut_delta), the size of the local community (individuals_local), and the rate of migration from the metacommunity to the local community (dispersal_prob). We will set parameter ranges for these, and each simulation will sample a random value from this range. In a new cell use the we’ll create some new roleParams objects to reflect neutral, competition, and environmental filtering assembly models.\np_neutral <- roleParams()\np_comp <- roleParams()\np_filt <- roleParams()\n\n\n10.3.1.2 Run the role experiment encapsulating these different models\nNow we can run a bunch of simulations given our new parameterization using the runRole() method. runRole takes one argument (nsims) which indicates the number of independent community assembly realizations to perform.\nexp <- roleExperiment(list(p_neutral, p_comp, p_filt))\nexp <- runRole(exp)\n\n\n10.3.1.3 Download the pre-baked simulations\nSince it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with wget from the workshop site:\n\\# FIXME\n# Make sure you're in the role-workshop directory\ncd ~/role-workshop\nwget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt\nwc -l SIMOUT.txt\n100%[======================================>] 14,234,338  50.0M/s   in 0.3s\n2019-08-11 01:25:27 (50.0 MB/s) - \"SIMOUT.txt.1\" saved [14234338/14234338]\n24440 SIMOUT.txt\n\n\n\n\n\n\nNote\n\n\n\nThe wc command counts the number of lines if you pass it the -l flag. You can see this series of ~25k simulations is about 14MB.\n\n\n\n\n\n10.3.2 ML assembly model classification\nThe first step is now to assess the model of community assembly that best fits the data. The three models are neutral, in which all individuals are ecologically equivalent; competition, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and filtering, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.\nBasically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.\n\n10.3.2.1 Train the ML classifier\n\n\n10.3.2.2 Plot confusion matrix\n\n\n10.3.2.3 Perform classification of empirical data and view results\n\n\n\n10.3.3 ML parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n10.3.3.1 Train the ML regressor\n\n\n10.3.3.2 Plot cross-validation results\n\n\n10.3.3.3 Perform regression to predict dispersal_prob of empirical data and view results"
   },
   {
     "objectID": "ml_inference_regression.html#supporting-materials",
     "href": "ml_inference_regression.html#supporting-materials",
-    "title": "9  Machine learning inference with MESS simulations",
-    "section": "9.4 Supporting materials",
-    "text": "9.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n9.4.1 Extant\n\n\n9.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "10  Machine learning inference with MESS simulations",
+    "section": "10.4 Supporting materials",
+    "text": "10.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n10.4.1 Extant\n\n\n10.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "ml_inference_regression.html#key-points",
     "href": "ml_inference_regression.html#key-points",
-    "title": "9  Machine learning inference with MESS simulations",
-    "section": "9.5 Key points",
-    "text": "9.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "title": "10  Machine learning inference with MESS simulations",
+    "section": "10.5 Key points",
+    "text": "10.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "wrapup.html",
     "href": "wrapup.html",
-    "title": "10  Wrap-up",
+    "title": "11  Wrap-up",
     "section": "",
     "text": "What have we covered?\nWhere can I find information and support post-workshop?\nHow can I submit feedback on this workshop?"
   },
   {
     "objectID": "wrapup.html#lesson-objectives",
     "href": "wrapup.html#lesson-objectives",
-    "title": "10  Wrap-up",
-    "section": "10.2 Lesson objectives",
-    "text": "10.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
+    "title": "11  Wrap-up",
+    "section": "11.2 Lesson objectives",
+    "text": "11.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
   },
   {
     "objectID": "wrapup.html#planned-exercises",
     "href": "wrapup.html#planned-exercises",
-    "title": "10  Wrap-up",
-    "section": "10.3 Planned exercises",
-    "text": "10.3 Planned exercises"
+    "title": "11  Wrap-up",
+    "section": "11.3 Planned exercises",
+    "text": "11.3 Planned exercises"
   },
   {
     "objectID": "wrapup.html#supporting-materials",
     "href": "wrapup.html#supporting-materials",
-    "title": "10  Wrap-up",
-    "section": "10.4 Supporting materials",
-    "text": "10.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n10.4.1 Extant\n\n\n10.4.2 To create\n\nRelevant chapters of user guide."
+    "title": "11  Wrap-up",
+    "section": "11.4 Supporting materials",
+    "text": "11.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n11.4.1 Extant\n\n\n11.4.2 To create\n\nRelevant chapters of user guide."
   },
   {
     "objectID": "wrapup.html#key-points",
     "href": "wrapup.html#key-points",
-    "title": "10  Wrap-up",
-    "section": "10.5 Key points",
-    "text": "10.5 Key points\nList 1-3 key takeaways from this section of the workshop."
-  },
-  {
-    "objectID": "coding_neutral_theory.html",
-    "href": "coding_neutral_theory.html",
-    "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "",
-    "text": "How do we implement a process model in R?\nHow do we use this model to explore how parameter settings affect outcomes?"
-  },
-  {
-    "objectID": "neutral_theory_sims.html",
-    "href": "neutral_theory_sims.html",
-    "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "",
-    "text": "How do we systematically explore parameter space for a process model?\nHow do the outcomes of UNTB simulations change over wide ranges of parameter space?"
-  },
-  {
-    "objectID": "coding_neutral_theory.html#lesson-outline",
-    "href": "coding_neutral_theory.html#lesson-outline",
-    "title": "3  Coding exercise: A simple neutral model of biodiversity",
-    "section": "3.3 Lesson outline",
-    "text": "3.3 Lesson outline\n\n3.3.1 (Group project) Code up UNTB in R!\n\n\n3.3.2 (Backup)\nSource the pre-coded UNTB located at https://github.com/role-model/process-models-workshop/neut_mod/neutral_mod.R.\n\n\n3.3.3 (Breakout groups or individual) Change parameter settings manually and visualize outcomes."
-  },
-  {
-    "objectID": "neutral_theory_sims.html#lesson-outline",
-    "href": "neutral_theory_sims.html#lesson-outline",
-    "title": "4  Simulation Exercise: Exploring neutral model behavior",
-    "section": "4.3 Lesson outline",
-    "text": "4.3 Lesson outline\n\n4.3.1 (Coding exercise) Set up the infrastructure to explore ranges of parameters\nAs a group, write a wrapper to run our untb code over ranges of values for M and nu.\nOr (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R.\n\n\n4.3.2 (Breakout groups) Explore ranges of parameters\nOr (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R.\n\n\n4.3.3 (Dicussion) Interpret outcomes\nDiscussion questions:\n\nEach group describe their outcomes\nDid each simulation come out the same?\nDo we see unique mapping of M, Nu to Hill numbers? What relationships do we see?\nHow long did it take to run?\n\nKey points:\n\nIndividual simulations come out differently, but the overall behaviors are consistent.\nA single outcome variable (e.g. hill0) can come about from multiple combinations of parameters.\nRunning lots of models as a for loop is slow!"
-  },
-  {
-    "objectID": "day_1_wrapup.html",
-    "href": "day_1_wrapup.html",
-    "title": "6  Day 1 wrap-up",
-    "section": "",
-    "text": "One up/one down.\nOr everyone share 1 discovery or question from the day."
-  },
-  {
-    "objectID": "day_1_wrapup.html#key-points-from-today",
-    "href": "day_1_wrapup.html#key-points-from-today",
-    "title": "6  Day 1 wrap-up",
-    "section": "6.2 Key points from today",
-    "text": "6.2 Key points from today\n\nProcess models are games, with rules and nondeterministic (but consistent) outcomes.\nThe UNTB is a foundational process model for ecology."
-  },
-  {
-    "objectID": "day_1_wrapup.html#looking-toward-tomorrow",
-    "href": "day_1_wrapup.html#looking-toward-tomorrow",
-    "title": "6  Day 1 wrap-up",
-    "section": "6.3 Looking toward tomorrow",
-    "text": "6.3 Looking toward tomorrow\n\nTomorrow, we’ll generalize from UNTB to do more involved, multidimensional process modeling.\nGet some rest!"
+    "title": "11  Wrap-up",
+    "section": "11.5 Key points",
+    "text": "11.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   }
 ]
