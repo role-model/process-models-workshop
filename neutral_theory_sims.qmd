@@ -1,31 +1,42 @@
 # Simulation Exercise: Exploring neutral model behavior
 
-## Section title:
-
 ## Key questions
 
-_List 1-3 key questions to motivate this section of the workshop._
+1. How do we systematically explore parameter space for a process model?
+1. How do the outcomes of UNTB simulations change over wide ranges of parameter space?
+
 
 ## Lesson objectives
 
-Play with sims and specifically hit model identifiability, compute time constraints, consistent vs. non consistent outcomes
+1. Write code to explore parameter space for UNTB.
+1. Visualize and interpret plots of outcomes (Hill numbers) for exploratory neutral simulations.
 
-_List 1-3 lesson objectives, filling in the prompt "After this section of the workshop, participants should be able to...."_
+## Lesson outline
 
-## Planned exercises
+### (Coding exercise) Set up the infrastructure to explore ranges of parameters
 
-_List planned activities for this section of the workshop. Examples could include (but not limited to) lectures, live-coding demos, breakout sessions, group discussions, etc._
+As a group, write a wrapper to run our `untb` code over ranges of values for M and nu.
 
-## Supporting materials
+Or (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R. 
 
-_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+### (Breakout groups) Explore ranges of parameters
 
-_For bonus points organize these according to whether they already exist or we need to create them!_
 
-### Extant
+Or (backup) source the script at https://github.com/role-model/process-models-workshop/neut_mod/run_neutmod.R. 
 
-### To create
 
-## Key points
+### (Dicussion) Interpret outcomes
 
-_List 1-3 key takeaways from this section of the workshop._
+Discussion questions:
+
+1. Each group describe their outcomes
+1. Did each simulation come out the same?
+1. Do we see unique mapping of M, Nu to Hill numbers? What relationships do we see?
+1. How long did it take to run?
+
+
+Key points:
+
+1. Individual simulations come out differently, but the overall behaviors are consistent.
+1. A single outcome variable (e.g. hill0) can come about from multiple combinations of parameters.
+1. Running lots of models as a for loop is _slow_!

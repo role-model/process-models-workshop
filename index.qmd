@@ -13,11 +13,3 @@
 | 2:30-2:45 | Coffee Break | Coffee Break | 
 | 2:45-4:00 | Intro to machine learning inference with neutral simulations | Simulation based machine learning inference (Regression) & [Wrap-up](wrapup.qmd) |
 
-
-This is a quarto book project for creating materials for the second half of the MDBD workshop.
-
-There is a list of planned sections in the "List of sections" chapter.
-
-To add a new section, start from the "Template section". Open `template_section.qmd`, save-as, and populate it; then add it to the list of sections in `_quarto.yml`.
-
-To update the Pages site, run `quarto render` from a local terminal. This will render the files to the `docs` directory. Then push, and GitHub pages will serve the site from `docs`. 
