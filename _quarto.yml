@@ -13,6 +13,7 @@ book:
     - coding_neutral_theory.qmd
     - neutral_theory_sims.qmd
     - ml_inference_neutral.qmd
+    - day_1_wrapup.qmd
     - intro_mess.qmd
     - mess_simulations.qmd
     - ml_inference_classification.qmd
