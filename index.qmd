@@ -5,13 +5,13 @@
 | Time | Day 1 | Day 2 |
 |------|-------|-------|
 | 9-9:30 | Introductions and workshop overview | Review of previous days topics |
-| 9:30-10:30 | Theory/conceptual motivation for process models | Overview of simulation-based machine learning |
+| 9:30-10:30 | Theory/conceptual motivation for process models | Overview of simulation-based machine learning & Intro to the MESS model|
 | 10:30-10:45 | Coffee Break | Coffee Break |
-| 10:45-12 | Introduction to RoLE | Machine learning inference with RoLE simulations |
+| 10:45-12 | Coding exercise: A simple neutral model of biodiversity | Simulation exercise: Using MESS to develop and test theoretical intuition |
 | 12-1 | Lunch Break | Lunch Break |
-| 1-2:30 | Getting started running simulations with RoLE | Reproducibility (sharing and archiving) |
+| 1-2:30 | Simulation Exercise: Exploring neutral model behavior | Simulation based machine learning inference (Classification)
 | 2:30-2:45 | Coffee Break | Coffee Break | 
-| 2:45-4:00 | Using RoLE to develop and test theoretical intuition | Wrap-up and Feedback Session |
+| 2:45-4:00 | Intro to machine learning inference with neutral simulations | Simulation based machine learning inference (Regression) & [Wrap-up](wrapup.qmd) |
 
 
 This is a quarto book project for creating materials for the second half of the MDBD workshop.

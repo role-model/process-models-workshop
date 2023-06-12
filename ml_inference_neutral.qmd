@@ -16,6 +16,8 @@ After this lesson, learners should be able to...
 
 ## Planned exercises
 
+[Andy's neutral theory / random forest page](ml_neutral_test.qmd)
+
 1. Lecture: [Random Forest for Machine Learning Inference](https://docs.google.com/presentation/d/16-S_72HA-xjC-Ed_UYEs6Oc-D7zMElI-/edit#slide=id.p37)
 2. Lecture: [How does machine learning work with RoLE simulations?](https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30)
 

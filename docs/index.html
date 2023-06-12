@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./motivation.html" rel="next">
+<link href="./intro_process_models.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,50 +108,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./motivation.html" class="sidebar-item-text sidebar-link">
+  <a href="./intro_process_models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro_to_role.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to the RoLE Model</span></span></a>
+  <a href="./coding_neutral_theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Coding exercise: A simple neutral model of biodiversity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting started: roleR</span></span></a>
+  <a href="./neutral_theory_sims.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation Exercise: Exploring neutral model behavior</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exploring_theory.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Using RoLE to explore hypotheses</span></span></a>
+  <a href="./ml_inference_neutral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation-based machine learning inference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inference_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simulation-based machine learning inference</span></span></a>
+  <a href="./intro_mess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to the MESS Model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inference_demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning inference with RoLE simulations</span></span></a>
+  <a href="./mess_simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Using MESS to explore hypotheses</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">roleR and Reproducibility</span></span></a>
+  <a href="./ml_inference_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning inference with MESS simulations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ml_inference_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning inference with MESS simulations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wrapup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wrap-up</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Wrap-up</span></span></a>
   </div>
 </li>
     </ul>
@@ -208,11 +214,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="workshop-outline" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="workshop-outline"><span class="header-section-number">1.1</span> Workshop outline</h2>
 <table class="table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 35%">
-<col style="width: 35%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Time</th>
@@ -229,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>9:30-10:30</td>
 <td>Theory/conceptual motivation for process models</td>
-<td>Overview of simulation-based machine learning</td>
+<td>Overview of simulation-based machine learning &amp; Intro to the MESS model</td>
 </tr>
 <tr class="odd">
 <td>10:30-10:45</td>
@@ -238,8 +239,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>10:45-12</td>
-<td>Introduction to RoLE</td>
-<td>Machine learning inference with RoLE simulations</td>
+<td>Coding exercise: A simple neutral model of biodiversity</td>
+<td>Simulation exercise: Using MESS to develop and test theoretical intuition</td>
 </tr>
 <tr class="odd">
 <td>12-1</td>
@@ -248,8 +249,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>1-2:30</td>
-<td>Getting started running simulations with RoLE</td>
-<td>Reproducibility (sharing and archiving)</td>
+<td>Simulation Exercise: Exploring neutral model behavior</td>
+<td>Simulation based machine learning inference (Classification)</td>
 </tr>
 <tr class="odd">
 <td>2:30-2:45</td>
@@ -258,8 +259,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>2:45-4:00</td>
-<td>Using RoLE to develop and test theoretical intuition</td>
-<td>Wrap-up and Feedback Session</td>
+<td>Intro to machine learning inference with neutral simulations</td>
+<td>Simulation based machine learning inference (Regression) &amp; <a href="./wrapup.html">Wrap-up</a></td>
 </tr>
 </tbody>
 </table>
@@ -510,7 +511,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./motivation.html" class="pagination-link">
+      <a href="./intro_process_models.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theory and motivation of process modeling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

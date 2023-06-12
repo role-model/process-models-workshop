@@ -9,13 +9,14 @@ book:
   date: "5/2/2023"
   chapters:
     - index.qmd
-    - motivation.qmd
-    - intro_to_role.qmd
-    - getting_started.qmd
-    - exploring_theory.qmd
-    - inference_intro.qmd
-    - inference_demo.qmd
-    - reproducibility.qmd
+    - intro_process_models.qmd
+    - coding_neutral_theory.qmd
+    - neutral_theory_sims.qmd
+    - ml_inference_neutral.qmd
+    - intro_mess.qmd
+    - mess_simulations.qmd
+    - ml_inference_classification.qmd
+    - ml_inference_regression.qmd
     - wrapup.qmd
 comments:
   hypothesis: true
