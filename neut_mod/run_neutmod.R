@@ -81,3 +81,25 @@ ggplot(all_hills, aes(Nu, hill2, color = M)) +
 #### Random forest inference ####
 
 library(randomForest)
+
+train_rows <- sample(nrow(all_hills), size = 8000, replace = F)
+
+train_dat <- all_hills[ train_rows,]
+test_dat <- all_hills[ -train_rows, ]
+
+train_hills <- train_dat[, 1:3]
+train_nu <- train_dat[,"Nu"]
+train_m <- train_dat[,"M"]
+
+nu_rf <- randomForest(train_hills, train_nu, xtest = test_dat[,1:3], ytest = test_dat[,"Nu"])
+
+nu_rf
+
+plot(train_nu, nu_rf$predicted)
+
+
+M_rf <- randomForest(train_hills, train_m, xtest = test_dat[,1:3], ytest = test_dat[,"M"])
+
+M_rf
+
+plot(train_m, M_rf$predicted)

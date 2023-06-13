@@ -1,4 +1,4 @@
-# Inferring process from result using UNTB 
+# Inferring the parameters of UNTB from outcomes
 
 ## Key questions
 
@@ -48,6 +48,7 @@ Key points:
 Key points:
 
 1. More data dimensions can break a many-to-one mapping.
+1. Leaves unanswered, or assumes/works conditional on UNTB being the correct underlying game
 
 
 <!-- [Andy's neutral theory / random forest page](ml_neutral_test.qmd) -->
