@@ -34,12 +34,13 @@ After this lesson, learners should be able to...
 
 ### Installing MESS
 
-:::(.callout-note}
 Because we are using the self-contained and pre-instaled docker image, you do
 not need to install anything for this workshop, rather installation instructions
 are included for completeness and future information should you wish to install
 MESS on your home cluster.
-:::
+
+::: (.callout-note collapse="true"}
+## MESS installation instructions
 
 The most current implementation of the MESS model is included in the `iBioGen`
 package, which is hosted on the
@@ -63,6 +64,7 @@ conda install -c conda-forge -c ibiogen ibiogen
 > library(remotes)
 > remotes::install_github('iBioGen/iBioGen')
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 ## Why do you keep calling it MESS when we're installing iBioGen?
@@ -77,7 +79,7 @@ on an implementation of MESS in R which is called `roleR`. roleR and iBioGen
 are both complicated software programs made of tons of small parts that implement
 the _idea_ of the MESS model in slightly different ways. For the purpose of this
 workshop, because we are interested in the **model** and not the implementation,
-we will prefer to refer to it as `MESS`, in most cases.
+we will prefer to refer to it as **MESS**, in most cases.
 :::
 
 
