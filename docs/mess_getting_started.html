@@ -525,6 +525,11 @@ The <code>-c</code> flag is great! Why don’t I put <code>-c 100</code>, it’s
 </section>
 <section id="inspect-the-output-of-the-simulation-runs" class="level3" data-number="8.3.6">
 <h3 data-number="8.3.6" class="anchored" data-anchor-id="inspect-the-output-of-the-simulation-runs"><span class="header-section-number">8.3.6</span> Inspect the output of the simulation runs</h3>
+<p>The results from every simulation that you run are written to a file in our <code>project_dir</code> (which defaults to <code>./default_iBioGen</code>). Lets look in this directory to see what is there:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls ./default_iBioGen</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">simdata-SIMOUT.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Simulation parameters and data are written to this file, one simulation per line. You can calculate the number of lines in this file like this:</p>
+<p>```bash $ ls -l ./default_iBioGen/simdata-SIMOUT.csv</p>
 </section>
 <section id="setting-prior-ranges-on-parameters" class="level3" data-number="8.3.7">
 <h3 data-number="8.3.7" class="anchored" data-anchor-id="setting-prior-ranges-on-parameters"><span class="header-section-number">8.3.7</span> Setting prior ranges on parameters</h3>

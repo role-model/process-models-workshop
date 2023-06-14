@@ -323,6 +323,23 @@ cpu resources.
 
 ### Inspect the output of the simulation runs
 
+The results from every simulation that you run are written to a file in our
+`project_dir` (which defaults to `./default_iBioGen`). Lets look in this directory
+to see what is there:
+
+```bash
+$ ls ./default_iBioGen
+simdata-SIMOUT.csv
+```
+
+Simulation parameters and data are written to this file, one simulation per line.
+You can calculate the number of lines in this file like this:
+
+```bash
+$ ls -l ./default_iBioGen/simdata-SIMOUT.csv
+
+
+
 ### Setting prior ranges on parameters
 
 
