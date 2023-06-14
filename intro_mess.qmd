@@ -19,7 +19,7 @@ explore them.
 
 ## Planned exercises
 
-1. Lecture: [Process-based modeling with the Massive Eco-evolutionary Synthesis Simulations (MESS) Model](https://docs.google.com/presentation/d/1xu2aVlV8sFLJB65rxAN0thclrvGgS-rNFJL8WPeR5jQ/edit?usp=sharing)
+### [Process-based modeling with the Massive Eco-evolutionary Synthesis Simulations (MESS) Model](https://docs.google.com/presentation/d/1xu2aVlV8sFLJB65rxAN0thclrvGgS-rNFJL8WPeR5jQ/edit?usp=sharing)
 
 ![Neutral Assembly Process](images/Forward_Time_Neutral_Assembly.png)
 
