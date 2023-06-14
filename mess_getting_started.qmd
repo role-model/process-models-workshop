@@ -39,7 +39,7 @@ not need to install anything for this workshop, rather installation instructions
 are included for completeness and future information should you wish to install
 MESS on your home cluster.
 
-::: (.callout-note collapse="true"}
+::: {.callout-note collapse="true"}
 ## MESS installation instructions
 
 The most current implementation of the MESS model is included in the `iBioGen`
@@ -48,8 +48,7 @@ package, which is hosted on the
 using `conda` or the `remotes` R package. Conda is the preferred method, but
 really either should work.
 
-#### Install from a terminal with conda
-
+For the command line install:
 First install [conda](https://docs.conda.io/en/latest/miniconda.html) and then:
 
 ```bash
@@ -58,7 +57,7 @@ conda activate iBioGen
 conda install -c conda-forge -c ibiogen ibiogen
 ```
 
-#### R install using remotes::install_github
+For the R install:
 ```r
 > install.packages("remotes")
 > library(remotes)
