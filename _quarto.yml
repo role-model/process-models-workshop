@@ -15,6 +15,7 @@ book:
     - ml_inference_neutral.qmd
     - day_1_wrapup.qmd
     - intro_mess.qmd
+    - mess_getting_started.qmd
     - mess_simulations.qmd
     - ml_inference_classification.qmd
     - ml_inference_regression.qmd
