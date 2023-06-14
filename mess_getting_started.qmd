@@ -178,7 +178,7 @@ $ pwd
 # Create a new params file named 'simdata'
 $ MESS -n simdata
 ```
-```
+```bash
 -------------------------------------------------------------
   iBioGen [v.0.0.9]
   Island Biodiversity Genomics Analysis Toolkit
@@ -243,7 +243,12 @@ but lets just change a couple parameters to get the hang of it. Let’s set `J`
 (the # of individuals in the local community)) equal to 500 as this will speed
 up the simulations (smaller local communities reach equilibrium faster).
 
+We will use the text editor built into Rstudio to modify `params-simdata.txt`
+and change this parameter:
 
+![Open the new params-simdata.txt file](images/MESS-GettingStarted-NewParams.png)
+
+![Edit params-simdata.txt in the source pane](images/MESS-GettingStarted-EditParams.png)
 
 ### Run simulations using the edited params file
 

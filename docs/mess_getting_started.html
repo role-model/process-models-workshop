@@ -400,12 +400,12 @@ Why do you keep calling it MESS when we’re installing iBioGen?
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new params file named 'simdata'</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> MESS <span class="at">-n</span> simdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>-------------------------------------------------------------
-  iBioGen [v.0.0.9]
-  Island Biodiversity Genomics Analysis Toolkit
- -------------------------------------------------------------
-
-  New file 'params-simdata.txt' created in /home/rstudio</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------------------------------------------------</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">iBioGen</span> <span class="pp">[</span><span class="ss">v.0.0.9</span><span class="pp">]</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Island</span> Biodiversity Genomics Analysis Toolkit</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">-------------------------------------------------------------</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">New</span> file <span class="st">'params-simdata.txt'</span> created in /home/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will create a file in the current directory called <code>params-simdata.txt</code>. The params file lists on each line one parameter followed by a ## mark, then the name of the parameter, and then a short description of its purpose. Lets take a look at it.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat params-simdata.txt</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-------</span> iBioGen params file <span class="er">(</span><span class="ex">v.0.0.9</span><span class="kw">)</span><span class="ex">-------------------------------------------</span></span>
@@ -455,6 +455,19 @@ Why are some options set on the CLI and some things in the params file?
 </div>
 </div>
 <p>The defaults in the params file are all values of moderate size that will generate ‘normal’ looking simulations, and we won’t mess with them for now, but lets just change a couple parameters to get the hang of it. Let’s set <code>J</code> (the # of individuals in the local community)) equal to 500 as this will speed up the simulations (smaller local communities reach equilibrium faster).</p>
+<p>We will use the text editor built into Rstudio to modify <code>params-simdata.txt</code> and change this parameter:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MESS-GettingStarted-NewParams.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Open the new params-simdata.txt file</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MESS-GettingStarted-EditParams.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Edit params-simdata.txt in the source pane</figcaption>
+</figure>
+</div>
 </section>
 <section id="run-simulations-using-the-edited-params-file" class="level3" data-number="8.3.5">
 <h3 data-number="8.3.5" class="anchored" data-anchor-id="run-simulations-using-the-edited-params-file"><span class="header-section-number">8.3.5</span> Run simulations using the edited params file</h3>
