@@ -2,6 +2,9 @@
 
 source(here::here("neut_mod", "neutral_mod.R"))
 
+#### Set seed #### 
+
+set.seed(1989)
 
 #### Play with parameters ####
 
@@ -23,7 +26,7 @@ for(i in 1:nrep) {
   
   sims[[i]] <- untb(Jm = 10000,
                     Sm = 1000,
-                    J = 100,
+                    J = 1000,
                     m = allMs[i],
                     nu = allNus[i],
                     niter = 1000)
