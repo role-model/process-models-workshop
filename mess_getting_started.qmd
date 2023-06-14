@@ -1,0 +1,64 @@
+  output-dir: docs
+
+# Getting started with the MESS model
+
+## Key questions
+
+1. How do I set up and run a MESS model in R?
+1. What are the inputs and outputs of a MESS model?
+1. What happens when a MESS model runs?
+1. How do I access and visualize the results of a MESS simulation?
+1. How can I store the outputs of a MESS model?
+
+## Lesson objectives
+
+After this lesson, learners should be able to...
+
+1. Describe the structure of a MESS model.
+1. Describe the rules of a MESS simulation.
+1. Describe the outputs of a MESS model and what they say about the system.
+1. Use roleR to run a basic MESS model.
+1. Extract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.
+1. Save MESS models to disk.
+
+## Planned exercises
+
+* Installation
+* TL;DR Run your first simulations
+* Getting started with roleR
+* Creating a roleParams object and setting model parameters
+* Run simulations using the new roleParams
+* Inspect the output of the simulation runs
+* Setting prior ranges on parameters
+* Experimentation time (set a challenge and report back?)
+
+### Installing MESS
+:::(.callout-note}
+You do not need to install iBioGen for this workshop, rather this is here for
+completeness and future information should you wish to install MESS on your home cluster.
+:::
+
+roleR is currently installed directly from the github repository using the
+`remotes::github_install()` function.
+
+```r
+> install.packages("remotes")
+> library(remotes)
+> remotes::install_github('role-model/roleR')
+```
+
+## Supporting materials
+
+_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+
+_For bonus points organize these according to whether they already exist or we need to create them!_
+
+### Extant
+
+### To create
+
+* Relevant chapters of user guide.
+
+## Key points
+
+_List 1-3 key takeaways from this section of the workshop._

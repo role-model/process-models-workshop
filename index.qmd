@@ -5,7 +5,7 @@
 | Time | Day 1 | Day 2 |
 |------|-------|-------|
 | 9-9:30 | Introductions and workshop overview | Review of previous days topics |
-| 9:30-10:30 | Theory/conceptual motivation for process models | [Overview of simulation-based machine learning & Intro to the MESS model](intro_mess.html)|
+| 9:30-10:30 | Theory/conceptual motivation for process models | [Intro to the MESS model](intro_mess.html) & [Getting started with MESS simulations](mess_getting_stared.html) |
 | 10:30-10:45 | Coffee Break | Coffee Break |
 | 10:45-12 | Coding exercise: A simple neutral model of biodiversity | [Simulation exercise: Using MESS to develop and test theoretical intuition](mess_simulations.html) |
 | 12-1 | Lunch Break | Lunch Break |

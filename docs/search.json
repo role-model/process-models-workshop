@@ -11,7 +11,7 @@
     "href": "index.html#workshop-outline",
     "title": "process-models-workshop",
     "section": "1.1 Workshop outline",
-    "text": "1.1 Workshop outline\n\n\n\nTime\nDay 1\nDay 2\n\n\n\n\n9-9:30\nIntroductions and workshop overview\nReview of previous days topics\n\n\n9:30-10:30\nTheory/conceptual motivation for process models\nOverview of simulation-based machine learning & Intro to the MESS model\n\n\n10:30-10:45\nCoffee Break\nCoffee Break\n\n\n10:45-12\nCoding exercise: A simple neutral model of biodiversity\nSimulation exercise: Using MESS to develop and test theoretical intuition\n\n\n12-1\nLunch Break\nLunch Break\n\n\n1-2:30\nSimulation Exercise: Exploring neutral model behavior\nSimulation based machine learning inference (Classification)\n\n\n2:30-2:45\nCoffee Break\nCoffee Break\n\n\n2:45-4:00\nIntro to machine learning inference with neutral simulations\nSimulation based machine learning inference (Regression) & Wrap-up"
+    "text": "1.1 Workshop outline\n\n\n\nTime\nDay 1\nDay 2\n\n\n\n\n9-9:30\nIntroductions and workshop overview\nReview of previous days topics\n\n\n9:30-10:30\nTheory/conceptual motivation for process models\nIntro to the MESS model & Getting started with MESS simulations\n\n\n10:30-10:45\nCoffee Break\nCoffee Break\n\n\n10:45-12\nCoding exercise: A simple neutral model of biodiversity\nSimulation exercise: Using MESS to develop and test theoretical intuition\n\n\n12-1\nLunch Break\nLunch Break\n\n\n1-2:30\nSimulation Exercise: Exploring neutral model behavior\nSimulation based machine learning inference (Classification)\n\n\n2:30-2:45\nCoffee Break\nCoffee Break\n\n\n2:45-4:00\nIntro to machine learning inference with neutral simulations\nSimulation based machine learning inference (Regression) & Wrap-up"
   },
   {
     "objectID": "intro_process_models.html#key-questions",
@@ -119,25 +119,18 @@
     "text": "6.3 Looking toward tomorrow\n\nTomorrow, we’ll generalize from UNTB to do more involved, multidimensional process modeling.\nGet some rest!"
   },
   {
-    "objectID": "intro_mess.html",
-    "href": "intro_mess.html",
-    "title": "7  Introduction to the MESS Model",
-    "section": "",
-    "text": "8 Getting started: roleR"
-  },
-  {
     "objectID": "intro_mess.html#key-questions",
     "href": "intro_mess.html#key-questions",
     "title": "7  Introduction to the MESS Model",
     "section": "7.1 Key questions",
-    "text": "7.1 Key questions\n\nWhat is the MESS Model?\nWhat are some of the possible applications of the RoLE Model?\nHow do I learn more?"
+    "text": "7.1 Key questions\n\nWhat is the MESS Model?\nWhat are some of the possible applications of the MESS Model?\nHow do I learn more?"
   },
   {
     "objectID": "intro_mess.html#lesson-objectives",
     "href": "intro_mess.html#lesson-objectives",
     "title": "7  Introduction to the MESS Model",
     "section": "7.2 Lesson objectives",
-    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate RoLE in the wider process modeling state space.\nDescribe the (high-level) concept for RoLE.\nFormulate scientific questions and decide if/how RoLE can be used to explore them."
+    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate MESS in the wider process modeling state space.\nDescribe the (high-level) concept for MESS.\nFormulate scientific questions and decide if/how MESS can be used to explore them."
   },
   {
     "objectID": "intro_mess.html#planned-exercises",
@@ -159,41 +152,6 @@
     "title": "7  Introduction to the MESS Model",
     "section": "7.5 Key points",
     "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
-  },
-  {
-    "objectID": "intro_mess.html#key-questions-1",
-    "href": "intro_mess.html#key-questions-1",
-    "title": "7  Introduction to the MESS Model",
-    "section": "8.1 Key questions",
-    "text": "8.1 Key questions\n\nHow do I set up and run a RoLE model in R?\nWhat are the inputs and outputs of a RoLE model?\nWhat happens when a RoLE model runs?\nHow do I access and visualize the results of a RoLE simulation?\nHow can I store the outputs of a RoLE model?"
-  },
-  {
-    "objectID": "intro_mess.html#lesson-objectives-1",
-    "href": "intro_mess.html#lesson-objectives-1",
-    "title": "7  Introduction to the MESS Model",
-    "section": "8.2 Lesson objectives",
-    "text": "8.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe the structure of a RoLE model.\nDescribe the rules of a RoLE simulation.\nDescribe the outputs of a RoLE model and what they say about the system.\nUse roleR to run a basic RoLE model.\nExtract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.\nSave RoLE models to disk."
-  },
-  {
-    "objectID": "intro_mess.html#planned-exercises-1",
-    "href": "intro_mess.html#planned-exercises-1",
-    "title": "7  Introduction to the MESS Model",
-    "section": "8.3 Planned exercises",
-    "text": "8.3 Planned exercises\n\nInstallation\nTL;DR Run your first simulations\nGetting started with roleR\nCreating a roleParams object and setting model parameters\nRun simulations using the new roleParams\nInspect the output of the simulation runs\nSetting prior ranges on parameters\nExperimentation time (set a challenge and report back?)\n\n\n8.3.1 Installing roleR\n\nYou do not need to install roleR for this workshop, rather this is here for completeness and future information should you wish to install RoLE on your home cluster.\n\nroleR is currently installed directly from the github repository using the remotes::github_install() function.\n&gt; install.packages(\"remotes\")\n&gt; library(remotes)\n&gt; remotes::install_github('role-model/roleR')"
-  },
-  {
-    "objectID": "intro_mess.html#supporting-materials-1",
-    "href": "intro_mess.html#supporting-materials-1",
-    "title": "7  Introduction to the MESS Model",
-    "section": "8.4 Supporting materials",
-    "text": "8.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n8.4.1 Extant\n\n\n8.4.2 To create\n\nRelevant chapters of user guide."
-  },
-  {
-    "objectID": "intro_mess.html#key-points-1",
-    "href": "intro_mess.html#key-points-1",
-    "title": "7  Introduction to the MESS Model",
-    "section": "8.5 Key points",
-    "text": "8.5 Key points\nList 1-3 key takeaways from this section of the workshop."
   },
   {
     "objectID": "mess_simulations.html#key-questions",
