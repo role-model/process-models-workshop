@@ -250,7 +250,76 @@ and change this parameter:
 
 ![Edit params-simdata.txt in the source pane](images/MESS-GettingStarted-EditParams.png)
 
+Don't forget to **File->Save** after editing your params file! Now you're ready
+to run some MESS simulations!
+
 ### Run simulations using the edited params file
+
+The two most important arguments for the `iBioGen` command when running
+simulations are `-p` which specifies the params file to use, and `-s` which
+determines the number of simulations to run.
+
+```bash
+## Run 10 simulations using our new params file
+$ iBioGen -p params-simdata.txt -s 10
+
+ -------------------------------------------------------------
+  iBioGen [v.0.0.9]
+  Island Biodiversity Genomics Analysis Toolkit
+ -------------------------------------------------------------
+    Parallelization disabled.
+    Generating 10 simulation(s).
+  [####################] 100%  Finished 10 simulations in   0:00:01|
+```
+
+This is the simplest possible `iBioGen` command that will run simulations. It
+works great for 10 simulations, but typically you'll need to perform 10 thousand
+or 10 million simulations, so this approach of generating them one at a time
+(in serial) is woafully time-consuming. 10x more simulations takes on the order
+of 10x more wall time:
+
+```bash
+## Run 100 simulations with our new params file
+$ iBioGen -p params-simdata.txt -s 100
+
+ -------------------------------------------------------------
+  iBioGen [v.0.0.9]
+  Island Biodiversity Genomics Analysis Toolkit
+ -------------------------------------------------------------
+    Parallelization disabled.
+    Generating 100 simulation(s).
+  [####################] 100%  Finished 100 simulations in   0:00:17
+```
+
+To facilitate massive parallelization, the `iBioGen` CLI provides a parallel
+computing option which will intelligently handle all the parallelization work
+for you. When invoked with the `-c` flag, `iBioGen` portions out simulations
+among all the cores as they become available.
+
+```bash
+## Run 100 simulations split across 5 cores
+$ iBioGen -p params-simdata.txt -s 100 -c 5
+
+ -------------------------------------------------------------
+  iBioGen [v.0.0.9]
+  Island Biodiversity Genomics Analysis Toolkit
+ -------------------------------------------------------------
+  establishing parallel connection:
+  host compute node: [5 cores] on d98e2e53d6af
+    Generating 100 simulation(s).
+  [####################] 100%  Finished 100 simulations in   0:00:05 
+```
+::: {.callout-tip collapse="true"}
+## The `-c` flag is great! Why don't I put `-c 100`, it's going to go so fast!
+
+Ummmm, that's not really how it works, but I appreciate your enthusiasm. While
+you very well can use `-c 100` and it will definitely do what you say and spin up
+100 parallel workers, it will not increase the number of **actual** cpu cores on
+your computer. In CLI mode the number of `-c` cores should never exceed
+the number of cpu cores on your computer, or else you'll actually **reduce**
+performance, because the parallel workers will all be competing for the (limited)
+cpu resources.
+:::
 
 ### Inspect the output of the simulation runs
 
