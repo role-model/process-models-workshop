@@ -1,4 +1,4 @@
-# Machine learning inference with MESS simulations
+# ML parameter estimation with MESS simulations
 
 ## Key questions
 

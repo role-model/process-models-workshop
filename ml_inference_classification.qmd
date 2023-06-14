@@ -1,8 +1,8 @@
-# Machine learning inference with MESS simulations
+# ML model selection with MESS simulations
 
 ## Key questions
 
-1. How do I perform a process-inference using RoLE simulations in R?
+1. How do I perform a inference using MESS simulations in R?
 
 ## Lesson objectives
 
@@ -14,10 +14,10 @@ After this lesson, learners should be able to...
 
 ## Planned exercises
 
-2. Lecture: [How does machine learning work with RoLE simulations?](https://docs.google.com/presentation/d/17vOgbzpcYFPT7Tbo4EWBK_A-nJ82_kCU9dpMhrEWQkE/edit#slide=id.g3fc652ed98_0_30)
+2. Lecture: [How does machine learning work with MESS simulations?](https://docs.google.com/presentation/d/12fVO8Jzxvdm5nxcvITtpn3re8VJm4j1J96Y3zmBh6ZY/edit?usp=sharing)
 
-* Create and parameterize a new RoLE Experiment
-* Run RoLE model simulations
+* Create and parameterize a new MESS model
+* Run MESS model simulations
 * ML assembly model classification
 * ML parameter estimation
 * Posterior predictive simulations (if time)
