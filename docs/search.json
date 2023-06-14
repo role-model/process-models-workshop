@@ -123,35 +123,28 @@
     "href": "intro_mess.html#key-questions",
     "title": "7  Introduction to the MESS Model",
     "section": "7.1 Key questions",
-    "text": "7.1 Key questions\n\nWhat is the MESS Model?\nWhat are some of the possible applications of the MESS Model?\nHow do I learn more?"
+    "text": "7.1 Key questions\n\nWhat is the MESS Model?\nHow does MESS differ from other biodiversity models?\nWhat are some example applications of MESS?\nWhere can I get a cool MESS logo sticker?"
   },
   {
     "objectID": "intro_mess.html#lesson-objectives",
     "href": "intro_mess.html#lesson-objectives",
     "title": "7  Introduction to the MESS Model",
     "section": "7.2 Lesson objectives",
-    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nSituate MESS in the wider process modeling state space.\nDescribe the (high-level) concept for MESS.\nFormulate scientific questions and decide if/how MESS can be used to explore them."
+    "text": "7.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nDescribe the (high-level) concept for MESS.\nSituate MESS in the wider process modeling state space.\nFormulate scientific questions and decide if/how MESS can be used to explore them."
   },
   {
     "objectID": "intro_mess.html#planned-exercises",
     "href": "intro_mess.html#planned-exercises",
     "title": "7  Introduction to the MESS Model",
     "section": "7.3 Planned exercises",
-    "text": "7.3 Planned exercises\n\nLecture: Process-based modeling with the Massive Eco-evolutionary Synthesis Simulations (MESS) Model\nHands-on: Exploring MESS model behavior with the CLI"
-  },
-  {
-    "objectID": "intro_mess.html#supporting-materials",
-    "href": "intro_mess.html#supporting-materials",
-    "title": "7  Introduction to the MESS Model",
-    "section": "7.4 Supporting materials",
-    "text": "7.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n7.4.1 Extant\n\n\n7.4.2 To create"
+    "text": "7.3 Planned exercises\n\nLecture: Process-based modeling with the Massive Eco-evolutionary Synthesis Simulations (MESS) Model\n\n\n\n\nNeutral Assembly Process"
   },
   {
     "objectID": "intro_mess.html#key-points",
     "href": "intro_mess.html#key-points",
     "title": "7  Introduction to the MESS Model",
-    "section": "7.5 Key points",
-    "text": "7.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "section": "7.4 Key points",
+    "text": "7.4 Key points\n\nMESS is a process-based model in the direct lineage of Island Biogeograpy Theory and Neutral Biodiversity Theory.\nMESS models the 4 fundamental biodiversity processes: dispersal, speciation, selection, and drift.\nMESS generates joint predictions of multiple biodiversity patterns: abundances, trait values, genetic diversities, and phylogenies."
   },
   {
     "objectID": "mess_simulations.html#key-questions",

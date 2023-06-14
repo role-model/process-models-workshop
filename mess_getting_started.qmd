@@ -23,6 +23,8 @@ After this lesson, learners should be able to...
 
 ## Planned exercises
 
+1. Hands-on: Exploring MESS model behavior with the CLI
+
 * Installation
 * TL;DR Run your first simulations
 * Getting started with roleR
