@@ -9,7 +9,7 @@
 | 10:30-10:45 | Coffee Break | Coffee Break |
 | 10:45-12 | Coding exercise: A simple neutral model of biodiversity | [Simulation exercise: Using MESS to develop and test theoretical intuition](mess_simulations.html) |
 | 12-1 | Lunch Break | Lunch Break |
-| 1-2:30 | Simulation Exercise: Exploring neutral model behavior | Simulation based machine learning inference (Classification)
+| 1-2:30 | Simulation Exercise: Exploring neutral model behavior | [Simulation based machine learning inference (Classification)](ml_inference_classification.html) |
 | 2:30-2:45 | Coffee Break | Coffee Break | 
-| 2:45-4:00 | Intro to machine learning inference with neutral simulations | Simulation based machine learning inference (Regression) & [Wrap-up](wrapup.qmd) |
+| 2:45-4:00 | Intro to machine learning inference with neutral simulations | [Simulation based machine learning inference (Regression)](ml_inference_regression.html) & [Wrap-up](wrapup.qmd) |
 
