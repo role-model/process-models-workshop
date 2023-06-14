@@ -112,7 +112,7 @@ All lines in code cells beginning with \#\# are comments and should not be
 copied and executed. All other lines should be interpreted as output from the
 issued commands.
 
-```
+```bash
 ## Example Code Cell.
 
 ## e.g. Create an empty file in my home directory called `watdo.txt`
@@ -134,9 +134,9 @@ Ok, so now that you're sitting at a command line, we're ready to begin. To
 better understand how to use iBioGen to run a MESS model, let’s take a look at
 the help argument. We will use some of the iBioGen command line arguments in
 this tutorial (for example: `-n`, `-p`, `-s`, `-c`). The complete list of
-optional arguments and their explanation can be accessed with the `--help` flag:
+optional arguments and their explanation can be accessed with the `-h` flag (or `--help`:
 
-```
+```bash
 $ iBioGen -h
 usage: iBioGen [-h] [-n new] [-p params] [-s sims] [-c cores] [-f] [-v] [-q] [-d]
                [--ipcluster [ipcluster]]
@@ -168,7 +168,7 @@ we use simdata but the name can be anything at all. Once you start analysing
 your own data you might call your parameters file something more informative,
 like the name of your target community and some details on the settings.
 
-```
+```bash
 ## Make a new directory, change directory into it, and then print the working
 ## directory to make sure you are where you think you are.
 $ mkdir MESS 
@@ -192,7 +192,7 @@ The params file lists on each line one parameter followed by a ## mark, then
 the name of the parameter, and then a short description of its purpose. Lets
 take a look at it.
 
-```
+```bash
 $ cat params-simdata.txt
 ------- iBioGen params file (v.0.0.9)-------------------------------------------
 simdata              ## [0] [simulation_name]: The name of this simulation scenario

@@ -352,54 +352,54 @@ Why do you keep calling it MESS when we’re installing iBioGen?
 </figure>
 </div>
 <p>Each grey cell in this tutorial indicates a command line interaction. Lines starting with $ indicate a command that should be executed in a terminal. All lines in code cells beginning with ## are comments and should not be copied and executed. All other lines should be interpreted as output from the issued commands.</p>
-<pre><code>## Example Code Cell.
-
-## e.g. Create an empty file in my home directory called `watdo.txt`
-$ touch ~/watdo.txt
-
-## Elements in code cells surrounded by angle brackets (e.g. &lt; &gt; ) are
-## variables that need to be replaced by the user
-##
-## Make a directory for your project. When YOU run this replace everything
-## (angle brackets and all) with the information that is applicable to you.
-$ mkdir &lt;my_project&gt;
-
-## Print "wat" to the screen
-$ echo "wat"
-wat</code></pre>
-<p>Ok, so now that you’re sitting at a command line, we’re ready to begin. To better understand how to use iBioGen to run a MESS model, let’s take a look at the help argument. We will use some of the iBioGen command line arguments in this tutorial (for example: <code>-n</code>, <code>-p</code>, <code>-s</code>, <code>-c</code>). The complete list of optional arguments and their explanation can be accessed with the <code>--help</code> flag:</p>
-<pre><code>$ iBioGen -h
-usage: iBioGen [-h] [-n new] [-p params] [-s sims] [-c cores] [-f] [-v] [-q] [-d]
-               [--ipcluster [ipcluster]]
-
-options:
-  -h, --help            show this help message and exit
-  -n new                create new file 'params-{new}.txt' in current directory
-  -p params             path to params file simulations: params-{name}.txt
-  -s sims               Generate specified number of simulations
-  -c cores              number of CPU cores to use (Default=0=All)
-  -f                    force overwrite of existing data
-  -v                    do not print to stderror or stdout.
-  -q                    do not print anything ever.
-  -d                    print lots more info to iBioGen_log.txt.
-  --ipcluster [ipcluster]
-                        connect to ipcluster profile
-
-  * Example command-line usage:
-    iBioGen -n data                       ## create new file called params-data.txt
-    iBioGen -p params-data.txt            ## run iBioGen with settings in params file</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Example Code Cell.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">## e.g. Create an empty file in my home directory called `watdo.txt`</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch ~/watdo.txt</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Elements in code cells surrounded by angle brackets (e.g. &lt; &gt; ) are</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">## variables that need to be replaced by the user</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Make a directory for your project. When YOU run this replace everything</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">## (angle brackets and all) with the information that is applicable to you.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="op">&lt;</span>my_project<span class="op">&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Print "wat" to the screen</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"wat"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">wat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ok, so now that you’re sitting at a command line, we’re ready to begin. To better understand how to use iBioGen to run a MESS model, let’s take a look at the help argument. We will use some of the iBioGen command line arguments in this tutorial (for example: <code>-n</code>, <code>-p</code>, <code>-s</code>, <code>-c</code>). The complete list of optional arguments and their explanation can be accessed with the <code>-h</code> flag (or <code>--help</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> iBioGen <span class="at">-h</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">usage:</span> iBioGen <span class="pp">[-</span><span class="ss">h</span><span class="pp">]</span> [-n new] [-p params] [-s sims] [-c cores] <span class="pp">[-</span><span class="ss">f</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">v</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">q</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">d</span><span class="pp">]</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               <span class="ex">[--ipcluster</span> <span class="pp">[</span><span class="ss">ipcluster</span><span class="pp">]</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">options:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>            show this help message and exit</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-n</span> new                create new file <span class="st">'params-{new}.txt'</span> in current directory</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-p</span> params             path to params file simulations: params-{name}.txt</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-s</span> sims               Generate specified number of simulations</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-c</span> cores              number of CPU cores to use <span class="er">(</span><span class="va">Default</span><span class="op">=</span>0=All<span class="kw">)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-f</span>                    force overwrite of existing data</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-v</span>                    do not print to stderror or stdout.</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-q</span>                    do not print anything ever.</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-d</span>                    print lots more info to iBioGen_log.txt.</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--ipcluster</span> <span class="pp">[</span><span class="ss">ipcluster</span><span class="pp">]</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">connect</span> to ipcluster profile</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">*</span> Example command-line usage:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">iBioGen</span> <span class="at">-n</span> data                       <span class="co">## create new file called params-data.txt</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">iBioGen</span> <span class="at">-p</span> params-data.txt            <span class="co">## run iBioGen with settings in params file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="creating-and-editing-a-new-params-file" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="creating-and-editing-a-new-params-file"><span class="header-section-number">8.3.4</span> Creating and editing a new params file</h3>
 <p>iBioGen uses a text file to hold all the parameters for a given community assembly scenario. Start by creating a new parameters file with the <code>-n</code> flag. This flag requires you to pass in a name for your simulations. In the example we use simdata but the name can be anything at all. Once you start analysing your own data you might call your parameters file something more informative, like the name of your target community and some details on the settings.</p>
-<pre><code>## Make a new directory, change directory into it, and then print the working
-## directory to make sure you are where you think you are.
-$ mkdir MESS 
-$ cd MESS
-$ pwd
-
-# Create a new params file named 'simdata'
-$ MESS -n simdata</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Make a new directory, change directory into it, and then print the working</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">## directory to make sure you are where you think you are.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir MESS </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd MESS</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new params file named 'simdata'</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> MESS <span class="at">-n</span> simdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>-------------------------------------------------------------
   iBioGen [v.0.0.9]
   Island Biodiversity Genomics Analysis Toolkit
@@ -407,37 +407,37 @@ $ MESS -n simdata</code></pre>
 
   New file 'params-simdata.txt' created in /home/rstudio</code></pre>
 <p>This will create a file in the current directory called <code>params-simdata.txt</code>. The params file lists on each line one parameter followed by a ## mark, then the name of the parameter, and then a short description of its purpose. Lets take a look at it.</p>
-<pre><code>$ cat params-simdata.txt
-------- iBioGen params file (v.0.0.9)-------------------------------------------
-simdata              ## [0] [simulation_name]: The name of this simulation scenario
-./default_iBioGen    ## [1] [project_dir]: Where to save files
-1                    ## [2] [birth_rate]: Speciation rate
-taxa                 ## [3] [meta_stop_criterion]: Whether to stop metacommunity on ntaxa or time
-20                   ## [4] [ntaxa]: Number of taxa to simulate if stop is `ntaxa`
-4                    ## [5] [time]: Amount of time to simulate if stop is `time`
-abundance            ## [6] [process]: Whether to evolve `abundance` or growth `rate` via BM
-True                 ## [7] [ClaDS]: Whether to allow speciation rate change a la ClaDS
-50000                ## [8] [abundance_mean]: Ancestral abundance at time 0
-0.1                  ## [9] [abundance_sigma]: Rate at which abundance changes if process is `abundance`
-0                    ## [10] [growth_rate_mean]: Ancestral population growth rate at time 0.
-0.01                 ## [11] [growth_rate_sigma]: Rate at which growth rate changes if process is `rate`
-0.1                  ## [12] [ClaDS_sigma]: Rate at which speciation rate changes if ClaDS is True
-0.9                  ## [13] [ClaDS_alpha]: Rate shift if ClaDS is True
-500                  ## [14] [sequence_length]: Length of the genomic region simulated, in base pairs
-1e-08                ## [15] [mutation_rate]: Mutation rate per base per generation
-10                   ## [16] [sample_size]: Number of samples to draw for calculating genetic diversity
-None                 ## [17] [abundance_scaling]: Scaling abundance to Ne (None, log, ln or a ratio)
-1000                 ## [18] [J]: Number of individuals in the local community
-0.005                ## [19] [colrate]: Rate of colonization into the local community (% / birth event)
-neutral              ## [20] [assembly_model]: Selecting neutral or non-neutral assembly processes
-2                    ## [21] [ecological_strength]: Impact of competition or filtering on fitness
-1                    ## [22] [generation_time]: Generation time of local community taxa (in years)
-time                 ## [23] [local_stop_criterion]: Stop local community on time or equilibrium
-100                  ## [24] [local_stop_time]: Local community simulation duration (in generations)
-100                  ## [25] [tau_max]: Duration of anagenetic speciation (in generations)
-10                   ## [26] [gene_flow_effect]: Damping effect of gene flow (in generations) on tau_max
-1000                 ## [27] [Ne_scaling]: Scaling individuals to demes in local community
-False                ## [28] [rm_duplicates]: Deduplicate seqs before calculating local community pi</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat params-simdata.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-------</span> iBioGen params file <span class="er">(</span><span class="ex">v.0.0.9</span><span class="kw">)</span><span class="ex">-------------------------------------------</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">simdata</span>              <span class="co">## [0] [simulation_name]: The name of this simulation scenario</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./default_iBioGen</span>    <span class="co">## [1] [project_dir]: Where to save files</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span>                    <span class="co">## [2] [birth_rate]: Speciation rate</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">taxa</span>                 <span class="co">## [3] [meta_stop_criterion]: Whether to stop metacommunity on ntaxa or time</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">20</span>                   <span class="co">## [4] [ntaxa]: Number of taxa to simulate if stop is `ntaxa`</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>                    <span class="co">## [5] [time]: Amount of time to simulate if stop is `time`</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ex">abundance</span>            <span class="co">## [6] [process]: Whether to evolve `abundance` or growth `rate` via BM</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">True</span>                 <span class="co">## [7] [ClaDS]: Whether to allow speciation rate change a la ClaDS</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">50000</span>                <span class="co">## [8] [abundance_mean]: Ancestral abundance at time 0</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ex">0.1</span>                  <span class="co">## [9] [abundance_sigma]: Rate at which abundance changes if process is `abundance`</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span>                    <span class="co">## [10] [growth_rate_mean]: Ancestral population growth rate at time 0.</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">0.01</span>                 <span class="co">## [11] [growth_rate_sigma]: Rate at which growth rate changes if process is `rate`</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">0.1</span>                  <span class="co">## [12] [ClaDS_sigma]: Rate at which speciation rate changes if ClaDS is True</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="ex">0.9</span>                  <span class="co">## [13] [ClaDS_alpha]: Rate shift if ClaDS is True</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ex">500</span>                  <span class="co">## [14] [sequence_length]: Length of the genomic region simulated, in base pairs</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ex">1e-08</span>                <span class="co">## [15] [mutation_rate]: Mutation rate per base per generation</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="ex">10</span>                   <span class="co">## [16] [sample_size]: Number of samples to draw for calculating genetic diversity</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="ex">None</span>                 <span class="co">## [17] [abundance_scaling]: Scaling abundance to Ne (None, log, ln or a ratio)</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="ex">1000</span>                 <span class="co">## [18] [J]: Number of individuals in the local community</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">0.005</span>                <span class="co">## [19] [colrate]: Rate of colonization into the local community (% / birth event)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="ex">neutral</span>              <span class="co">## [20] [assembly_model]: Selecting neutral or non-neutral assembly processes</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>                    <span class="co">## [21] [ecological_strength]: Impact of competition or filtering on fitness</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span>                    <span class="co">## [22] [generation_time]: Generation time of local community taxa (in years)</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="bu">time</span>                 <span class="co">## [23] [local_stop_criterion]: Stop local community on time or equilibrium</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span>                  <span class="co">## [24] [local_stop_time]: Local community simulation duration (in generations)</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span>                  <span class="co">## [25] [tau_max]: Duration of anagenetic speciation (in generations)</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="ex">10</span>                   <span class="co">## [26] [gene_flow_effect]: Damping effect of gene flow (in generations) on tau_max</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="ex">1000</span>                 <span class="co">## [27] [Ne_scaling]: Scaling individuals to demes in local community</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="ex">False</span>                <span class="co">## [28] [rm_duplicates]: Deduplicate seqs before calculating local community pi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
