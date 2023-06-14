@@ -4,22 +4,20 @@
 
 ## Key questions
 
-1. How do I set up and run a MESS model in R?
-1. What are the inputs and outputs of a MESS model?
+1. How do I set up and run a MESS simulation?
+1. What are the inputs and outputs of MESS?
 1. What happens when a MESS model runs?
-1. How do I access and visualize the results of a MESS simulation?
-1. How can I store the outputs of a MESS model?
+1. How do I view and interpret the results of a MESS simulation?
 
 ## Lesson objectives
 
 After this lesson, learners should be able to...
 
-1. Describe the structure of a MESS model.
-1. Describe the rules of a MESS simulation.
-1. Describe the outputs of a MESS model and what they say about the system.
-1. Use roleR to run a basic MESS model.
-1. Extract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.
-1. Save MESS models to disk.
+1. Describe the basic workflow of running a MESS simulation.
+1. Create and edit a MESS params file, including setting ranges on parameters.
+1. Identify the 4 most important MESS parameters
+1. Use the command line to run a basic MESS model.
+1. Describe and interpret the basic outputs of a MESS model.
 
 ## Planned exercises
 
@@ -35,32 +33,55 @@ After this lesson, learners should be able to...
 * Experimentation time (set a challenge and report back?)
 
 ### Installing MESS
+
 :::(.callout-note}
-You do not need to install iBioGen for this workshop, rather this is here for
-completeness and future information should you wish to install MESS on your home cluster.
+Because we are using the self-contained and pre-instaled docker image, you do
+not need to install anything for this workshop, rather installation instructions
+are included for completeness and future information should you wish to install
+MESS on your home cluster.
 :::
 
-roleR is currently installed directly from the github repository using the
-`remotes::github_install()` function.
+The most current implementation of the MESS model is included in the `iBioGen`
+package, which is hosted on the
+[iBioGen github](https://github.com/iBioGen/iBioGen) and installable either
+using `conda` or the `remotes` R package. Conda is the preferred method, but
+really either should work.
 
+#### Install from a terminal with conda
+
+First install [conda](https://docs.conda.io/en/latest/miniconda.html) and then:
+
+```bash
+conda create -n iBioGen python=3.10
+conda activate iBioGen
+conda install -c conda-forge -c ibiogen ibiogen
+```
+
+#### R install using remotes::install_github
 ```r
 > install.packages("remotes")
 > library(remotes)
-> remotes::install_github('role-model/roleR')
+> remotes::install_github('iBioGen/iBioGen')
 ```
 
-## Supporting materials
+::: {.callout-tip collapse="true"}
+## Why do you keep calling it MESS when we're installing iBioGen?
 
-_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+Good question! Think of MESS as the _idea_ or the concept and iBioGen as the
+implentation. It's the same relationship between the concept/idea of a car
+and an actual Honda or Ford, they're both complicated machines made of tons
+of small parts that do the same job in slighly different ways.
 
-_For bonus points organize these according to whether they already exist or we need to create them!_
+The underlying implementation of iBioGen is python, but we are also working
+on an implementation of MESS in R which is called `roleR`. roleR and iBioGen
+are both complicated software programs made of tons of small parts that implement
+the _idea_ of the MESS model in slightly different ways. For the purpose of this
+workshop, because we are interested in the **model** and not the implementation,
+we will prefer to refer to it as `MESS`, in most cases.
+:::
 
-### Extant
-
-### To create
-
-* Relevant chapters of user guide.
 
 ## Key points
 
+* What is the relationship between MESS, RoLE, and iBioGen?
 _List 1-3 key takeaways from this section of the workshop._

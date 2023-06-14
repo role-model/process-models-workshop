@@ -221,12 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#installing-mess" id="toc-installing-mess" class="nav-link" data-scroll-target="#installing-mess"><span class="header-section-number">8.3.1</span> Installing MESS</a></li>
   </ul></li>
-  <li><a href="#supporting-materials" id="toc-supporting-materials" class="nav-link" data-scroll-target="#supporting-materials"><span class="header-section-number">8.4</span> Supporting materials</a>
-  <ul class="collapse">
-  <li><a href="#extant" id="toc-extant" class="nav-link" data-scroll-target="#extant"><span class="header-section-number">8.4.1</span> Extant</a></li>
-  <li><a href="#to-create" id="toc-to-create" class="nav-link" data-scroll-target="#to-create"><span class="header-section-number">8.4.2</span> To create</a></li>
-  </ul></li>
-  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">8.5</span> Key points</a></li>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">8.4</span> Key points</a></li>
   </ul>
 </nav>
     </div>
@@ -254,23 +249,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="key-questions" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="key-questions"><span class="header-section-number">8.1</span> Key questions</h2>
 <ol type="1">
-<li>How do I set up and run a MESS model in R?</li>
-<li>What are the inputs and outputs of a MESS model?</li>
+<li>How do I set up and run a MESS simulation?</li>
+<li>What are the inputs and outputs of MESS?</li>
 <li>What happens when a MESS model runs?</li>
-<li>How do I access and visualize the results of a MESS simulation?</li>
-<li>How can I store the outputs of a MESS model?</li>
+<li>How do I view and interpret the results of a MESS simulation?</li>
 </ol>
 </section>
 <section id="lesson-objectives" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="lesson-objectives"><span class="header-section-number">8.2</span> Lesson objectives</h2>
 <p>After this lesson, learners should be able to…</p>
 <ol type="1">
-<li>Describe the structure of a MESS model.</li>
-<li>Describe the rules of a MESS simulation.</li>
-<li>Describe the outputs of a MESS model and what they say about the system.</li>
-<li>Use roleR to run a basic MESS model.</li>
-<li>Extract summary statistics from a RolE model, plot them, and relate the visuals to ecological/evolutionary processes.</li>
-<li>Save MESS models to disk.</li>
+<li>Describe the basic workflow of running a MESS simulation.</li>
+<li>Create and edit a MESS params file, including setting ranges on parameters.</li>
+<li>Identify the 4 most important MESS parameters</li>
+<li>Use the command line to run a basic MESS model.</li>
+<li>Describe and interpret the basic outputs of a MESS model.</li>
 </ol>
 </section>
 <section id="planned-exercises" class="level2" data-number="8.3">
@@ -291,31 +284,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installing-mess" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="installing-mess"><span class="header-section-number">8.3.1</span> Installing MESS</h3>
 <div class="(.callout-note}">
-<p>You do not need to install iBioGen for this workshop, rather this is here for completeness and future information should you wish to install MESS on your home cluster.</p>
+<p>Because we are using the self-contained and pre-instaled docker image, you do not need to install anything for this workshop, rather installation instructions are included for completeness and future information should you wish to install MESS on your home cluster.</p>
 </div>
-<p>roleR is currently installed directly from the github repository using the <code>remotes::github_install()</code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(remotes)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'role-model/roleR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The most current implementation of the MESS model is included in the <code>iBioGen</code> package, which is hosted on the <a href="https://github.com/iBioGen/iBioGen">iBioGen github</a> and installable either using <code>conda</code> or the <code>remotes</code> R package. Conda is the preferred method, but really either should work.</p>
+<section id="install-from-a-terminal-with-conda" class="level4" data-number="8.3.1.1">
+<h4 data-number="8.3.1.1" class="anchored" data-anchor-id="install-from-a-terminal-with-conda"><span class="header-section-number">8.3.1.1</span> Install from a terminal with conda</h4>
+<p>First install <a href="https://docs.conda.io/en/latest/miniconda.html">conda</a> and then:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> iBioGen python=3.10</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate iBioGen</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge <span class="at">-c</span> ibiogen ibiogen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="r-install-using-remotesinstall_github" class="level4" data-number="8.3.1.2">
+<h4 data-number="8.3.1.2" class="anchored" data-anchor-id="r-install-using-remotesinstall_github"><span class="header-section-number">8.3.1.2</span> R install using remotes::install_github</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(remotes)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'iBioGen/iBioGen'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why do you keep calling it MESS when we’re installing iBioGen?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Good question! Think of MESS as the <em>idea</em> or the concept and iBioGen as the implentation. It’s the same relationship between the concept/idea of a car and an actual Honda or Ford, they’re both complicated machines made of tons of small parts that do the same job in slighly different ways.</p>
+<p>The underlying implementation of iBioGen is python, but we are also working on an implementation of MESS in R which is called <code>roleR</code>. roleR and iBioGen are both complicated software programs made of tons of small parts that implement the <em>idea</em> of the MESS model in slightly different ways. For the purpose of this workshop, because we are interested in the <strong>model</strong> and not the implementation, we will prefer to refer to it as <code>MESS</code>, in most cases.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="supporting-materials" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="supporting-materials"><span class="header-section-number">8.4</span> Supporting materials</h2>
-<p><em>Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.</em></p>
-<p><em>For bonus points organize these according to whether they already exist or we need to create them!</em></p>
-<section id="extant" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="extant"><span class="header-section-number">8.4.1</span> Extant</h3>
 </section>
-<section id="to-create" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="to-create"><span class="header-section-number">8.4.2</span> To create</h3>
+<section id="key-points" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="key-points"><span class="header-section-number">8.4</span> Key points</h2>
 <ul>
-<li>Relevant chapters of user guide.</li>
+<li>What is the relationship between MESS, RoLE, and iBioGen? <em>List 1-3 key takeaways from this section of the workshop.</em></li>
 </ul>
-</section>
-</section>
-<section id="key-points" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="key-points"><span class="header-section-number">8.5</span> Key points</h2>
-<p><em>List 1-3 key takeaways from this section of the workshop.</em></p>
 
 
 </section>
