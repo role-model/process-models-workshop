@@ -38,6 +38,7 @@ import the `iBioGen` package.
 A little bookkeeping is first required in loading the `reticulate` library,
 which is a binding layer between R and python, allowing seemless access to
 python modules from within R code.
+:::
 
 ```R
 library(reticulate)
