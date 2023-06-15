@@ -241,8 +241,8 @@ statistics, like `local_S`, `abund_h1`, and `pi_h1` using the built-in R plottin
 function `plot()`.
 
 ```R
-## Lets create a new variable for the results we're interested in
-simes <- results[[1]]
+## For convenience, lets create a new variable for the results we're interested in
+sims <- results[[1]]
 
 ## Now plot local_S, abund_h1, and pi_h1 as a function of colrate
 plot(sims$colrate, sims$local_S)
@@ -273,7 +273,7 @@ back to what we learned yesterday about the neutral theory parameters. What
 parameter might we manipulate and how in order to relax this constraint and
 prevent the local community from saturating in this way?
 
-::: {.callout-tip,  collapse="true"}
+::: {.callout-tip  collapse="true"}
 ## How can we allow for more diversity in the local community?
 
 Remember the `Jm` parameter from neutral theory, which increases the # of species
@@ -285,7 +285,7 @@ Try increasing the value of `ntaxa` in your simulations, running it again,
 and plotting the results. How did this change affect `S`?
 :::
 
-::: {.callout-tip,  collapse="true"}
+::: {.callout-tip  collapse="true"}
 ## Solution
 
 ```R

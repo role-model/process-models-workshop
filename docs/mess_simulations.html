@@ -435,8 +435,8 @@ The reticulate library
 <p>Most of these things should look familiar (if not understandable), but there are several new columns which are very important. You might also notice at first that the <code>colrate</code> parameters per simulation do indeed vary, while all others are fixed, as we specified a prior range on this paramter.</p>
 <p>The <strong>new</strong> thing to notice is that all the <strong>data</strong> (previously encapsulate in a human unreadable format) has been transformed into a much more user friendly summarization including <code>local_S</code> (indicating local species richness), and 9 columns of the form <code>*_h*</code>, which represent the first 3 Hill numbers on abundance (<code>abund</code>), nucleotide diversity (<code>pi</code>), and trait value distributions (<code>trait</code>).</p>
 <p>Since we manipulated the <code>colrate</code> parameter in these simulations we can visualize the relationship between <code>colrate</code> and a few of the resulting summary statistics, like <code>local_S</code>, <code>abund_h1</code>, and <code>pi_h1</code> using the built-in R plotting function <code>plot()</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lets create a new variable for the results we're interested in</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simes <span class="ot">&lt;-</span> results[[<span class="dv">1</span>]]</span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## For convenience, lets create a new variable for the results we're interested in</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> results[[<span class="dv">1</span>]]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Now plot local_S, abund_h1, and pi_h1 as a function of colrate</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
@@ -458,10 +458,35 @@ Discussion topic: Why would <code>colrate</code> impact these summary statistics
 </div>
 </div>
 <p>It seems that local species richness is saturating, with uniformly high <code>S</code> which increasingly approaching 20 as <code>colrate</code> increases. What this means is that as <code>colrate</code> increases, the local community increasingly contains a total sample of the metacommunity, and there are no more unique lineages to colonize. Think back to what we learned yesterday about the neutral theory parameters. What parameter might we manipulate and how in order to relax this constraint and prevent the local community from saturating in this way?</p>
-<p>::: {.callout-tip, collapse=“true”} ## How can we allow for more diversity in the local community?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How can we allow for more diversity in the local community?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Remember the <code>Jm</code> parameter from neutral theory, which increases the # of species in the metacommunity. In MESS we call this <code>ntaxa</code>, but it represents <em>exactly</em> the same parameter. What would happen if we increase the size of the metacommunity species pool (<code>ntaxa</code>) and also ran many more simulations?</p>
-<p>Try increasing the value of <code>ntaxa</code> in your simulations, running it again, and plotting the results. How did this change affect <code>S</code>? :::</p>
-<p>::: {.callout-tip, collapse=“true”} ## Solution</p>
+<p>Try increasing the value of <code>ntaxa</code> in your simulations, running it again, and plotting the results. How did this change affect <code>S</code>?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ntaxa"</span>, <span class="dv">100</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">500</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -471,7 +496,9 @@ Discussion topic: Why would <code>colrate</code> impact these summary statistics
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>abund_h1)</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>pi_h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
+</div>
+</div>
 <p><img src="images/MESS-Simulations-API-Jm100-local_S.png" class="img-fluid" alt="Local species richness with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=100"></p>
 </section>
 <section id="group-brainstorming-of-params-to-tweak" class="level3" data-number="9.3.3">
