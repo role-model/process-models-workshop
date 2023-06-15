@@ -1,4 +1,3 @@
-  output-dir: docs
 # Introduction to the MESS Model
 
 ## Key questions
