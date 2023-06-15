@@ -397,6 +397,26 @@ If you have some interesting results, you can add a slide or two to the
 [MESS-SimulationExperiments-Results](https://docs.google.com/presentation/d/1W0DeSIA0aa46H5OxXo2uj2rz4k4dCD3wyiRVQeJgNJc/edit#slide=id.p)
 google slides presentation for us to discuss.
 
+::: {.callout-tip collapse="true"}
+## An easy way to get the raw data for one simulation
+
+You can access the raw data for the most recent simulation by looking at the
+`community` property of the simulated `LocalCommunity` which is stored in the
+`Core` object as `l` (for "local community"). The `community` property returns
+a data.frame, as follows:
+
+```R
+str_comp$l$community
+```
+```default
+      coltime local_abund migrants      trait tau          pi is_founder
+m6-2        0         533      195  8.4844489  99 0.015466667          1
+m18-1      13         464        2 -4.1551176  33 0.007955556          0
+m4-1       98           1        0  4.4826415  98 0.000000000          0
+m15-1      99           1        0  3.1975592  99 0.000000000          0
+m12-1      99           1        0 -0.1183388  99 0.000000000          0
+```
+
 ### Come together to debrief/synthesize
 
 Ok! Let's wrap up this lesson and discuss some of the results from the simulation
