@@ -30,7 +30,8 @@ Since it can take quite some time to run a number of simulations sufficient for
 model selection and parameter estimation we will use a suite of pre-baked
 simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch
 them with `wget` from the workshop site:
-```
+
+```default
 ## Make sure you are in your home directory
 cd ~
 wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz
@@ -166,6 +167,7 @@ MDSplot(rf, train$assembly_model)
 
 ![MDSplot depicting the clustering of simulations by assembly model](images/MESS-Classification-MDSplot.png)
 
+### Perform classification of empirical data and view results
 ```R
 p_emp <- predict(rf, test[1, ], type="prob")
 p_emp
@@ -175,7 +177,6 @@ p_emp
 1       0.016      0.04   0.944
 ```
 
-#### Perform classification of empirical data and view results
 
 ### ML parameter estimation
 Now that we have identified the neutral model as the most probable, we can

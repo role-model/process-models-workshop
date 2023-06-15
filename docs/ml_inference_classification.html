@@ -221,7 +221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#lecture-how-does-ml-work-with-mess-simulations" id="toc-lecture-how-does-ml-work-with-mess-simulations" class="nav-link" data-scroll-target="#lecture-how-does-ml-work-with-mess-simulations"><span class="header-section-number">10.3.1</span> Lecture: How does ML work with MESS simulations?</a></li>
   <li><a href="#ml-assembly-model-classification" id="toc-ml-assembly-model-classification" class="nav-link" data-scroll-target="#ml-assembly-model-classification"><span class="header-section-number">10.3.2</span> ML assembly model classification</a></li>
-  <li><a href="#ml-parameter-estimation" id="toc-ml-parameter-estimation" class="nav-link" data-scroll-target="#ml-parameter-estimation"><span class="header-section-number">10.3.3</span> ML parameter estimation</a></li>
+  <li><a href="#perform-classification-of-empirical-data-and-view-results" id="toc-perform-classification-of-empirical-data-and-view-results" class="nav-link" data-scroll-target="#perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3</span> Perform classification of empirical data and view results</a></li>
+  <li><a href="#ml-parameter-estimation" id="toc-ml-parameter-estimation" class="nav-link" data-scroll-target="#ml-parameter-estimation"><span class="header-section-number">10.3.4</span> ML parameter estimation</a></li>
   </ul></li>
   <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">10.4</span> Key points</a></li>
   </ul>
@@ -278,12 +279,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="download-the-pre-baked-simulations" class="level4" data-number="10.3.1.1">
 <h4 data-number="10.3.1.1" class="anchored" data-anchor-id="download-the-pre-baked-simulations"><span class="header-section-number">10.3.1.1</span> Download the pre-baked simulations</h4>
 <p>Since it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with <code>wget</code> from the workshop site:</p>
-<pre><code>## Make sure you are in your home directory
-cd ~
-wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz
-gunzip MESS-SIMOUT.csv.gz
-wc -l MESS-SIMOUT.txt
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>## Make sure you are in your home directory</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cd ~</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gunzip MESS-SIMOUT.csv.gz</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>wc -l MESS-SIMOUT.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>MESS-SIMOUT.csv.gz   100%[====================&gt;]  35.24M  1.12MB/s    in 32s
 2023-06-15 14:31:54 (1.12 MB/s) - ‘MESS-SIMOUT.csv.gz’ saved [36954693/36954693]
 3000 SIMOUT.txt</code></pre>
@@ -396,26 +396,26 @@ Note
 <figcaption class="figure-caption">MDSplot depicting the clustering of simulations by assembly model</figcaption>
 </figure>
 </div>
+</section>
+</section>
+<section id="perform-classification-of-empirical-data-and-view-results" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3</span> Perform classification of empirical data and view results</h3>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p_emp <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">1</span>, ], <span class="at">type=</span><span class="st">"prob"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p_emp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  competition filtering neutral</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>1       0.016      0.04   0.944</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="perform-classification-of-empirical-data-and-view-results" class="level4" data-number="10.3.2.3">
-<h4 data-number="10.3.2.3" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.2.3</span> Perform classification of empirical data and view results</h4>
-</section>
-</section>
-<section id="ml-parameter-estimation" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="ml-parameter-estimation"><span class="header-section-number">10.3.3</span> ML parameter estimation</h3>
+<section id="ml-parameter-estimation" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="ml-parameter-estimation"><span class="header-section-number">10.3.4</span> ML parameter estimation</h3>
 <p>Now that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”</p>
-<section id="train-the-ml-regressor" class="level4" data-number="10.3.3.1">
-<h4 data-number="10.3.3.1" class="anchored" data-anchor-id="train-the-ml-regressor"><span class="header-section-number">10.3.3.1</span> Train the ML regressor</h4>
+<section id="train-the-ml-regressor" class="level4" data-number="10.3.4.1">
+<h4 data-number="10.3.4.1" class="anchored" data-anchor-id="train-the-ml-regressor"><span class="header-section-number">10.3.4.1</span> Train the ML regressor</h4>
 </section>
-<section id="plot-cross-validation-results" class="level4" data-number="10.3.3.2">
-<h4 data-number="10.3.3.2" class="anchored" data-anchor-id="plot-cross-validation-results"><span class="header-section-number">10.3.3.2</span> Plot cross-validation results</h4>
+<section id="plot-cross-validation-results" class="level4" data-number="10.3.4.2">
+<h4 data-number="10.3.4.2" class="anchored" data-anchor-id="plot-cross-validation-results"><span class="header-section-number">10.3.4.2</span> Plot cross-validation results</h4>
 </section>
-<section id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results" class="level4" data-number="10.3.3.3">
-<h4 data-number="10.3.3.3" class="anchored" data-anchor-id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3.3</span> Perform regression to predict dispersal_prob of empirical data and view results</h4>
+<section id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results" class="level4" data-number="10.3.4.3">
+<h4 data-number="10.3.4.3" class="anchored" data-anchor-id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results"><span class="header-section-number">10.3.4.3</span> Perform regression to predict dispersal_prob of empirical data and view results</h4>
 </section>
 </section>
 </section>
