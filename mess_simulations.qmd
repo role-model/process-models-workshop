@@ -299,12 +299,12 @@ plot(sims$colrate, sims$local_S)
 plot(sims$colrate, sims$abund_h1)
 plot(sims$colrate, sims$pi_h1)
 ```
-:::
-
 
 ![Local species richness with `ntaxa=100`](images/MESS-Simulations-API-Jm100-local_S.png)
 ![First Hill number of local abundance with `ntaxa=100`](images/MESS-Simulations-API-Jm100-abund_h1.png)
 ![First Hill number of pi with `ntaxa=100`](images/MESS-Simulations-API-Jm100-pi_h1.png)
+
+:::
 
 ### Group brainstorming of params to tweak
 
