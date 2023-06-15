@@ -222,8 +222,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#import-mess-in-r-and-run-simulations-in-api-mode" id="toc-import-mess-in-r-and-run-simulations-in-api-mode" class="nav-link" data-scroll-target="#import-mess-in-r-and-run-simulations-in-api-mode"><span class="header-section-number">9.3.1</span> Import MESS in R and run simulations in API mode</a></li>
   <li><a href="#load-inspect-and-plot-simulation-results" id="toc-load-inspect-and-plot-simulation-results" class="nav-link" data-scroll-target="#load-inspect-and-plot-simulation-results"><span class="header-section-number">9.3.2</span> Load, inspect, and plot simulation results</a></li>
   <li><a href="#group-brainstorming-of-params-to-tweak" id="toc-group-brainstorming-of-params-to-tweak" class="nav-link" data-scroll-target="#group-brainstorming-of-params-to-tweak"><span class="header-section-number">9.3.3</span> Group brainstorming of params to tweak</a></li>
-  <li><a href="#breakout-to-test-them" id="toc-breakout-to-test-them" class="nav-link" data-scroll-target="#breakout-to-test-them"><span class="header-section-number">9.3.4</span> Breakout to test them</a></li>
-  <li><a href="#come-together-to-debriefsynthesize" id="toc-come-together-to-debriefsynthesize" class="nav-link" data-scroll-target="#come-together-to-debriefsynthesize"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize</a></li>
+  <li><a href="#breakout-to-test-hypothesized-model-behavior-given-different-parameter-values" id="toc-breakout-to-test-hypothesized-model-behavior-given-different-parameter-values" class="nav-link" data-scroll-target="#breakout-to-test-hypothesized-model-behavior-given-different-parameter-values"><span class="header-section-number">9.3.4</span> Breakout to test hypothesized model behavior given different parameter values</a></li>
+  <li><a href="#come-together-to-debriefsynthesize-results" id="toc-come-together-to-debriefsynthesize-results" class="nav-link" data-scroll-target="#come-together-to-debriefsynthesize-results"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize results</a></li>
   </ul></li>
   <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">9.4</span> Key points</a></li>
   </ul>
@@ -275,8 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Import MESS in R and run simulations in API mode</li>
 <li>Load, inspect, and plot simulation results</li>
 <li>Group brainstorming of params to tweak</li>
-<li>Breakout to test them</li>
-<li>Regroup to debrief/synthesize</li>
+<li>Breakout to test hypothesized model behavior given different parameter values</li>
+<li>Regroup to debrief/synthesize results</li>
 </ul>
 <section id="import-mess-in-r-and-run-simulations-in-api-mode" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="import-mess-in-r-and-run-simulations-in-api-mode"><span class="header-section-number">9.3.1</span> Import MESS in R and run simulations in API mode</h3>
@@ -364,7 +364,7 @@ The reticulate library
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># results[[1]] - params and sumstats</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># results[[2]] - Raw data per simulation (abunds, pis, traits, etc)</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># results[[3]] - global phylogeny per simulation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lets focus for the moment on <code>results[[1]]</code> the data.frame of params and sumstats.</p>
+<p>Lets focus for the moment on <code>results[[1]]</code>, the data.frame of params and sumstats.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>results[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>   birth_rate meta_stop_criterion ntaxa time   process ClaDS abundance_mean abundance_sigma</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>1           1                taxa    20    4 abundance  TRUE          50000             0.1</span>
@@ -552,8 +552,8 @@ Group discussion of model parameters and their behaviors
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a># es ~ 1 = Noticeable non-neutrality</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a># es &gt;&gt; 1 = Strong non-neutrality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="breakout-to-test-them" class="level3" data-number="9.3.4">
-<h3 data-number="9.3.4" class="anchored" data-anchor-id="breakout-to-test-them"><span class="header-section-number">9.3.4</span> Breakout to test them</h3>
+<section id="breakout-to-test-hypothesized-model-behavior-given-different-parameter-values" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="breakout-to-test-hypothesized-model-behavior-given-different-parameter-values"><span class="header-section-number">9.3.4</span> Breakout to test hypothesized model behavior given different parameter values</h3>
 <p>Take some time (perhaps in small groups) to study the behavior of a few model parameters. It would probably benefit to make use of the power of API mode to create new <code>Core</code> objects with sensible names that indicate the parameters you wish to manipulate. This will allow you to retain and compare simulation results across runs with different parameter combinations. For example:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Here we give meaningful variable names to each Core object, so we can keep</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## track of them</span></span>
@@ -589,8 +589,8 @@ An easy way to get the raw data for one simulation
 </div>
 </div>
 </section>
-<section id="come-together-to-debriefsynthesize" class="level3" data-number="9.3.5">
-<h3 data-number="9.3.5" class="anchored" data-anchor-id="come-together-to-debriefsynthesize"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize</h3>
+<section id="come-together-to-debriefsynthesize-results" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="come-together-to-debriefsynthesize-results"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize results</h3>
 <p>Ok! Let’s wrap up this lesson and discuss some of the results from the simulation experiments. What did you discover?</p>
 </section>
 </section>
@@ -599,7 +599,7 @@ An easy way to get the raw data for one simulation
 <ul>
 <li>The <code>iBioGen</code> package can run MESS models in either CLI or API mode, which provides a rich and flexible programatic method for specifying and generating simulations.</li>
 <li>Changing MESS parameters changes the predicted multi-dimensional biodiversity pattterns.</li>
-<li>Some MESS model parameters have predictable effects on patterns of data in the <code>LocalCommunity</code> and some have more diffues or multi-dimensional effects.</li>
+<li>Some MESS model parameters have predictable effects on patterns of data in the <code>LocalCommunity</code> and some have more diffuse or multi-dimensional effects.</li>
 </ul>
 
 

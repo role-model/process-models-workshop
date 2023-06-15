@@ -22,8 +22,8 @@ After this lesson, learners should be able to...
 * Import MESS in R and run simulations in API mode
 * Load, inspect, and plot simulation results
 * Group brainstorming of params to tweak
-* Breakout to test them
-* Regroup to debrief/synthesize
+* Breakout to test hypothesized model behavior given different parameter values
+* Regroup to debrief/synthesize results
 
 ### Import MESS in R and run simulations in API mode
 The MESS CLI is a simple and powerful way to run simulations, but the `iBioGen`
@@ -150,7 +150,8 @@ results = core$load_sims()
 # results[[3]] - global phylogeny per simulation
 ```
 
-Lets focus for the moment on `results[[1]]` the data.frame of params and sumstats.
+Lets focus for the moment on `results[[1]]`, the data.frame of params
+and sumstats.
 
 ```R
 results[[1]]
@@ -370,7 +371,7 @@ effects:
 # es >> 1 = Strong non-neutrality
 ```
 
-### Breakout to test them
+### Breakout to test hypothesized model behavior given different parameter values
 
 Take some time (perhaps in small groups) to study the behavior of a few model
 parameters. It would probably benefit to make use of the power of API mode to
@@ -418,7 +419,7 @@ m12-1      99           1        0 -0.1183388  99 0.000000000          0
 ```
 :::
 
-### Come together to debrief/synthesize
+### Come together to debrief/synthesize results
 
 Ok! Let's wrap up this lesson and discuss some of the results from the simulation
 experiments. What did you discover?
@@ -431,4 +432,4 @@ simulations.
 * Changing MESS parameters changes the predicted multi-dimensional biodiversity
 pattterns.
 * Some MESS model parameters have predictable effects on patterns of data in
-the `LocalCommunity` and some have more diffues or multi-dimensional effects.
+the `LocalCommunity` and some have more diffuse or multi-dimensional effects.
