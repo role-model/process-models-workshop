@@ -454,7 +454,11 @@ estimate parameters of the model with real data.
 
 ### Hands-on experimentation: Exploring MESS model behavior with the CLI
 
-#TODO (set a challenge and report back)
+Spend the remaining time looking at the params file, and practicing changing
+parameters and running simulations. See if you can set parameter values that
+get the model to break! This can be an informative way to understand how models
+work! This is an open work session, so if you discover an interesting behavior
+please discuss with the group.
 
 ## Key points
 
