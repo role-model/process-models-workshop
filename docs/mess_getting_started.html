@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Describe the basic workflow of running a MESS simulation.</li>
 <li>Create and edit a MESS params file, including setting ranges on parameters.</li>
-<li>Identify the 4 most important MESS parameters</li>
+<li>Understand the meaning of two key MESS model parameters: <code>J</code> and <code>colrate</code>.</li>
 <li>Use the command line to run a basic MESS model.</li>
 <li>Describe and interpret the basic outputs of a MESS model.</li>
 </ol>
@@ -583,6 +583,19 @@ Note
 <figcaption class="figure-caption">Imported data in the source pane</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The dataset in R won’t automatically reload, so if you run more simulations and want to see the results here you’ll need to repeat the procedure of importing the <code>simdata-SIMOUT.csv</code> we just outlined here.</p>
+</div>
+</div>
 <p>It seems kind of strange that all the parameters for all the simulations are identical. Wouldn’t it seem useful to be able to <strong>vary</strong> the parameters in some way to see how the model behaves under different parameter values? Yes, yes it would….</p>
 </section>
 <section id="setting-prior-ranges-on-parameters" class="level3" data-number="8.3.7">
@@ -634,7 +647,7 @@ Note
 <ul>
 <li>MESS is a conceptual model for unifying biodiversity processes and predicting multidimensional biodiversity patterns. iBioGen and roleR are specific <em>implementations</em> of this conceptual model.</li>
 <li>The <code>iBioGen</code> CLI offers a simple and efficient way to simulate MESS models.</li>
-<li>In <code>iBioGen</code> MESS model parameters are contained in a “params” file, and simulation results are written to a “SIMOUT” file.</li>
+<li>In <code>iBioGen</code>, MESS model parameters are contained in a “params” file, and simulation results are written to a “SIMOUT” file.</li>
 <li>Placing prior ranges on parameters allows to explore model behavior while varying numerous parameters independently.</li>
 </ul>
 
