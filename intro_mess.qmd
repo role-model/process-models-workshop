@@ -23,6 +23,18 @@ explore them.
 
 ![Neutral Assembly Process](images/Forward_Time_Neutral_Assembly.png)
 
+### Overview of MESS simulation and analysis workflow
+
+The basic steps of MESS model simulation-based machine learning inference
+are as follows:
+
+* Step 1 - Set model parameters based on prior knowledge of empirical system
+* Step 2 - Run many, many simulations
+* Step 3 - Use ML to infer community assembly process (neutral/competition/filtering)
+* Setp 4 - Use ML to estimate key community assembly parameters
+* Step 5 - ???
+* Step 6 - Profit!!
+
 ## Key points
 
 * MESS is a process-based model in the direct lineage of Island Biogeograpy
