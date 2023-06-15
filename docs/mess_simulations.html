@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-mess-in-r-and-run-simulations-in-api-mode" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="import-mess-in-r-and-run-simulations-in-api-mode"><span class="header-section-number">9.3.1</span> Import MESS in R and run simulations in API mode</h3>
 <p>The MESS CLI is a simple and powerful way to run simulations, but the <code>iBioGen</code> package also provies an API mode (in both R and python) which lets you dive under the hood of the CLI mode a bit. You have all the power of the CLI mode, yet more flexibility. In the source pane of RStudio open a new RScript and import the <code>iBioGen</code> package.</p>
-<p>::: {.callout-note} ## `library(reticulate)</p>
+<p>::: {.callout-note} ## The reticulate library</p>
 <p>A little bookkeeping is first required in loading the <code>reticulate</code> library, which is a binding layer between R and python, allowing seemless access to python modules from within R code.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -329,9 +329,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a parameter to a prior range to be sampled uniformly</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"colrate"</span>, <span class="st">"0.01-0.05"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Finally, we can generate simulations by calling the <code>simulate()</code> method and specifying the number of simulations to perform:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    Generating 10.0 simulation(s).</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  [####################] 100%  Finished 10 simulations in   0:00:03| </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lets do 100 simulations so there's a _chance_ we'll see some pattern in</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## in the data</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    Generating 100.0 simulation(s).</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  [####################] 100%  Finished 100 simulations in   0:00:03| </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you are still in the <code>default_iBioGen</code> directory in your files pane, then you will see the new <code>api-simdata-SIMOUT.csv</code> file pop up there:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -419,7 +421,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>8       15 4.710206 2.813355 2.309257 8.199976 6.782519 6.118322  9.273341 6.583071 5.696876</span>
 <span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>9       18 7.161965 5.070151 4.344310 5.869568 4.004179 3.236785 10.296570 8.314281 6.957238</span>
 <span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>10      17 6.138167 4.205529 3.658744 8.177872 6.203475 5.101742 11.851781 7.690572 5.713765</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Most of these things should look familiar (if not understandable), but there are several new columns which are very important.</p>
+<p>Most of these things should look familiar (if not understandable), but there are several new columns which are very important. You might also notice at first that the <code>colrate</code> parameters per simulation do indeed vary, while all others are fixed, as we specified a prior range on this paramter.</p>
+<p>The <strong>new</strong> thing to notice is that all the <strong>data</strong> (previously encapsulate in a human unreadable format) has been transformed into a much more user friendly summarization including <code>local_S</code> (indicating local species richness), and 9 columns of the form <code>*_h*</code>, which represent the first 3 Hill numbers on abundance (<code>abund</code>), nucleotide diversity (<code>pi</code>), and trait value distributions (<code>trait</code>).</p>
+<p>Since we manipulated the <code>colrate</code> parameter in these simulations we can visualize the relationship between <code>colrate</code> and a few of the resulting summary statistics, like <code>local_S</code>, <code>abund_h1</code>, and <code>pi_h1</code> using the built-in R plotting function <code>plot()</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lets create a new variable for the results we're interested in</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simes <span class="ot">&lt;-</span> results[[<span class="dv">1</span>]]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Now plot local_S, abund_h1, and pi_h1 as a function of colrate</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>abund_h1)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>pi_h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/MESS-Simulations-API-Jm20-localS.png" class="img-fluid" alt="Local species richness with ntaxa=20"> <img src="images/MESS-Simulations-API-Jm20-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=20"> <img src="images/MESS-Simulations-API-Jm20-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=20"></p>
+<p>Here we can see a <em>weak</em> positive trend in all three summary statistics, with increasing <code>colrate</code> correlating with an increase in each of these data axes.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Discussion topic: Why would <code>colrate</code> impact these summary statistics in this way?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think for a moment about <strong>why</strong> increasing the colonization rate would increase local species richness, and the first Hill number of abundance and nucleotide diversity (on average). Let’s take a moment to reflect on these results.</p>
+</div>
+</div>
+<p>What would happen if we increase the size of the metacommunity species pool (<code>ntaxa</code>) and also ran many more simulations?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ntaxa"</span>, <span class="dv">100</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">500</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">=</span> core<span class="sc">$</span><span class="fu">load_sims</span>()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> results[[<span class="dv">1</span>]]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>abund_h1)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>pi_h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/MESS-Simulations-API-Jm100-localS.png" class="img-fluid" alt="Local species richness with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=100"></p>
 </section>
 <section id="group-brainstorming-of-params-to-tweak" class="level3" data-number="9.3.3">
 <h3 data-number="9.3.3" class="anchored" data-anchor-id="group-brainstorming-of-params-to-tweak"><span class="header-section-number">9.3.3</span> Group brainstorming of params to tweak</h3>

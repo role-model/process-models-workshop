@@ -33,7 +33,7 @@ yet more flexibility. In the source pane of RStudio open a new RScript and
 import the `iBioGen` package.
 
 ::: {.callout-note}
-## `library(reticulate)
+## The reticulate library
 
 A little bookkeeping is first required in loading the `reticulate` library,
 which is a binding layer between R and python, allowing seemless access to
@@ -112,11 +112,13 @@ Finally, we can generate simulations by calling the `simulate()` method and
 specifying the number of simulations to perform:
 
 ```R
-core$simulate(nsims=10)
+## Lets do 100 simulations so there's a _chance_ we'll see some pattern in
+## in the data
+core$simulate(nsims=100)
 ```
 ```default
-    Generating 10.0 simulation(s).
-  [####################] 100%  Finished 10 simulations in   0:00:03| 
+    Generating 100.0 simulation(s).
+  [####################] 100%  Finished 100 simulations in   0:00:03| 
 ```
 
 If you are still in the `default_iBioGen` directory in your files pane, then
@@ -222,8 +224,64 @@ results[[1]]
 ```
 
 Most of these things should look familiar (if not understandable), but there are
-several new columns which are very important.
+several new columns which are very important. You might also notice at first
+that the `colrate` parameters per simulation do indeed vary, while all others are
+fixed, as we specified a prior range on this paramter.
 
+The **new** thing to notice is that all the **data** (previously encapsulate in
+a human unreadable format) has been transformed into a much more user friendly
+summarization including `local_S` (indicating local species richness), and 9
+columns of the form `*_h*`, which represent the first 3 Hill numbers on abundance
+(`abund`), nucleotide diversity (`pi`), and trait value distributions (`trait`).
+
+Since we manipulated the `colrate` parameter in these simulations we can
+visualize the relationship between `colrate` and a few of the resulting summary
+statistics, like `local_S`, `abund_h1`, and `pi_h1` using the built-in R plotting
+function `plot()`.
+
+```R
+## Lets create a new variable for the results we're interested in
+simes <- results[[1]]
+
+## Now plot local_S, abund_h1, and pi_h1 as a function of colrate
+plot(sims$colrate, sims$local_S)
+plot(sims$colrate, sims$abund_h1)
+plot(sims$colrate, sims$pi_h1)
+```
+
+![Local species richness with `ntaxa=20`](images/MESS-Simulations-API-Jm20-localS.png)
+![First Hill number of local abundance with `ntaxa=20`](images/MESS-Simulations-API-Jm20-abund_h1.png)
+![First Hill number of pi with `ntaxa=20`](images/MESS-Simulations-API-Jm20-pi_h1.png)
+
+Here we can see a _weak_ positive trend in all three summary statistics, with
+increasing `colrate` correlating with an increase in each of these data axes.
+
+::: {.callout-tip}
+## Discussion topic: Why would `colrate` impact these summary statistics in this way?
+
+Think for a moment about **why** increasing the colonization rate would increase
+local species richness, and the first Hill number of abundance and nucleotide
+diversity (on average). Let's take a moment to reflect on these results.
+:::
+
+What would happen if we increase the size of the metacommunity species pool
+(`ntaxa`) and also ran many more simulations?
+
+```R
+core$set_param("ntaxa", 100)
+core$simulate(nsims=500)
+
+results = core$load_sims()
+sims <- results[[1]]
+
+plot(sims$colrate, sims$local_S)
+plot(sims$colrate, sims$abund_h1)
+plot(sims$colrate, sims$pi_h1)
+```
+
+![Local species richness with `ntaxa=100`](images/MESS-Simulations-API-Jm100-localS.png)
+![First Hill number of local abundance with `ntaxa=100`](images/MESS-Simulations-API-Jm100-abund_h1.png)
+![First Hill number of pi with `ntaxa=100`](images/MESS-Simulations-API-Jm100-pi_h1.png)
 
 ### Group brainstorming of params to tweak
 
