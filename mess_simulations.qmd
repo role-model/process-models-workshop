@@ -47,6 +47,33 @@ library(reticulate)
 MESS <- import("iBioGen", as="MESS")
 ```
 
+::: {.callout-important collapse="true"}
+## Resolving "non-system installation of Python" warning.
+
+Infrequently, if you try to import the `iBioGen` module you will see the following
+warning message:
+
+```R
+> MESS <- import("iBioGen", as="MESS")
+No non-system installation of Python could be found.
+Would you like to download and install Miniconda?
+Miniconda is an open source environment management system for Python.
+See https://docs.conda.io/en/latest/miniconda.html for more details.
+
+Would you like to install Miniconda? [Y/n]: n
+Installation aborted.
+```
+The resolution is to choose 'n', then go to `Session->Restart R`, and then try
+again, remembering to reload reticulate:
+
+```r
+> library(reticulate)
+> MESS <- import("iBioGen", as="MESS")
+>
+```
+
+:::
+
 The first step in API mode is to create a `Core` object. The `Core` object is
 the fundamental unit of the simulation, encompassing a standard Island
 Biogeography configuration with a very large `Metacommunity` and a much smaller
