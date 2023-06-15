@@ -267,7 +267,7 @@ diversity (on average). Let's take a moment to reflect on these results.
 :::
 
 It seems that local species richness is saturating, with uniformly high `S` which
-increasingly approaching 20 as `colrate` increases. What this means is that as
+increasingly approaches 20 as `colrate` increases. What this means is that as
 `colrate` increases, the local community increasingly contains a total sample
 of the metacommunity, and there are no more unique lineages to colonize. Think
 back to what we learned yesterday about the neutral theory parameters. What
