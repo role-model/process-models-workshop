@@ -31,19 +31,20 @@ model selection and parameter estimation we will use a suite of pre-baked
 simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch
 them with `wget` from the workshop site:
 ```
-\# FIXME
-# Make sure you're in the role-workshop directory
-cd ~/role-workshop
-wget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt
-wc -l SIMOUT.txt
+## Make sure you are in your home directory
+cd ~
+wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz
+gunzip MESS-SIMOUT.csv.gz
+wc -l MESS-SIMOUT.txt
+
 ```
-    100%[======================================>] 14,234,338  50.0M/s   in 0.3s
-    2019-08-11 01:25:27 (50.0 MB/s) - "SIMOUT.txt.1" saved [14234338/14234338]
-    24440 SIMOUT.txt
+    MESS-SIMOUT.csv.gz   100%[====================>]  35.24M  1.12MB/s    in 32s
+    2023-06-15 14:31:54 (1.12 MB/s) - ‘MESS-SIMOUT.csv.gz’ saved [36954693/36954693]
+    3000 SIMOUT.txt
 
 :::{.callout-note}
 The `wc` command counts the number of lines if you pass it the `-l` flag.
-You can see this series of ~25k simulations is about 14MB.
+You can see this series of 3000 simulations is about 35MB gzipped.
 :::
 
 ### ML assembly model classification
@@ -68,7 +69,7 @@ library(caret)
 ```
 
 ```R
-simdata = MESS$load_local_sims("toysims-SIMOUT.csv")[[1]]
+simdata = MESS$load_local_sims("MESS-SIMOUT.csv")[[1]]
 
 simdata$assembly_model <- as.factor(simdata$assembly_model)
 table(simdata$assembly_model)
@@ -79,34 +80,101 @@ competition     filtering   neutral
 ```
 
 #### Train the ML classifier
+
+```R
 ## 70/30 test/train split
 tmp <- sample(2, nrow(simdata), replace = TRUE, prob = c(0.7, 0.3))
 train <- simdata[tmp==1,]
 test <- simdata[tmp==2,]
+```
 
+```R
 ## Experiment with results for different axes of data!
 rf <- randomForest(assembly_model ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
 print(rf)
+```
+```default
+Call:
+ randomForest(formula = assembly_model ~ local_S + pi_h1 + abund_h1 +      trait_h1, data = train, proximity = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
 
-##
-p1 <- predict(rf, train)
-## confusionMatrix is in Caret, do we need it?
-confusionMatrix(p1, train$assembly_model)
-
-p2 <- predict(rf, test)
-confusionMatrix(p2, test$assembly_model)
-
-varImpPlot(rf,
-           sort = T,
-           n.var = 10,
-           main = "Variable Importance")
-
-MDSplot(rf, train$assembly_model)
-
-p_emp <- predict(rf, test[1, ], type="prob")
-p_emp
+        OOB estimate of  error rate: 19.41%
+Confusion matrix:
+            competition filtering neutral class.error
+competition         538        33     124   0.2258993
+filtering            24       571      89   0.1652047
+neutral              61        71     560   0.1907514
+```
 
 #### Plot confusion matrix
+```R
+test_predictions <- predict(rf, test)
+cm <- confusionMatrix(test_predictions, test$assembly_model)
+```
+```default
+Confusion Matrix and Statistics
+
+             Reference
+Prediction    competition filtering neutral
+  competition         233        13      32
+  filtering            23       270      28
+  neutral              49        33     247
+
+Overall Statistics
+                                         
+               Accuracy : 0.8082         
+                 95% CI : (0.7814, 0.833)
+    No Information Rate : 0.3405         
+    P-Value [Acc > NIR] : < 2e-16        
+                                         
+                  Kappa : 0.7122         
+                                         
+ Mcnemar's Test P-Value : 0.08011        
+
+Statistics by Class:
+
+                     Class: competition Class: filtering Class: neutral
+Sensitivity                      0.7639           0.8544         0.8046
+Specificity                      0.9278           0.9167         0.8680
+Pos Pred Value                   0.8381           0.8411         0.7508
+Neg Pred Value                   0.8892           0.9242         0.8998
+Prevalence                       0.3287           0.3405         0.3308
+Detection Rate                   0.2511           0.2909         0.2662
+Detection Prevalence             0.2996           0.3459         0.3545
+Balanced Accuracy                0.8459           0.8855         0.8363
+```
+
+```R
+heatmap(cm$table, Rowv=NA, Colv=NA, margins=c(12, 12), xlab="Prediction", ylab="Reference")
+```
+![Visualization of the confusion matrix](images/MESS-Classification-ConfusionMatrix.png)
+
+```R
+varImpPlot(rf,
+           sort = T,
+           n.var = 4,
+           main = "Variable Importance")
+```
+
+![Variable importance in RF classification](images/MESS-Classification-VariableImportance.png)
+
+```R
+MDSplot(rf, train$assembly_model)
+```
+
+![MDSplot depicting the clustering of simulations by assembly model](images/MESS-Classification-MDSplot.png)
+
+```R
+p_emp <- predict(rf, test[1, ], type="prob")
+p_emp
+```
+```default
+  competition filtering neutral
+1       0.016      0.04   0.944
+```
+
 #### Perform classification of empirical data and view results
 
 ### ML parameter estimation
