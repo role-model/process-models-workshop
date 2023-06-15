@@ -219,16 +219,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lesson-objectives" id="toc-lesson-objectives" class="nav-link" data-scroll-target="#lesson-objectives"><span class="header-section-number">10.2</span> Lesson objectives</a></li>
   <li><a href="#planned-exercises" id="toc-planned-exercises" class="nav-link" data-scroll-target="#planned-exercises"><span class="header-section-number">10.3</span> Planned exercises</a>
   <ul class="collapse">
-  <li><a href="#create-a-new-role-experiment" id="toc-create-a-new-role-experiment" class="nav-link" data-scroll-target="#create-a-new-role-experiment"><span class="header-section-number">10.3.1</span> Create a new RoLE Experiment</a></li>
+  <li><a href="#lecture-how-does-ml-work-with-mess-simulations" id="toc-lecture-how-does-ml-work-with-mess-simulations" class="nav-link" data-scroll-target="#lecture-how-does-ml-work-with-mess-simulations"><span class="header-section-number">10.3.1</span> Lecture: How does ML work with MESS simulations?</a></li>
   <li><a href="#ml-assembly-model-classification" id="toc-ml-assembly-model-classification" class="nav-link" data-scroll-target="#ml-assembly-model-classification"><span class="header-section-number">10.3.2</span> ML assembly model classification</a></li>
-  <li><a href="#ml-parameter-estimation" id="toc-ml-parameter-estimation" class="nav-link" data-scroll-target="#ml-parameter-estimation"><span class="header-section-number">10.3.3</span> ML parameter estimation</a></li>
   </ul></li>
-  <li><a href="#supporting-materials" id="toc-supporting-materials" class="nav-link" data-scroll-target="#supporting-materials"><span class="header-section-number">10.4</span> Supporting materials</a>
+  <li><a href="#testtrain-split" id="toc-testtrain-split" class="nav-link" data-scroll-target="#testtrain-split"><span class="header-section-number">10.4</span> 70/30 test/train split</a></li>
+  <li><a href="#experiment-with-results-for-different-axes-of-data" id="toc-experiment-with-results-for-different-axes-of-data" class="nav-link" data-scroll-target="#experiment-with-results-for-different-axes-of-data"><span class="header-section-number">10.5</span> Experiment with results for different axes of data!</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">10.6</span> </a>
   <ul class="collapse">
-  <li><a href="#extant" id="toc-extant" class="nav-link" data-scroll-target="#extant"><span class="header-section-number">10.4.1</span> Extant</a></li>
-  <li><a href="#to-create" id="toc-to-create" class="nav-link" data-scroll-target="#to-create"><span class="header-section-number">10.4.2</span> To create</a></li>
+  <li><a href="#ml-parameter-estimation" id="toc-ml-parameter-estimation" class="nav-link" data-scroll-target="#ml-parameter-estimation"><span class="header-section-number">10.6.1</span> ML parameter estimation</a></li>
   </ul></li>
-  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">10.5</span> Key points</a></li>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">10.7</span> Key points</a></li>
   </ul>
 </nav>
     </div>
@@ -269,34 +269,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="planned-exercises" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="planned-exercises"><span class="header-section-number">10.3</span> Planned exercises</h2>
-<ol start="2" type="1">
-<li>Lecture: <a href="https://docs.google.com/presentation/d/12fVO8Jzxvdm5nxcvITtpn3re8VJm4j1J96Y3zmBh6ZY/edit?usp=sharing">How does machine learning work with MESS simulations?</a></li>
-</ol>
 <ul>
-<li>Create and parameterize a new MESS model</li>
+<li>Lecture: How does ML work with MESS simulations?</li>
 <li>Run MESS model simulations</li>
 <li>ML assembly model classification</li>
 <li>ML parameter estimation</li>
 <li>Posterior predictive simulations (if time)</li>
 <li>Free time to experiment with other example datasets</li>
 </ul>
-<section id="create-a-new-role-experiment" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="create-a-new-role-experiment"><span class="header-section-number">10.3.1</span> Create a new RoLE Experiment</h3>
-<section id="create-a-new-roleparams-modifying-a-few-default-values" class="level4" data-number="10.3.1.1">
-<h4 data-number="10.3.1.1" class="anchored" data-anchor-id="create-a-new-roleparams-modifying-a-few-default-values"><span class="header-section-number">10.3.1.1</span> Create a new roleParams(), modifying a few default values</h4>
-<p>These are all the parameters of the model. The defaults are chosen to reflect a typical oceanic island arthropod community. Don’t worry at this point about all the parameters, lets focus for now on the degree of neutrality (<code>neut_delta</code>), the size of the local community (<code>individuals_local</code>), and the rate of migration from the metacommunity to the local community (<code>dispersal_prob</code>). We will set parameter ranges for these, and each simulation will sample a random value from this range. In a new cell use the we’ll create some new <code>roleParams</code> objects to reflect neutral, competition, and environmental filtering assembly models.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>p_neutral <span class="ot">&lt;-</span> <span class="fu">roleParams</span>()</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p_comp <span class="ot">&lt;-</span> <span class="fu">roleParams</span>()</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>p_filt <span class="ot">&lt;-</span> <span class="fu">roleParams</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="run-the-role-experiment-encapsulating-these-different-models" class="level4" data-number="10.3.1.2">
-<h4 data-number="10.3.1.2" class="anchored" data-anchor-id="run-the-role-experiment-encapsulating-these-different-models"><span class="header-section-number">10.3.1.2</span> Run the role experiment encapsulating these different models</h4>
-<p>Now we can run a bunch of simulations given our new parameterization using the <code>runRole()</code> method. runRole takes one argument (<code>nsims</code>) which indicates the number of independent community assembly realizations to perform.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>exp <span class="ot">&lt;-</span> <span class="fu">roleExperiment</span>(<span class="fu">list</span>(p_neutral, p_comp, p_filt))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>exp <span class="ot">&lt;-</span> <span class="fu">runRole</span>(exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="download-the-pre-baked-simulations" class="level4" data-number="10.3.1.3">
-<h4 data-number="10.3.1.3" class="anchored" data-anchor-id="download-the-pre-baked-simulations"><span class="header-section-number">10.3.1.3</span> Download the pre-baked simulations</h4>
+<section id="lecture-how-does-ml-work-with-mess-simulations" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="lecture-how-does-ml-work-with-mess-simulations"><span class="header-section-number">10.3.1</span> Lecture: How does ML work with MESS simulations?</h3>
+<p>Lecture: <a href="https://docs.google.com/presentation/d/12fVO8Jzxvdm5nxcvITtpn3re8VJm4j1J96Y3zmBh6ZY/edit?usp=sharing">How does machine learning work with MESS simulations?</a></p>
+<section id="download-the-pre-baked-simulations" class="level4" data-number="10.3.1.1">
+<h4 data-number="10.3.1.1" class="anchored" data-anchor-id="download-the-pre-baked-simulations"><span class="header-section-number">10.3.1.1</span> Download the pre-baked simulations</h4>
 <p>Since it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch them with <code>wget</code> from the workshop site:</p>
 <pre><code>\# FIXME
 # Make sure you're in the role-workshop directory
@@ -325,47 +310,63 @@ Note
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="ml-assembly-model-classification"><span class="header-section-number">10.3.2</span> ML assembly model classification</h3>
 <p>The first step is now to assess the model of community assembly that best fits the data. The three models are <code>neutral</code>, in which all individuals are ecologically equivalent; <code>competition</code>, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and <code>filtering</code>, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.</p>
 <p>Basically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"randomForest"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="at">pkgs =</span> <span class="st">"caret"</span>, <span class="at">dependencies =</span> <span class="fu">c</span>(<span class="st">"Depends"</span>, <span class="st">"Imports"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">load_local_sims</span>(<span class="st">"toysims-SIMOUT.csv"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>simdata<span class="sc">$</span>assembly_model <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(simdata<span class="sc">$</span>assembly_model)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(simdata<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>competition     filtering   neutral</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       1000          1000       999</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="train-the-ml-classifier" class="level4" data-number="10.3.2.1">
 <h4 data-number="10.3.2.1" class="anchored" data-anchor-id="train-the-ml-classifier"><span class="header-section-number">10.3.2.1</span> Train the ML classifier</h4>
 </section>
-<section id="plot-confusion-matrix" class="level4" data-number="10.3.2.2">
-<h4 data-number="10.3.2.2" class="anchored" data-anchor-id="plot-confusion-matrix"><span class="header-section-number">10.3.2.2</span> Plot confusion matrix</h4>
-</section>
-<section id="perform-classification-of-empirical-data-and-view-results" class="level4" data-number="10.3.2.3">
-<h4 data-number="10.3.2.3" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.2.3</span> Perform classification of empirical data and view results</h4>
 </section>
 </section>
-<section id="ml-parameter-estimation" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="ml-parameter-estimation"><span class="header-section-number">10.3.3</span> ML parameter estimation</h3>
+<section id="testtrain-split" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="testtrain-split"><span class="header-section-number">10.4</span> 70/30 test/train split</h2>
+<p>tmp &lt;- sample(2, nrow(simdata), replace = TRUE, prob = c(0.7, 0.3)) train &lt;- simdata[tmp==1,] test &lt;- simdata[tmp==2,]</p>
+</section>
+<section id="experiment-with-results-for-different-axes-of-data" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="experiment-with-results-for-different-axes-of-data"><span class="header-section-number">10.5</span> Experiment with results for different axes of data!</h2>
+<p>rf &lt;- randomForest(assembly_model ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE) print(rf)</p>
+</section>
+<section id="section" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="section"><span class="header-section-number">10.6</span> </h2>
+<p>p1 &lt;- predict(rf, train) ## confusionMatrix is in Caret, do we need it? confusionMatrix(p1, train$assembly_model)</p>
+<p>p2 &lt;- predict(rf, test) confusionMatrix(p2, test$assembly_model)</p>
+<p>varImpPlot(rf, sort = T, n.var = 10, main = “Variable Importance”)</p>
+<p>MDSplot(rf, train$assembly_model)</p>
+<p>p_emp &lt;- predict(rf, test[1, ], type=“prob”) p_emp</p>
+<section id="plot-confusion-matrix" class="level4" data-number="10.6.0.1">
+<h4 data-number="10.6.0.1" class="anchored" data-anchor-id="plot-confusion-matrix"><span class="header-section-number">10.6.0.1</span> Plot confusion matrix</h4>
+</section>
+<section id="perform-classification-of-empirical-data-and-view-results" class="level4" data-number="10.6.0.2">
+<h4 data-number="10.6.0.2" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.6.0.2</span> Perform classification of empirical data and view results</h4>
+</section>
+<section id="ml-parameter-estimation" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="ml-parameter-estimation"><span class="header-section-number">10.6.1</span> ML parameter estimation</h3>
 <p>Now that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”</p>
-<section id="train-the-ml-regressor" class="level4" data-number="10.3.3.1">
-<h4 data-number="10.3.3.1" class="anchored" data-anchor-id="train-the-ml-regressor"><span class="header-section-number">10.3.3.1</span> Train the ML regressor</h4>
+<section id="train-the-ml-regressor" class="level4" data-number="10.6.1.1">
+<h4 data-number="10.6.1.1" class="anchored" data-anchor-id="train-the-ml-regressor"><span class="header-section-number">10.6.1.1</span> Train the ML regressor</h4>
 </section>
-<section id="plot-cross-validation-results" class="level4" data-number="10.3.3.2">
-<h4 data-number="10.3.3.2" class="anchored" data-anchor-id="plot-cross-validation-results"><span class="header-section-number">10.3.3.2</span> Plot cross-validation results</h4>
+<section id="plot-cross-validation-results" class="level4" data-number="10.6.1.2">
+<h4 data-number="10.6.1.2" class="anchored" data-anchor-id="plot-cross-validation-results"><span class="header-section-number">10.6.1.2</span> Plot cross-validation results</h4>
 </section>
-<section id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results" class="level4" data-number="10.3.3.3">
-<h4 data-number="10.3.3.3" class="anchored" data-anchor-id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3.3</span> Perform regression to predict dispersal_prob of empirical data and view results</h4>
+<section id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results" class="level4" data-number="10.6.1.3">
+<h4 data-number="10.6.1.3" class="anchored" data-anchor-id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results"><span class="header-section-number">10.6.1.3</span> Perform regression to predict dispersal_prob of empirical data and view results</h4>
 </section>
 </section>
 </section>
-<section id="supporting-materials" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="supporting-materials"><span class="header-section-number">10.4</span> Supporting materials</h2>
-<p><em>Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.</em></p>
-<p><em>For bonus points organize these according to whether they already exist or we need to create them!</em></p>
-<section id="extant" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="extant"><span class="header-section-number">10.4.1</span> Extant</h3>
-</section>
-<section id="to-create" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="to-create"><span class="header-section-number">10.4.2</span> To create</h3>
+<section id="key-points" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="key-points"><span class="header-section-number">10.7</span> Key points</h2>
 <ul>
-<li>Relevant chapters of user guide.</li>
+<li>Key</li>
+<li>point</li>
+<li>one</li>
 </ul>
-</section>
-</section>
-<section id="key-points" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="key-points"><span class="header-section-number">10.5</span> Key points</h2>
-<p><em>List 1-3 key takeaways from this section of the workshop.</em></p>
 
 
 </section>
