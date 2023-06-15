@@ -300,6 +300,9 @@ plot(sims$colrate, sims$abund_h1)
 plot(sims$colrate, sims$pi_h1)
 ```
 
+There we go! More species richness in the metacommunity allows for more species
+richness in the local community with increasing `colrate`.
+
 ![Local species richness with `ntaxa=100`](images/MESS-Simulations-API-Jm100-local_S.png)
 ![First Hill number of local abundance with `ntaxa=100`](images/MESS-Simulations-API-Jm100-abund_h1.png)
 ![First Hill number of pi with `ntaxa=100`](images/MESS-Simulations-API-Jm100-pi_h1.png)
@@ -308,12 +311,103 @@ plot(sims$colrate, sims$pi_h1)
 
 ### Group brainstorming of params to tweak
 
+So far we have seen just a few MESS model parameters in action: `J`, `colrate`,
+and `ntaxa`. Looking back at the params there are many other parameters that will
+change the behavior of the model. For the purpose of this workshop we will only
+consider parameters 14-27, which focus on the `LocalCommunity` processes.
+
+```default
+500                  ## [14] [sequence_length]: Length of the genomic region simulated, in base pairs
+1e-08                ## [15] [mutation_rate]: Mutation rate per base per generation
+10                   ## [16] [sample_size]: Number of samples to draw for calculating genetic diversity
+None                 ## [17] [abundance_scaling]: Scaling abundance to Ne (None, log, ln or a ratio)
+1000                 ## [18] [J]: Number of individuals in the local community
+0.005                ## [19] [colrate]: Rate of colonization into the local community (% / birth event)
+neutral              ## [20] [assembly_model]: Selecting neutral or non-neutral assembly processes
+2                    ## [21] [ecological_strength]: Impact of competition or filtering on fitness
+1                    ## [22] [generation_time]: Generation time of local community taxa (in years)
+time                 ## [23] [local_stop_criterion]: Stop local community on time or equilibrium
+100                  ## [24] [local_stop_time]: Local community simulation duration (in generations)
+100                  ## [25] [tau_max]: Duration of anagenetic speciation (in generations)
+10                   ## [26] [gene_flow_effect]: Damping effect of gene flow (in generations) on tau_max
+1000                 ## [27] [Ne_scaling]: Scaling individuals to demes in local community
+False                ## [28] [rm_duplicates]: Deduplicate seqs before calculating local community pi
+```
+
+::: {.callout-note}
+## Detailed Metacommunity parameters
+
+The other parameters of this model all relate to the metacommunity speciation
+process, and can be used for many cool things which change features of the
+metacommunity like phylogenetic branch lengths, tree imbalance, trait
+distributions, and metacommunity abundance distributions.
+:::
+
+
+::: {.callout-tip}
+## Group discussion of model parameters and their behaviors
+
+Let's take a moment to look at the focal parameters and the (brief) descrptions
+given in the params file. Think about what each parameter says that it does and
+which axis of biodiversity data this may affect. Will some parameters impact more
+than one axis of data? Discuss as a group, highlighting some specific parameters
+of interest.
+
+We will keep track of parameters and their hypothesized impacts on the whiteboard.
+:::
+
+Of particular interest are the `assembly_model` and `ecological_strength`
+parameters. `assembly_model` can take three values: `neutral` (default),
+`competition`, and `filtering`, which specify the neutral and non-neutral
+community assembly processes within MESS. `ecological_strength` determines the
+'strength' of the non-neutral assembly dynamics, and can take any value > 0.
+`ecological_strength` (sometimes `es` for short) values have the following
+effects:
+
+```default
+# es ~ 0 = More neutral
+# es ~ 1 = Noticeable non-neutrality
+# es >> 1 = Strong non-neutrality
+```
+
 ### Breakout to test them
+
+Take some time (perhaps in small groups) to study the behavior of a few model
+parameters. It would probably benefit to make use of the power of API mode to
+create new `Core` objects with sensible names that indicate the parameters you
+wish to manipulate. This will allow you to retain and compare simulation results
+across runs with different parameter combinations. For example:
+
+```R
+## Here we give meaningful variable names to each Core object, so we can keep
+## track of them
+str_comp = MESS$Core("strong_competition")
+str_comp$set_param("assembly_model", "competition")
+str_comp$set_param("ecological_strength", 10)
+str_comp$simulate(nsims=10)
+str_comp_results = str_comp$load_sims()
+## Now you can summarize or visualize the results for these simulations
+```
+
+Take the time remaining in this lesson to construct one or two models to
+examine some of the hypothesized model behaviors we discussed earlier. Be
+prepared to discuss the results of your simulation experiments with the group.
+
+If you have some interesting results, you can add a slide or two to the
+[MESS-SimulationExperiments-Results](https://docs.google.com/presentation/d/1W0DeSIA0aa46H5OxXo2uj2rz4k4dCD3wyiRVQeJgNJc/edit#slide=id.p)
+google slides presentation for us to discuss.
 
 ### Come together to debrief/synthesize
 
+Ok! Let's wrap up this lesson and discuss some of the results from the simulation
+experiments. What did you discover?
+
 ## Key points
 
-* wat
-* do
-* chee
+* The `iBioGen` package can run MESS models in either CLI or API mode, which
+provides a rich and flexible programatic method for specifying and generating
+simulations.
+* Changing MESS parameters changes the predicted multi-dimensional biodiversity
+pattterns.
+* Some MESS model parameters have predictable effects on patterns of data in
+the `LocalCommunity` and some have more diffues or multi-dimensional effects.

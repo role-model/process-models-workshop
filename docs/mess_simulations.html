@@ -496,6 +496,7 @@ Solution
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>abund_h1)</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>pi_h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There we go! More species richness in the metacommunity allows for more species richness in the local community with increasing <code>colrate</code>.</p>
 <p><img src="images/MESS-Simulations-API-Jm100-local_S.png" class="img-fluid" alt="Local species richness with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=100"></p>
 </div>
 </div>
@@ -503,20 +504,79 @@ Solution
 </section>
 <section id="group-brainstorming-of-params-to-tweak" class="level3" data-number="9.3.3">
 <h3 data-number="9.3.3" class="anchored" data-anchor-id="group-brainstorming-of-params-to-tweak"><span class="header-section-number">9.3.3</span> Group brainstorming of params to tweak</h3>
+<p>So far we have seen just a few MESS model parameters in action: <code>J</code>, <code>colrate</code>, and <code>ntaxa</code>. Looking back at the params there are many other parameters that will change the behavior of the model. For the purpose of this workshop we will only consider parameters 14-27, which focus on the <code>LocalCommunity</code> processes.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>500                  ## [14] [sequence_length]: Length of the genomic region simulated, in base pairs</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>1e-08                ## [15] [mutation_rate]: Mutation rate per base per generation</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>10                   ## [16] [sample_size]: Number of samples to draw for calculating genetic diversity</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>None                 ## [17] [abundance_scaling]: Scaling abundance to Ne (None, log, ln or a ratio)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>1000                 ## [18] [J]: Number of individuals in the local community</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>0.005                ## [19] [colrate]: Rate of colonization into the local community (% / birth event)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>neutral              ## [20] [assembly_model]: Selecting neutral or non-neutral assembly processes</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>2                    ## [21] [ecological_strength]: Impact of competition or filtering on fitness</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>1                    ## [22] [generation_time]: Generation time of local community taxa (in years)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>time                 ## [23] [local_stop_criterion]: Stop local community on time or equilibrium</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>100                  ## [24] [local_stop_time]: Local community simulation duration (in generations)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>100                  ## [25] [tau_max]: Duration of anagenetic speciation (in generations)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>10                   ## [26] [gene_flow_effect]: Damping effect of gene flow (in generations) on tau_max</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>1000                 ## [27] [Ne_scaling]: Scaling individuals to demes in local community</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>False                ## [28] [rm_duplicates]: Deduplicate seqs before calculating local community pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Detailed Metacommunity parameters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The other parameters of this model all relate to the metacommunity speciation process, and can be used for many cool things which change features of the metacommunity like phylogenetic branch lengths, tree imbalance, trait distributions, and metacommunity abundance distributions.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Group discussion of model parameters and their behaviors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take a moment to look at the focal parameters and the (brief) descrptions given in the params file. Think about what each parameter says that it does and which axis of biodiversity data this may affect. Will some parameters impact more than one axis of data? Discuss as a group, highlighting some specific parameters of interest.</p>
+<p>We will keep track of parameters and their hypothesized impacts on the whiteboard.</p>
+</div>
+</div>
+<p>Of particular interest are the <code>assembly_model</code> and <code>ecological_strength</code> parameters. <code>assembly_model</code> can take three values: <code>neutral</code> (default), <code>competition</code>, and <code>filtering</code>, which specify the neutral and non-neutral community assembly processes within MESS. <code>ecological_strength</code> determines the ‘strength’ of the non-neutral assembly dynamics, and can take any value &gt; 0. <code>ecological_strength</code> (sometimes <code>es</code> for short) values have the following effects:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a># es ~ 0 = More neutral</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a># es ~ 1 = Noticeable non-neutrality</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a># es &gt;&gt; 1 = Strong non-neutrality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="breakout-to-test-them" class="level3" data-number="9.3.4">
 <h3 data-number="9.3.4" class="anchored" data-anchor-id="breakout-to-test-them"><span class="header-section-number">9.3.4</span> Breakout to test them</h3>
+<p>Take some time (perhaps in small groups) to study the behavior of a few model parameters. It would probably benefit to make use of the power of API mode to create new <code>Core</code> objects with sensible names that indicate the parameters you wish to manipulate. This will allow you to retain and compare simulation results across runs with different parameter combinations. For example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Here we give meaningful variable names to each Core object, so we can keep</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## track of them</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>str_comp <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">Core</span>(<span class="st">"strong_competition"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>str_comp<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"assembly_model"</span>, <span class="st">"competition"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>str_comp<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ecological_strength"</span>, <span class="dv">10</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>str_comp<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">10</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>str_comp_results <span class="ot">=</span> str_comp<span class="sc">$</span><span class="fu">load_sims</span>()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Now you can summarize or visualize the results for these simulations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Take the time remaining in this lesson to construct one or two models to examine some of the hypothesized model behaviors we discussed earlier. Be prepared to discuss the results of your simulation experiments with the group.</p>
+<p>If you have some interesting results, you can add a slide or two to the <a href="https://docs.google.com/presentation/d/1W0DeSIA0aa46H5OxXo2uj2rz4k4dCD3wyiRVQeJgNJc/edit#slide=id.p">MESS-SimulationExperiments-Results</a> google slides presentation for us to discuss.</p>
 </section>
 <section id="come-together-to-debriefsynthesize" class="level3" data-number="9.3.5">
 <h3 data-number="9.3.5" class="anchored" data-anchor-id="come-together-to-debriefsynthesize"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize</h3>
+<p>Ok! Let’s wrap up this lesson and discuss some of the results from the simulation experiments. What did you discover?</p>
 </section>
 </section>
 <section id="key-points" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="key-points"><span class="header-section-number">9.4</span> Key points</h2>
 <ul>
-<li>wat</li>
-<li>do</li>
-<li>chee</li>
+<li>The <code>iBioGen</code> package can run MESS models in either CLI or API mode, which provides a rich and flexible programatic method for specifying and generating simulations.</li>
+<li>Changing MESS parameters changes the predicted multi-dimensional biodiversity pattterns.</li>
+<li>Some MESS model parameters have predictable effects on patterns of data in the <code>LocalCommunity</code> and some have more diffues or multi-dimensional effects.</li>
 </ul>
 
 
