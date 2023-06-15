@@ -565,7 +565,18 @@ Group discussion of model parameters and their behaviors
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Now you can summarize or visualize the results for these simulations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Take the time remaining in this lesson to construct one or two models to examine some of the hypothesized model behaviors we discussed earlier. Be prepared to discuss the results of your simulation experiments with the group.</p>
 <p>If you have some interesting results, you can add a slide or two to the <a href="https://docs.google.com/presentation/d/1W0DeSIA0aa46H5OxXo2uj2rz4k4dCD3wyiRVQeJgNJc/edit#slide=id.p">MESS-SimulationExperiments-Results</a> google slides presentation for us to discuss.</p>
-<p>::: {.callout-tip collapse=“true”} ## An easy way to get the raw data for one simulation</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+An easy way to get the raw data for one simulation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>You can access the raw data for the most recent simulation by looking at the <code>community</code> property of the simulated <code>LocalCommunity</code> which is stored in the <code>Core</code> object as <code>l</code> (for “local community”). The <code>community</code> property returns a data.frame, as follows:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>str_comp<span class="sc">$</span>l<span class="sc">$</span>community</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      coltime local_abund migrants      trait tau          pi is_founder</span>
@@ -574,6 +585,9 @@ Group discussion of model parameters and their behaviors
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>m4-1       98           1        0  4.4826415  98 0.000000000          0</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>m15-1      99           1        0  3.1975592  99 0.000000000          0</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>m12-1      99           1        0 -0.1183388  99 0.000000000          0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="come-together-to-debriefsynthesize" class="level3" data-number="9.3.5">
 <h3 data-number="9.3.5" class="anchored" data-anchor-id="come-together-to-debriefsynthesize"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize</h3>
