@@ -158,12 +158,14 @@ like the name of your target community and some details on the settings.
 ```default
 ## Make a new directory, change directory into it, and then print the working
 ## directory to make sure you are where you think you are.
-$ mkdir MESS 
+$ cd ~
+$ mkdir MESS
 $ cd MESS
 $ pwd
 
+
 # Create a new params file named 'simdata'
-$ MESS -n simdata
+$ iBioGen -n simdata
 ```
 ```default
 -------------------------------------------------------------
@@ -171,7 +173,7 @@ $ MESS -n simdata
   Island Biodiversity Genomics Analysis Toolkit
  -------------------------------------------------------------
 
-  New file 'params-simdata.txt' created in /home/rstudio
+  New file 'params-simdata.txt' created in /home/rstudio/MESS
 ```
 
 This will create a file in the current directory called `params-simdata.txt`.
