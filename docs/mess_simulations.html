@@ -220,7 +220,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#planned-exercises" id="toc-planned-exercises" class="nav-link" data-scroll-target="#planned-exercises"><span class="header-section-number">9.3</span> Planned exercises</a>
   <ul class="collapse">
   <li><a href="#import-mess-in-r-and-run-simulations-in-api-mode" id="toc-import-mess-in-r-and-run-simulations-in-api-mode" class="nav-link" data-scroll-target="#import-mess-in-r-and-run-simulations-in-api-mode"><span class="header-section-number">9.3.1</span> Import MESS in R and run simulations in API mode</a></li>
-  <li><a href="#load-inspect-and-plot-simulation-results" id="toc-load-inspect-and-plot-simulation-results" class="nav-link" data-scroll-target="#load-inspect-and-plot-simulation-results"><span class="header-section-number">9.3.2</span> Load, inspect, and plot simulation results</a></li>
   <li><a href="#group-brainstorming-of-params-to-tweak" id="toc-group-brainstorming-of-params-to-tweak" class="nav-link" data-scroll-target="#group-brainstorming-of-params-to-tweak"><span class="header-section-number">9.3.3</span> Group brainstorming of params to tweak</a></li>
   <li><a href="#breakout-to-test-them" id="toc-breakout-to-test-them" class="nav-link" data-scroll-target="#breakout-to-test-them"><span class="header-section-number">9.3.4</span> Breakout to test them</a></li>
   <li><a href="#come-together-to-debriefsynthesize" id="toc-come-together-to-debriefsynthesize" class="nav-link" data-scroll-target="#come-together-to-debriefsynthesize"><span class="header-section-number">9.3.5</span> Come together to debrief/synthesize</a></li>
@@ -281,7 +280,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-mess-in-r-and-run-simulations-in-api-mode" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="import-mess-in-r-and-run-simulations-in-api-mode"><span class="header-section-number">9.3.1</span> Import MESS in R and run simulations in API mode</h3>
 <p>The MESS CLI is a simple and powerful way to run simulations, but the <code>iBioGen</code> package also provies an API mode (in both R and python) which lets you dive under the hood of the CLI mode a bit. You have all the power of the CLI mode, yet more flexibility. In the source pane of RStudio open a new RScript and import the <code>iBioGen</code> package.</p>
-<p>::: {.callout-note} ## The reticulate library</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The reticulate library
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>A little bookkeeping is first required in loading the <code>reticulate</code> library, which is a binding layer between R and python, allowing seemless access to python modules from within R code.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -342,7 +350,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Now you might see a glimmer of how the API mode might allow you much more power in manipulating parameters and running simulations, but there is more!</p>
-</section>
 <section id="load-inspect-and-plot-simulation-results" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="load-inspect-and-plot-simulation-results"><span class="header-section-number">9.3.2</span> Load, inspect, and plot simulation results</h3>
 <p>Recall that the output of MESS simulations is a file which contains parameters and data generated with one simulation per line. In the raw form, the simulated data are bundled up in a somewhat obscure format, with reasonable looking information in most columns, but obscure information in three columns: <code>metadata</code>, <code>metatree</code>, and <code>localdata</code>. The MESS API mode provides a method to unpack and <em>summarize</em> this obscure data into a way that is more meaningful and human readable (and also useful for plotting), and this is the <code>load_sims()</code> method.</p>
@@ -446,7 +453,14 @@ Discussion topic: Why would <code>colrate</code> impact these summary statistics
 <p>Think for a moment about <strong>why</strong> increasing the colonization rate would increase local species richness, and the first Hill number of abundance and nucleotide diversity (on average). Let’s take a moment to reflect on these results.</p>
 </div>
 </div>
-<p>What would happen if we increase the size of the metacommunity species pool (<code>ntaxa</code>) and also ran many more simulations?</p>
+<p>It seems that local species richness is saturating, with uniformly high <code>S</code> which increasingly approaching 20 as <code>colrate</code> increases. What this means is that as <code>colrate</code> increases, the local community increasingly contains a total sample of the metacommunity, and there are no more unique lineages to colonize. Think back to what we learned yesterday about the neutral theory parameters. What parameter might we manipulate and how in order to relax this constraint and prevent the local community from saturating in this way?</p>
+<p>::: {.callout-tip, collapse=“true”} ## How can we allow for more diversity in the local community?</p>
+<p>Remember the <code>Jm</code> parameter from neutral theory, which increases the # of species in the metacommunity. In MESS we call this <code>ntaxa</code>, but it represents <em>exactly</em> the same parameter. What would happen if we increase the size of the metacommunity species pool (<code>ntaxa</code>) and also ran many more simulations?</p>
+<p>Try increasing the value of <code>ntaxa</code> in your simulations, running it again, and plotting the results. How did this change affect <code>S</code>?</p>
+</section>
+</div>
+</div>
+<p>::: {.callout-tip, collapse=“true”} ## Solution</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ntaxa"</span>, <span class="dv">100</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">500</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -456,7 +470,8 @@ Discussion topic: Why would <code>colrate</code> impact these summary statistics
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>local_S)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>abund_h1)</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sims<span class="sc">$</span>colrate, sims<span class="sc">$</span>pi_h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="images/MESS-Simulations-API-Jm100-localS.png" class="img-fluid" alt="Local species richness with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=100"></p>
+<p>:::</p>
+<p><img src="images/MESS-Simulations-API-Jm100-local_S.png" class="img-fluid" alt="Local species richness with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-abund_h1.png" class="img-fluid" alt="First Hill number of local abundance with ntaxa=100"> <img src="images/MESS-Simulations-API-Jm100-pi_h1.png" class="img-fluid" alt="First Hill number of pi with ntaxa=100"></p>
 </section>
 <section id="group-brainstorming-of-params-to-tweak" class="level3" data-number="9.3.3">
 <h3 data-number="9.3.3" class="anchored" data-anchor-id="group-brainstorming-of-params-to-tweak"><span class="header-section-number">9.3.3</span> Group brainstorming of params to tweak</h3>

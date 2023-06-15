@@ -264,8 +264,28 @@ local species richness, and the first Hill number of abundance and nucleotide
 diversity (on average). Let's take a moment to reflect on these results.
 :::
 
-What would happen if we increase the size of the metacommunity species pool
-(`ntaxa`) and also ran many more simulations?
+It seems that local species richness is saturating, with uniformly high `S` which
+increasingly approaching 20 as `colrate` increases. What this means is that as
+`colrate` increases, the local community increasingly contains a total sample
+of the metacommunity, and there are no more unique lineages to colonize. Think
+back to what we learned yesterday about the neutral theory parameters. What
+parameter might we manipulate and how in order to relax this constraint and
+prevent the local community from saturating in this way?
+
+::: {.callout-tip,  collapse="true"}
+## How can we allow for more diversity in the local community?
+
+Remember the `Jm` parameter from neutral theory, which increases the # of species
+in the metacommunity. In MESS we call this `ntaxa`, but it represents _exactly_
+the same parameter. What would happen if we increase the size of the
+metacommunity species pool (`ntaxa`) and also ran many more simulations?
+
+Try increasing the value of `ntaxa` in your simulations, running it again,
+and plotting the results. How did this change affect `S`?
+:::
+
+::: {.callout-tip,  collapse="true"}
+## Solution
 
 ```R
 core$set_param("ntaxa", 100)
@@ -278,8 +298,10 @@ plot(sims$colrate, sims$local_S)
 plot(sims$colrate, sims$abund_h1)
 plot(sims$colrate, sims$pi_h1)
 ```
+:::
 
-![Local species richness with `ntaxa=100`](images/MESS-Simulations-API-Jm100-localS.png)
+
+![Local species richness with `ntaxa=100`](images/MESS-Simulations-API-Jm100-local_S.png)
 ![First Hill number of local abundance with `ntaxa=100`](images/MESS-Simulations-API-Jm100-abund_h1.png)
 ![First Hill number of pi with `ntaxa=100`](images/MESS-Simulations-API-Jm100-pi_h1.png)
 
