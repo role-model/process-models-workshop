@@ -66,7 +66,7 @@ really either should work.
 
 For the command line install, first install [conda](https://docs.conda.io/en/latest/miniconda.html) and then:
 
-```bash
+```default
 conda create -n iBioGen python=3.10
 conda activate iBioGen
 conda install -c conda-forge -c ibiogen ibiogen
@@ -112,7 +112,7 @@ All lines in code cells beginning with \#\# are comments and should not be
 copied and executed. All other lines should be interpreted as output from the
 issued commands.
 
-```bash
+```default
 ## Example Code Cell.
 
 ## e.g. Create an empty file in my home directory called `watdo.txt`
@@ -136,7 +136,7 @@ the help argument. We will use some of the iBioGen command line arguments in
 this tutorial (for example: `-n`, `-p`, `-s`, `-c`). The complete list of
 optional arguments and their explanation can be accessed with the `-h` flag (or `--help`:
 
-```bash
+```default
 $ iBioGen -h
 usage: iBioGen [-h] [-n new] [-p params] [-s sims] [-c cores] [-f] [-v] [-q] [-d]
                [--ipcluster [ipcluster]]
@@ -168,7 +168,7 @@ we use simdata but the name can be anything at all. Once you start analysing
 your own data you might call your parameters file something more informative,
 like the name of your target community and some details on the settings.
 
-```bash
+```default
 ## Make a new directory, change directory into it, and then print the working
 ## directory to make sure you are where you think you are.
 $ mkdir MESS 
@@ -178,7 +178,7 @@ $ pwd
 # Create a new params file named 'simdata'
 $ MESS -n simdata
 ```
-```bash
+```default
 -------------------------------------------------------------
   iBioGen [v.0.0.9]
   Island Biodiversity Genomics Analysis Toolkit
@@ -192,7 +192,7 @@ The params file lists on each line one parameter followed by a ## mark, then
 the name of the parameter, and then a short description of its purpose. Lets
 take a look at it.
 
-```bash
+```default
 $ cat params-simdata.txt
 ------- iBioGen params file (v.0.0.9)-------------------------------------------
 simdata              ## [0] [simulation_name]: The name of this simulation scenario
@@ -259,7 +259,7 @@ The two most important arguments for the `iBioGen` command when running
 simulations are `-p` which specifies the params file to use, and `-s` which
 determines the number of simulations to run.
 
-```bash
+```default
 ## Run 10 simulations using our new params file
 $ iBioGen -p params-simdata.txt -s 10
 
@@ -278,7 +278,7 @@ or 10 million simulations, so this approach of generating them one at a time
 (in serial) is woafully time-consuming. 10x more simulations takes on the order
 of 10x more wall time:
 
-```bash
+```default
 ## Run 100 simulations with our new params file
 $ iBioGen -p params-simdata.txt -s 100
 
@@ -296,7 +296,7 @@ computing option which will intelligently handle all the parallelization work
 for you. When invoked with the `-c` flag, `iBioGen` portions out simulations
 among all the cores as they become available.
 
-```bash
+```default
 ## Run 100 simulations split across 5 cores
 $ iBioGen -p params-simdata.txt -s 100 -c 5
 
@@ -327,25 +327,144 @@ The results from every simulation that you run are written to a file in our
 `project_dir` (which defaults to `./default_iBioGen`). Lets look in this directory
 to see what is there:
 
-```bash
+```default
 $ ls ./default_iBioGen
 simdata-SIMOUT.csv
 ```
 
+::: {.callout-note}
+
+First thing to notice is the strong correlation between the name of the file
+(`simdata-SIMOUT.csv`) and the name that we gave when we created the new params
+file earlier (`iBioGen -n simdata`). This is not an accident. Output files
+retain the name of the simulation, and simulation names are enforced to be
+unique. In this way you can create many new simulations with different parameter
+values and the output files will not interfere with one another.
+:::
+
 Simulation parameters and data are written to this file, one simulation per line.
 You can calculate the number of lines in this file like this:
 
-```bash
-$ ls -l ./default_iBioGen/simdata-SIMOUT.csv
+```default
+$ wc -l ./default_iBioGen/simdata-SIMOUT.csv
+210 default_iBioGen/simdata-SIMOUT.csv
+```
+::: {.callout-note}
 
+It is worth mentioning that running new simulations using the same params file
+will simply **append** to this SIMOUT file, it will never destructively remove
+previously run simulations.
+:::
 
+The simulations results are not **exactly** human readable (they're not supposed
+to be), but we can still take a look at them with the linux command `head`, which
+is very similar to the same command in R, printing the first few lines of a file
+to the screen:
+
+```default
+## peek at the simulations with head
+$ head default_iBioGen/simdata-SIMOUT.csv 
+birth_rate meta_stop_criterion ntaxa time process ClaDS abundance_mean abundance_sigma growth_rate_mean growth_rate_sigma ClaDS_sigma ClaDS_alpha sequence_length mutation_rate sample_size abundance_scaling J colrate assembly_model ecological_strength generation_time local_stop_criterion local_stop_time tau_max gene_flow_effect Ne_scaling rm_duplicates meta_obs_ntaxa meta_obs_time local_obs_time(gen) local_obs_time(eq) meta_turnover_rate metadata metatree localdata
+1.0 taxa 20 4.0 abundance True 50000 0.1 0.0 0.01 0.1 0.9 500 1e-08 10 None 1000 0.005 neutral 2.0 1.0 time 100.0 100 10 1000 False 20 5.910768727555379 100 0.46399999999999997 0.0 m2-1:22105:0.0019111111111111115:-0.0006829200581811718:1.0702217505635192,m10-1:3476:0.0:0.029954759281765286:0.6636343206049413,m15-1:223:0.0:0.029283014537300305:0.5055426276547345,m15-2:670:0.0:0.03003612090749081:0.5847635679494314,m19-1:3427:0.0011111111111111111:0.03848397068084088:0.7649142929809856,m19-2:1608:0.0:0.038207089121944114:0.7314808093884317,m14-1:2004:0.0:0.04089408370966607:0.5585651686757594,m14-2:1293:0.0:0.040816815424858335:0.6996249403618324,m18-1:330:0.0:0.03415345354321346:0.7065992405115762,m18-2:970:0.0:0.038339667987257256:0.6235489663117895,m17-2:3131:0.0:0.03791778981710612:0.6703418713827751,m12-1:210:0.0:-0.053137235419017756:0.7994138255784535,m12-2:833:0.0:-0.05309037498020786:0.5571929402898937,m8-1:19:0.0:-0.052762281585036805:0.6374722310714049,m8-2:20:0.0:-0.060391958308555684:0.5714480499584342,m6-2:5957:0.0011111111111111111:-0.05508981820070741:0.8656464071932146,m16-1:102:0.0:-0.05673229279720891:0.7255149234973584,m16-2:144:0.0:-0.05360134116045264:0.6314217505682252,m13-2:219:0.0:-0.05079188594847156:0.679215673797093,m9-2:328:0.0:-0.050723924913676346:0.8206959794604726 ((m2-1:3.61047,(((m10-1:0.704907,(m15-1:0.496668,m15-2:0.496668)0:0.208239)0:0.468363,(m19-1:0.115949,m19-2:0.115949)0:1.05732)0:0.220812,((m14-1:0.515387,m14-2:0.515387)0:0.188654,((m18-1:0.324183,m18-2:0.324183)0:0.0355387,m17-2:0.359722)0:0.34432)0:0.69004)0:2.21639)0:2.3002,((((m12-1:0.651564,m12-2:0.651564)0:0.297055,(m8-1:0.937516,m8-2:0.937516)0:0.0111021)0:0.035412,m6-2:0.98403)0:0.930347,(((m16-1:0.382833,m16-2:0.382833)0:0.170452,m13-2:0.553285)0:0.370263,m9-2:0.923547)0:0.990831)0:3.99629); m2-1:0.0:536.0:246.0:-4.403525126405577:99.0:0.010799999999999999,m10-1:12.0:47.0:33.0:2.484183313499446:95.0:0.002,m14-1:15.0:90.0:21.0:3.4839388617026725:89.0:0.0,m17-2:20.0:33.0:27.0:3.8582368853264155:99.0:0.002,m14-2:29.0:57.0:9.0:3.6464075580381112:86.0:0.007666666666666666,m12-2:41.0:77.0:3.0:-2.842822977344748:65.0:0.002,m19-1:43.0:73.0:22.0:2.8828861745086267:97.0:0.003,m19-2:62.0:15.0:10.0:2.737427008766087:86.0:0.0,m6-2:69.0:71.0:22.0:-4.072370312960245:97.0:0.002,m15-1:97.0:1.0:0.0:4.3143827502503225:97.0:0.0
+```
+The output here is clipped to show the complete results of one simulation. We
+can alternatively import the simulated data into R as a dataset, which will
+allow us to view it in a nicer way. Start by browsing to `default_iBioGen` in
+the files pane, then click `simdata-SIMOUT.csv` and choose "Import Dataset...":
+
+![Import simulated data into R](images/MESS-GettingStarted-ImportData.png)
+
+When the Import Text Data box opens the only thing you need to change is the
+**Delimiter** which you should set to "Whitespace", then click "Import":
+
+![Set delimiter to 'whitespace'](images/MESS-GettingStarted-ImportDelimiter.png)
+
+Finally, your data imported are presented in the source pane in a nice tabular
+view. Don't worry about understanding all (or really any) of these parameters
+yet, these are all the model parameters that control the simulations. The data
+which are output by the simulations are also in there, but you have to scroll
+way over to the right, and there isn't really a good way to present those yet,
+because it's still raw output and has to be summarized before it makes much sense
+(which we will do in the next lesson!).
+
+![Imported data in the source pane](images/MESS-GettingStarted-ImportedData.png)
+
+It seems kind of strange that all the parameters for all the simulations are
+identical. Wouldn't it seem useful to be able to **vary** the parameters in some
+way to see how the model behaves under different parameter values? Yes, yes it
+would....
 
 ### Setting prior ranges on parameters
 
+Rather than explicitly specifying model parameters in the params file, let’s say
+you’re interested in actually estimating them from the observed data. We can do
+this by simulating over a range of values for each parameter of interest, and then
+using an ML inference procedure to estimate these paramters. Let’s say you
+would like to estimate the size of the local community (`J`) and the migration
+rate into the local community (`colrate`). Edit your params file again in the
+source pane and change these parameters to specify ranges:
+
+```default
+1000-10000        ## [18] [J]: Number of individuals in the local community
+0.001-0.01        ## [19] [colrate]: Rate of colonization into the local community (% / birth event)
+```
+
+```default
+## Run 10 more simulations using the update params file with parameter ranges
+$ iBioGen -p params-simdata.txt -s 10
+
+ -------------------------------------------------------------
+  iBioGen [v.0.0.9]
+  Island Biodiversity Genomics Analysis Toolkit
+ -------------------------------------------------------------
+    Parallelization disabled.
+    Generating 10 simulation(s).
+  [####################] 100%  Finished 10 simulations in   0:00:03|
+```
+
+Let’s use the linux command `cut` to look at just the columns we’re interested
+in (`J` and `colrate`), which are the 17th and 18th columns.
+
+```default
+# -d " " indicates the _delimiter_ to use to split columns, a single space
+$ cut -f 17,18 -d " " default_iBioGen/simdata-SIMOUT.csv
+J colrate
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+500 0.005
+1136 0.0012704714138716813
+2186 0.001345609936500913
+5897 0.0022431878203297132
+6243 0.006219848385382574
+1728 0.0013945959644766637
+1178 0.008246283294922729
+1009 0.0018079819887270672
+5229 0.006327492952445476
+```
+
+And you’ll see that these parameter values are now taking a range, as we
+specified. In Part II of this tutorial you will see how we can combine massive
+amounts of simulations under varying parameter ranges with machine learning to
+estimate parameters of the model with real data.
 
 ### Hands-on experimentation: Exploring MESS model behavior with the CLI
-(set a challenge and report back)
+
+#TODO (set a challenge and report back)
 
 ## Key points
 
-* What is the relationship between MESS, RoLE, and iBioGen?
+* MESS is a conceptual model for unifying biodiversity processes and predicting
+multidimensional biodiversity patterns. iBioGen and roleR are specific
+_implementations_ of this conceptual model.
+* The `iBioGen` CLI offers a simple and efficient way to simulate MESS models.
+* In `iBioGen` MESS model parameters are contained in a "params" file, and
+simulation results are written to a "SIMOUT" file.
+* Placing prior ranges on parameters allows to explore model behavior while
+varying numerous parameters independently.
