@@ -13,6 +13,8 @@
 
 ## Lesson outline
 
+[Slides](slides/day1_slides.pdf)
+
 ### (Coding exercise) Set up the infrastructure to explore ranges of parameters
 
 As a group, write a wrapper to run our `untb` code over ranges of values for M and nu.
