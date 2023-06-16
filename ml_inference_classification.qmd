@@ -28,12 +28,34 @@ Lecture: [How does machine learning work with MESS simulations?](https://docs.go
 #### Download the pre-baked simulations
 Since it can take quite some time to run a number of simulations sufficient for
 model selection and parameter estimation we will use a suite of pre-baked
-simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch
-them with `wget` from the workshop site:
+simulations generated ahead of time. We want to practice good organizational
+habits for our simulations and .R scripts, so as a challenge, before downloading
+the simulations file, **make a new directory in your home directory called
+"MESS-inference" and change directory into it.* 
+
+::: {.callout-note collapse="true"}
+## Solution: Make a 'MESS-inference' directory in your home directory
 
 ```default
 ## Make sure you are in your home directory
 cd ~
+## Make the 'MESS-inference' directory
+mkdir MESS-inference
+## change into the new directory
+cd MESS-inference
+## print working directory to verify you are where you should be
+pwd
+```
+```default
+/home/rstudio/MESS-inference
+```
+
+:::
+
+Once you are in the `/home/rstudio/MESS-inference` directory, you may fetch
+the simulations from the workshop site using `wget`:
+
+```default
 wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz
 gunzip MESS-SIMOUT.csv.gz
 wc -l MESS-SIMOUT.txt
@@ -61,6 +83,15 @@ correlated with survival probability.
 Basically we want to know, are individuals in the local community ecologically
 equivalent, and if not are they interacting more with each other or more
 with the local environment.
+
+Looking in the "Files" tab, double click on the new "MESS-inference" folder and
+you should see your new "MESS-SIMOUT.csv.gz" file. Now you can create a "New
+Blank File" in this directory by clicking on the small green plus.
+
+![Make a new blank file for the MESS inference R code](images/MESS-Classification-NewBlankFile.png)
+
+Now we will install a couple necessary packages: `randomForest` and `caret`, two
+machine learning packages for R.
 
 ```R
 install.packages("randomForest")
