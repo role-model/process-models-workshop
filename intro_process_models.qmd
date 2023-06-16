@@ -17,6 +17,8 @@ After this lesson, learners should be able to...
 
 ## Lesson outline
 
+[Slides](slides/day1_slides.pdf)
+
 ### (Lecture + discussion) What do we _mean_ by process modeling, anyway?
 
 Key points:

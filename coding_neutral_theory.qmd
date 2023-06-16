@@ -12,6 +12,8 @@
 
 ## Lesson outline
 
+[Slides](slides/day1_slides.pdf)
+
 ### (Group project) Code up UNTB in R!
 
 ### (Backup) 
