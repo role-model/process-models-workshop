@@ -86,7 +86,8 @@ with the local environment.
 
 Looking in the "Files" tab, double click on the new "MESS-inference" folder and
 you should see your new "MESS-SIMOUT.csv.gz" file. Now you can create a "New
-Blank File" in this directory by clicking on the small green plus.
+Blank File->Rscript" in this directory by clicking on the small green plus. When
+prompted to enter a file name, use "MESS-classification.R".
 
 ![Make a new blank file for the MESS inference R code](images/MESS-Classification-NewBlankFile.png)
 
@@ -94,8 +95,13 @@ Now we will install a couple necessary packages: `randomForest` and `caret`, two
 machine learning packages for R.
 
 ```R
+## install.packages only has to happen ONCE within your R environment, you don't
+## need to install.packages if you create a new file, you can skip straight
+## to loading the libraries.
 install.packages("randomForest")
 install.packages(pkgs = "caret", dependencies = c("Depends", "Imports"))
+```
+```R
 library(randomForest)
 library(caret)
 ```
