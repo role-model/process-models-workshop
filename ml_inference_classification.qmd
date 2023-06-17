@@ -197,12 +197,11 @@ competition     filtering   neutral
 If anyone can guess why this is, I will buy you dinner tonight.
 :::
 
-#### Train the ML classifier
-* **Split the data into training/testing sets:** If you train a machine learning model
-with **all** of your data, then you won't have any way to really evaluate its
-performance. It's very common to split data into 'training' and 'testing' sets, where
-the training data used to train the model and the testing data is used to evaluate
-how well it performs.
+#### **Split the data into training/testing sets**
+If you train a machine learning model with **all** of your data, then you won't have
+any way to really evaluate its performance. It's very common to split data into
+'training' and 'testing' sets, where the training data used to train the model and
+the testing data is used to evaluate how well it performs.
 
 ```R
 ## 70/30 test/train split
@@ -213,16 +212,6 @@ test <- simdata[tmp==2,]
 
 #### **Train the model on the training set**
 Learn a mapping between patterns in the data and community assembly model.
-
-::: {.callout-important collapse="true"}
-## **Tuning model parameters, feature selection, iterating performance evaluation**
-
-There is a *LOT* of fancy stuff that we are *NOT* going to do in this workshop, so
-please don't imagine we are giving you the full picture. We are doing enough to give
-a **flavor** of how ML inference works, and to show that even when done 'quick and
-dirty' it still works pretty okay. To do this properly would require an entire
-workshop in itself, which we would encourage you to look into in the future!
-:::
 
 ```R
 ## Experiment with results for different axes of data!
@@ -243,6 +232,16 @@ competition         538        33     124   0.2258993
 filtering            24       571      89   0.1652047
 neutral              61        71     560   0.1907514
 ```
+
+::: {.callout-important collapse="true"}
+## **Tuning model parameters, feature selection, iterating performance evaluation**
+
+There is a *LOT* of fancy stuff that we are *NOT* going to do in this workshop, so
+please don't imagine we are giving you the full picture. We are doing enough to give
+a **flavor** of how ML inference works, and to show that even when done 'quick and
+dirty' it still works pretty okay. To do this properly would require an entire
+workshop in itself, which we would encourage you to look into in the future!
+:::
 
 #### **Test the model on the testing set**
 How well does the trained model recover the 'known' assembly model in simulations
@@ -308,7 +307,8 @@ p_emp
 ::: {.callout-hit collapse="true"}
 ## More to explore if you are ahead of the group
 
-#### **Evaluate variable importances**
+**Evaluate variable importances**
+
 Which axes of data contribute most to distinguishing assembly models? Details of how and
 why this works are left as an exercise to the enthusiastic reader.
 
@@ -321,7 +321,8 @@ varImpPlot(rf,
 
 ![Variable importance in RF classification](images/MESS-Classification-VariableImportance.png)
 
-#### Multidimensional scaling
+**Multidimensional scaling**
+
 `MDSplot()` is another way to inspect how the simulations are being clustered by the RF model.
 It's a little too much 'inside baseball' for this workshop, but if you get ahead of the group
 you should try it out.
