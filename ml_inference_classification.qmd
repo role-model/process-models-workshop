@@ -289,30 +289,76 @@ heatmap(cm$table, Rowv=NA, Colv=NA, margins=c(12, 12), xlab="Prediction", ylab="
 ```
 ![Visualization of the confusion matrix](images/MESS-Classification-ConfusionMatrix.png)
 
-### **Predict assembly model of empirical data**
-And embrace the uncertainty in the model classification.
+#### **Getting prediction probabilities for one individual simulation**
 
-Fetch the empirical data from Noguerales et al 2021
+When we call `predict(rf, test)` we are using the classifier to make predictions
+for **all** the simulations in the testing set. This takes the single assembly
+model with the highest prediction probability as the predicted value (essentially
+it is a point estimate). Often it is useful (particularly with empirical data)
+to have a more comprehensive view of the prediction probabilities across classes.
+We can pass in just one simulated dataset and ask `predict` to give us the
+`type="prob"`, which will return exactly these;
 
-In the terminal `wget` the data for one habitat type from the workshop repository:
-```default
-wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Qa_hills.txt
-```
-```R
-## FIXME: This requires reconfiguring the fitting, so either change what's above (easier)
-## or move this down to introduce fitting different features
-rf <- randomForest(assembly_model ~ local_S + pi_h1 + pi_h2 + pi_h3, data=train, proximity=TRUE)
-Qa_emp <- read.csv("/home/rstudio/MESS-inference/Qa_hills.txt")
-predict(rf, Qa_emp, type="prob")
-```
 
 ```R
+# Take the first row of testing data as just one simulation to predict
 p_emp <- predict(rf, test[1, ], type="prob")
 p_emp
 ```
 ```default
   competition filtering neutral
 1       0.016      0.04   0.944
+```
+
+**Activity:** Spend a few moments making predictions for several other of the
+simulated datasets, just to get the hang of it.
+
+### **Predict assembly model of empirical data**
+And "Embrace the uncertainty in the model classification.
+
+Now we will do a brief analysis of some empirical data, so you can see that the
+classification prediction process for empirical data is identical to that
+of simulated data: training the model and calling `predict`.
+
+For this exercsie we will use genetic data from a soil arthropod metabarcoding
+study published by [Noguerales et al (2021)](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16275). The data is comprised of soil micro-arthropod COI
+sequences sampled from four different habitat types in the montane forests of
+Cyprus. Fetch the empirical data from Noguerales et al 2021:
+
+In the terminal `wget` the data for one habitat type from the workshop repository:
+```default
+wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Qa_hills.txt
+```
+
+Now go back into the R console and load the data for this sample. It might also
+help to take a quick look at what the dat for this sample looks like, so also
+print it to the screen.
+
+```R
+Qa_emp <- read.csv("/home/rstudio/MESS-inference/Qa_hills.txt")
+Qa_emp
+```
+```default
+  local_S   pi_h1    pi_h2    pi_h3
+1     156 48.5767 41.83594 37.69666
+```
+
+The empirical data was generated from a metabarcoding dataset, and for this
+exercise we provide the data already collapsed into summary statistics, so all the
+imformation we have is number of local species (`local_S`) and the first three
+Hill numbers of genetic diversity (`pi_h1`, `pi_h2`, `pi_h3`). Earlier when
+we fit the randomForest model we used the first Hill numbers of abundance,
+traits, and genetic data, so before we can call predict community assembly model
+with the real data we need to *re-fit* the rf classifier so it's explanatory
+variables match those of the empirical data.
+
+```R
+rf <- randomForest(assembly_model ~ local_S + pi_h1 + pi_h2 + pi_h3, data=train, proximity=TRUE)
+predict(rf, Qa_emp, type="prob")
+```
+```default
+  competition filtering neutral
+1       0.172     0.742   0.086
 ```
 
 ::: {.callout-tip collapse="true"}
