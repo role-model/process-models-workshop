@@ -321,7 +321,7 @@ Don’t peek until you have a guess for your simulated data! How close did you g
 [Assembly models per mystery simulation are in this file](data/Mystery-key.csv)
 :::
 
-::: {.callout-hint collapse="true"}
+::: {.callout-tip collapse="true"}
 ## More to explore if you are ahead of the group
 
 **Evaluate variable importances**
