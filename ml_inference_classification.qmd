@@ -364,6 +364,11 @@ Don’t peek until you have a guess for your simulated data! How close did you g
 [Assembly models per mystery simulation are in this file](data/Mystery-key.csv)
 :::
 
+### More to explore with R `randomForest` package
+This is just a tiny taste of the `randomForest` R package, and a tiny molecule
+of everything possible with machine learning, but we hope it gives the flavor
+still.
+
 ::: {.callout-tip collapse="true"}
 ## More to explore if you are ahead of the group
 
