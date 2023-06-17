@@ -304,7 +304,7 @@ p_emp
 ### Hands-on Exercise: Predicting `assembly_model` of mystery simulations
 
 
-::: {.callout-hit collapse="true"}
+::: {.callout-hint collapse="true"}
 ## More to explore if you are ahead of the group
 
 **Evaluate variable importances**
