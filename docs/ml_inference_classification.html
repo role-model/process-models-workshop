@@ -220,9 +220,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#planned-exercises" id="toc-planned-exercises" class="nav-link" data-scroll-target="#planned-exercises"><span class="header-section-number">10.3</span> Planned exercises</a>
   <ul class="collapse">
   <li><a href="#lecture-how-does-ml-work-with-mess-simulations" id="toc-lecture-how-does-ml-work-with-mess-simulations" class="nav-link" data-scroll-target="#lecture-how-does-ml-work-with-mess-simulations"><span class="header-section-number">10.3.1</span> Lecture: How does ML work with MESS simulations?</a></li>
-  <li><a href="#ml-assembly-model-classification" id="toc-ml-assembly-model-classification" class="nav-link" data-scroll-target="#ml-assembly-model-classification"><span class="header-section-number">10.3.2</span> ML assembly model classification</a></li>
-  <li><a href="#perform-classification-of-empirical-data-and-view-results" id="toc-perform-classification-of-empirical-data-and-view-results" class="nav-link" data-scroll-target="#perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3</span> Perform classification of empirical data and view results</a></li>
-  <li><a href="#ml-parameter-estimation" id="toc-ml-parameter-estimation" class="nav-link" data-scroll-target="#ml-parameter-estimation"><span class="header-section-number">10.3.4</span> ML parameter estimation</a></li>
+  <li><a href="#motivating-community-assembly-model-classification" id="toc-motivating-community-assembly-model-classification" class="nav-link" data-scroll-target="#motivating-community-assembly-model-classification"><span class="header-section-number">10.3.2</span> Motivating community assembly model classification</a></li>
+  <li><a href="#run-mess-simulations" id="toc-run-mess-simulations" class="nav-link" data-scroll-target="#run-mess-simulations"><span class="header-section-number">10.3.3</span> Run MESS simulations</a></li>
+  <li><a href="#overview-of-major-steps-of-simulation-based-machine-learning-process" id="toc-overview-of-major-steps-of-simulation-based-machine-learning-process" class="nav-link" data-scroll-target="#overview-of-major-steps-of-simulation-based-machine-learning-process"><span class="header-section-number">10.3.4</span> Overview of major steps of simulation-based machine learning process</a></li>
+  <li><a href="#implement-ml-assembly-model-classification" id="toc-implement-ml-assembly-model-classification" class="nav-link" data-scroll-target="#implement-ml-assembly-model-classification"><span class="header-section-number">10.3.5</span> Implement ML assembly model classification</a></li>
+  <li><a href="#perform-classification-of-empirical-data-and-view-results" id="toc-perform-classification-of-empirical-data-and-view-results" class="nav-link" data-scroll-target="#perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.6</span> Perform classification of empirical data and view results</a></li>
   </ul></li>
   <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">10.4</span> Key points</a></li>
   </ul>
@@ -251,6 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="key-questions" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="key-questions"><span class="header-section-number">10.1</span> Key questions</h2>
 <ol type="1">
+<li>What do I <strong>do</strong> with all these MESS simulations?</li>
 <li>How do I perform a inference using MESS simulations in R?</li>
 </ol>
 </section>
@@ -258,29 +261,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="10.2" class="anchored" data-anchor-id="lesson-objectives"><span class="header-section-number">10.2</span> Lesson objectives</h2>
 <p>After this lesson, learners should be able to…</p>
 <ol type="1">
-<li>Use RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference</li>
-<li>Interpret results in terms of story</li>
-<li>Brainstorm applications to real data</li>
+<li>Use MESS simulations and RandomForest ML to perform community assembly model selection (classification)</li>
+<li>Evaluate uncertainty in classification accuracy using confusion matrices</li>
+<li>Apply ML Classification to empirical data and interpret results in terms of story</li>
+<li>Brainstorm applications to other systems/empirical datasets</li>
 </ol>
 </section>
 <section id="planned-exercises" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="planned-exercises"><span class="header-section-number">10.3</span> Planned exercises</h2>
 <ul>
 <li>Lecture: How does ML work with MESS simulations?</li>
+<li>Motivating community assembly model classification</li>
 <li>Run MESS model simulations</li>
-<li>ML assembly model classification</li>
-<li>ML parameter estimation</li>
-<li>Posterior predictive simulations (if time)</li>
+<li>Overview of major steps of machine learning process</li>
+<li>Implement ML assembly model classification</li>
 <li>Free time to experiment with other example datasets</li>
 </ul>
 <section id="lecture-how-does-ml-work-with-mess-simulations" class="level3" data-number="10.3.1">
 <h3 data-number="10.3.1" class="anchored" data-anchor-id="lecture-how-does-ml-work-with-mess-simulations"><span class="header-section-number">10.3.1</span> Lecture: How does ML work with MESS simulations?</h3>
 <p>Lecture: <a href="https://docs.google.com/presentation/d/12fVO8Jzxvdm5nxcvITtpn3re8VJm4j1J96Y3zmBh6ZY/edit?usp=sharing">How does machine learning work with MESS simulations?</a></p>
-<section id="download-the-pre-baked-simulations" class="level4" data-number="10.3.1.1">
-<h4 data-number="10.3.1.1" class="anchored" data-anchor-id="download-the-pre-baked-simulations"><span class="header-section-number">10.3.1.1</span> Download the pre-baked simulations</h4>
-<p>Since it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. We want to practice good organizational habits for our simulations and .R scripts, so as a challenge, before downloading the simulations file, **make a new directory in your home directory called “MESS-inference” and change directory into it.*</p>
+</section>
+<section id="motivating-community-assembly-model-classification" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="motivating-community-assembly-model-classification"><span class="header-section-number">10.3.2</span> Motivating community assembly model classification</h3>
+<p>The first step is now to assess the model of community assembly that best fits the data. The three models are <code>neutral</code>, in which all individuals are ecologically equivalent; <code>competition</code>, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and <code>filtering</code>, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.</p>
+<p>Basically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.</p>
+</section>
+<section id="run-mess-simulations" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="run-mess-simulations"><span class="header-section-number">10.3.3</span> Run MESS simulations</h3>
+<p>Ok, so now we know what we want to know: Are the “data” (the Hill # summary statistics for abundance, traits, and genetics) sufficient to distinguish among community assembly models? How do we go about evaluating this question? Well, the first step is to generate a large number simuations under each of the three assembly models, so we have a representative sample of patterns in the data characteristic of each assembly model.</p>
+<p><strong>Coding exercise:</strong> Create a new <code>MESS$Core</code> object and use a <code>for</code> loop to run 2 simulations for each of the three community assembly models: <code>neutral</code>, <code>competition</code>, and <code>filtering</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution: Running a loop over assembly models to generate simulations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MESS <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"iBioGen"</span>, <span class="at">as=</span><span class="st">"MESS"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>core <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">Core</span>(<span class="st">"watdo"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Set all the parameters common to all simulations</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ntaxa"</span>, <span class="st">"300"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"J"</span>, <span class="st">"40000-150000"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"colrate"</span>, <span class="st">"0.0001-0.005"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"ecological_strength"</span>, <span class="st">"0.1-10.0"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"local_stop_criterion"</span>, <span class="st">"equilibrium"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"local_stop_time"</span>, <span class="st">"0.5-1.0"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (model <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"neutral"</span>, <span class="st">"competition"</span>, <span class="st">"filtering"</span>)){</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  core<span class="sc">$</span><span class="fu">set_param</span>(<span class="st">"assembly_model"</span>, model)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  core<span class="sc">$</span><span class="fu">simulate</span>(<span class="at">nsims=</span><span class="dv">2</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<section id="download-the-pre-baked-simulations" class="level4" data-number="10.3.3.1">
+<h4 data-number="10.3.3.1" class="anchored" data-anchor-id="download-the-pre-baked-simulations"><span class="header-section-number">10.3.3.1</span> Download the pre-baked simulations</h4>
+<p>Since it can take quite some time to run a number of simulations sufficient for model selection and parameter estimation we will use a suite of pre-baked simulations generated ahead of time. We want to practice good organizational habits for our simulations and .R scripts, so as a challenge, before downloading the simulations file, **make a new directory in your home directory called “MESS-inference” and change directory into it.*</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -289,24 +333,24 @@ Solution: Make a ‘MESS-inference’ directory in your home directory
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>## Make sure you are in your home directory</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cd ~</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>## Make the 'MESS-inference' directory</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mkdir MESS-inference</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>## change into the new directory</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>cd MESS-inference</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>## print working directory to verify you are where you should be</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>/home/rstudio/MESS-inference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>## Make sure you are in your home directory</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cd ~</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>## Make the 'MESS-inference' directory</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mkdir MESS-inference</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>## change into the new directory</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>cd MESS-inference</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>## print working directory to verify you are where you should be</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>/home/rstudio/MESS-inference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <p>Once you are in the <code>/home/rstudio/MESS-inference</code> directory, you may fetch the simulations from the workshop site using <code>wget</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gunzip MESS-SIMOUT.csv.gz</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>wc -l MESS-SIMOUT.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wget https://github.com/role-model/process-models-workshop/raw/main/data/MESS-SIMOUT.csv.gz</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gunzip MESS-SIMOUT.csv.gz</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>wc -l MESS-SIMOUT.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>MESS-SIMOUT.csv.gz   100%[====================&gt;]  35.24M  1.12MB/s    in 32s
 2023-06-15 14:31:54 (1.12 MB/s) - ‘MESS-SIMOUT.csv.gz’ saved [36954693/36954693]
 3000 SIMOUT.txt</code></pre>
@@ -325,10 +369,12 @@ Note
 </div>
 </section>
 </section>
-<section id="ml-assembly-model-classification" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="ml-assembly-model-classification"><span class="header-section-number">10.3.2</span> ML assembly model classification</h3>
-<p>The first step is now to assess the model of community assembly that best fits the data. The three models are <code>neutral</code>, in which all individuals are ecologically equivalent; <code>competition</code>, in which species have traits, and differential survival probability is weighted by distance of traits from the trait mean in the local community (closer to the trait mean == higher probability of death); and <code>filtering</code>, in which there is an environmental optimum, and proximity of trait values to this optimum is positively correlated with survival probability.</p>
-<p>Basically we want to know, are individuals in the local community ecologically equivalent, and if not are they interacting more with each other or more with the local environment.</p>
+<section id="overview-of-major-steps-of-simulation-based-machine-learning-process" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="overview-of-major-steps-of-simulation-based-machine-learning-process"><span class="header-section-number">10.3.4</span> Overview of major steps of simulation-based machine learning process</h3>
+<p>Before we dive in, it’s maybe useful to have an idea of the roadmap of what we’ll be doing. The <em>major</em> steps of implementing simulation-based machine learning are: * <strong>Get the simulations:</strong> Simulation results are composed of ‘parameters’ and ‘data’. Parameters are what goes in to the simulation model and data is what comes out. * <strong>Transform the simulations:</strong> In some cases parameters/data must be reshaped in some way to make it more appropriate for the ML approach. * <strong>Split the data into training/testing sets:</strong> If you train a machine learning model with <strong>all</strong> of your data, then you won’t have any way to really evaluate its performance. It’s very common to split data into ‘training’ and ‘testing’ sets, where the training data used to train the model and the testing data is used to evaluate how well it performs. * <strong>Tuning model parameters, feature selection, iterating performance evaluation:</strong> There is a <em>LOT</em> of fancy stuff that we are <em>NOT</em> going to do in this workshop, so please don’t imagine we are giving you the full picture. We are doing enough to give a <strong>flavor</strong> of how this works, and to show that even when done ‘quick and dirty’ it still works pretty okay. * <strong>Train the model on the training set:</strong> Learn a mapping between patterns in the data and community assembly model. * <strong>Test the model on the testing set:</strong> How well does the trained model recover the ‘known’ assembly model in simulations that it hasn’t seen yet. * <strong>Evaluate variable importance:</strong> Which axes of data contribute most to distinguishing assembly models? * <strong>Predict assembly model of empirical data:</strong> And embrace the uncertainty in the model classification.</p>
+</section>
+<section id="implement-ml-assembly-model-classification" class="level3" data-number="10.3.5">
+<h3 data-number="10.3.5" class="anchored" data-anchor-id="implement-ml-assembly-model-classification"><span class="header-section-number">10.3.5</span> Implement ML assembly model classification</h3>
 <p>Looking in the “Files” tab, double click on the new “MESS-inference” folder and you should see your new “MESS-SIMOUT.csv.gz” file. Now you can create a “New Blank File-&gt;Rscript” in this directory by clicking on the small green plus. When prompted to enter a file name, use “MESS-classification.R”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -337,93 +383,114 @@ Note
 </figure>
 </div>
 <p>Now we will install a couple necessary packages: <code>randomForest</code> and <code>caret</code>, two machine learning packages for R.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages only has to happen ONCE within your R environment, you don't</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## need to install.packages if you create a new file, you can skip straight</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## to loading the libraries.</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"randomForest"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="at">pkgs =</span> <span class="st">"caret"</span>, <span class="at">dependencies =</span> <span class="fu">c</span>(<span class="st">"Depends"</span>, <span class="st">"Imports"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">load_local_sims</span>(<span class="st">"MESS-SIMOUT.csv"</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>simdata<span class="sc">$</span>assembly_model <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(simdata<span class="sc">$</span>assembly_model)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(simdata<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>competition     filtering   neutral</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       1000          1000       999</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="train-the-ml-classifier" class="level4" data-number="10.3.2.1">
-<h4 data-number="10.3.2.1" class="anchored" data-anchor-id="train-the-ml-classifier"><span class="header-section-number">10.3.2.1</span> Train the ML classifier</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 70/30 test/train split</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(simdata), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">1</span>,]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Experiment with results for different axes of data!</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(assembly_model <span class="sc">~</span> local_S <span class="sc">+</span> pi_h1 <span class="sc">+</span> abund_h1 <span class="sc">+</span> trait_h1, <span class="at">data=</span>train, <span class="at">proximity=</span><span class="cn">TRUE</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Call:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> randomForest(formula = assembly_model ~ local_S + pi_h1 + abund_h1 +      trait_h1, data = train, proximity = TRUE) </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               Type of random forest: classification</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                     Number of trees: 500</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>No. of variables tried at each split: 2</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        OOB estimate of  error rate: 19.41%</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>Confusion matrix:</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            competition filtering neutral class.error</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>competition         538        33     124   0.2258993</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>filtering            24       571      89   0.1652047</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>neutral              61        71     560   0.1907514</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages only has to happen ONCE within your R environment, you don't</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## need to install.packages if you create a new file, you can skip straight</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## to loading the libraries.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"randomForest"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="at">pkgs =</span> <span class="st">"caret"</span>, <span class="at">dependencies =</span> <span class="fu">c</span>(<span class="st">"Depends"</span>, <span class="st">"Imports"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="load-the-simulated-data" class="level4" data-number="10.3.5.1">
+<h4 data-number="10.3.5.1" class="anchored" data-anchor-id="load-the-simulated-data"><span class="header-section-number">10.3.5.1</span> Load the simulated data</h4>
+<p>Before, we had used <code>core$load_sims()</code> to load the simulations generated by a specific MESS <code>Core</code> object, but here we have a <em>file</em> that we got from the internet. There was a <code>Core</code> objec that created this somewhere, but we don’t have access to it. Luckily, there is a utility function (<code>MESS$load_local_sims()</code>) which allows us to load data from an external file. Let’s use it now:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">load_local_sims</span>(<span class="st">"MESS-SIMOUT.csv"</span>)[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The simulated data is in the form that we have already looked at previously, so we don’t need to look at it again here now, there’s just a lot more of it.</p>
+<p>One constraint of the <code>randomForest</code> classification process is that the “target” variable (or “response” variable) must be an R <code>factor</code>, which is essentially a categorical variable. We can convert the <code>assembly_model</code> column in our <code>simdata</code> data.frame to a factor, and then count the number of elements in each <code>level</code> with <code>table()</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>simdata<span class="sc">$</span>assembly_model <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(simdata<span class="sc">$</span>assembly_model)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(simdata<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>competition     filtering   neutral</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       1000          1000       999</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A perfectly reasonable explanation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If anyone can guess why this is, I will buy you dinner tonight.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="plot-confusion-matrix" class="level4" data-number="10.3.2.2">
-<h4 data-number="10.3.2.2" class="anchored" data-anchor-id="plot-confusion-matrix"><span class="header-section-number">10.3.2.2</span> Plot confusion matrix</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>test_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(test_predictions, test<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Confusion Matrix and Statistics</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             Reference</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Prediction    competition filtering neutral</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  competition         233        13      32</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  filtering            23       270      28</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  neutral              49        33     247</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>Overall Statistics</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>               Accuracy : 0.8082         </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                 95% CI : (0.7814, 0.833)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    No Information Rate : 0.3405         </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    P-Value [Acc &gt; NIR] : &lt; 2e-16        </span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                  Kappa : 0.7122         </span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a> Mcnemar's Test P-Value : 0.08011        </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>Statistics by Class:</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>                     Class: competition Class: filtering Class: neutral</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>Sensitivity                      0.7639           0.8544         0.8046</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>Specificity                      0.9278           0.9167         0.8680</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>Pos Pred Value                   0.8381           0.8411         0.7508</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>Neg Pred Value                   0.8892           0.9242         0.8998</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>Prevalence                       0.3287           0.3405         0.3308</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>Detection Rate                   0.2511           0.2909         0.2662</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>Detection Prevalence             0.2996           0.3459         0.3545</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>Balanced Accuracy                0.8459           0.8855         0.8363</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(cm<span class="sc">$</span>table, <span class="at">Rowv=</span><span class="cn">NA</span>, <span class="at">Colv=</span><span class="cn">NA</span>, <span class="at">margins=</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">12</span>), <span class="at">xlab=</span><span class="st">"Prediction"</span>, <span class="at">ylab=</span><span class="st">"Reference"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="train-the-ml-classifier" class="level4" data-number="10.3.5.2">
+<h4 data-number="10.3.5.2" class="anchored" data-anchor-id="train-the-ml-classifier"><span class="header-section-number">10.3.5.2</span> Train the ML classifier</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 70/30 test/train split</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(simdata), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">1</span>,]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Experiment with results for different axes of data!</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(assembly_model <span class="sc">~</span> local_S <span class="sc">+</span> pi_h1 <span class="sc">+</span> abund_h1 <span class="sc">+</span> trait_h1, <span class="at">data=</span>train, <span class="at">proximity=</span><span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Call:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> randomForest(formula = assembly_model ~ local_S + pi_h1 + abund_h1 +      trait_h1, data = train, proximity = TRUE) </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>               Type of random forest: classification</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                     Number of trees: 500</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>No. of variables tried at each split: 2</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        OOB estimate of  error rate: 19.41%</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>Confusion matrix:</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            competition filtering neutral class.error</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>competition         538        33     124   0.2258993</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>filtering            24       571      89   0.1652047</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>neutral              61        71     560   0.1907514</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plot-confusion-matrix" class="level4" data-number="10.3.5.3">
+<h4 data-number="10.3.5.3" class="anchored" data-anchor-id="plot-confusion-matrix"><span class="header-section-number">10.3.5.3</span> Plot confusion matrix</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>test_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(test_predictions, test<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Confusion Matrix and Statistics</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             Reference</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>Prediction    competition filtering neutral</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  competition         233        13      32</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  filtering            23       270      28</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  neutral              49        33     247</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>Overall Statistics</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>               Accuracy : 0.8082         </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                 95% CI : (0.7814, 0.833)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    No Information Rate : 0.3405         </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    P-Value [Acc &gt; NIR] : &lt; 2e-16        </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                  Kappa : 0.7122         </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a> Mcnemar's Test P-Value : 0.08011        </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>Statistics by Class:</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>                     Class: competition Class: filtering Class: neutral</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>Sensitivity                      0.7639           0.8544         0.8046</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>Specificity                      0.9278           0.9167         0.8680</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>Pos Pred Value                   0.8381           0.8411         0.7508</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>Neg Pred Value                   0.8892           0.9242         0.8998</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>Prevalence                       0.3287           0.3405         0.3308</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>Detection Rate                   0.2511           0.2909         0.2662</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>Detection Prevalence             0.2996           0.3459         0.3545</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>Balanced Accuracy                0.8459           0.8855         0.8363</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(cm<span class="sc">$</span>table, <span class="at">Rowv=</span><span class="cn">NA</span>, <span class="at">Colv=</span><span class="cn">NA</span>, <span class="at">margins=</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">12</span>), <span class="at">xlab=</span><span class="st">"Prediction"</span>, <span class="at">ylab=</span><span class="st">"Reference"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MESS-Classification-ConfusionMatrix.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Visualization of the confusion matrix</figcaption>
 </figure>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varImpPlot</span>(rf,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">sort =</span> T,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n.var =</span> <span class="dv">4</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Variable Importance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varImpPlot</span>(rf,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">sort =</span> T,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n.var =</span> <span class="dv">4</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Variable Importance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MESS-Classification-VariableImportance.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Variable importance in RF classification</figcaption>
 </figure>
 </div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MDSplot</span>(rf, train<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MDSplot</span>(rf, train<span class="sc">$</span>assembly_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MESS-Classification-MDSplot.png" class="img-fluid figure-img"></p>
@@ -432,25 +499,12 @@ Note
 </div>
 </section>
 </section>
-<section id="perform-classification-of-empirical-data-and-view-results" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.3</span> Perform classification of empirical data and view results</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p_emp <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">1</span>, ], <span class="at">type=</span><span class="st">"prob"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>p_emp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  competition filtering neutral</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>1       0.016      0.04   0.944</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="ml-parameter-estimation" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="ml-parameter-estimation"><span class="header-section-number">10.3.4</span> ML parameter estimation</h3>
-<p>Now that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”</p>
-<section id="train-the-ml-regressor" class="level4" data-number="10.3.4.1">
-<h4 data-number="10.3.4.1" class="anchored" data-anchor-id="train-the-ml-regressor"><span class="header-section-number">10.3.4.1</span> Train the ML regressor</h4>
-</section>
-<section id="plot-cross-validation-results" class="level4" data-number="10.3.4.2">
-<h4 data-number="10.3.4.2" class="anchored" data-anchor-id="plot-cross-validation-results"><span class="header-section-number">10.3.4.2</span> Plot cross-validation results</h4>
-</section>
-<section id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results" class="level4" data-number="10.3.4.3">
-<h4 data-number="10.3.4.3" class="anchored" data-anchor-id="perform-regression-to-predict-dispersal_prob-of-empirical-data-and-view-results"><span class="header-section-number">10.3.4.3</span> Perform regression to predict dispersal_prob of empirical data and view results</h4>
-</section>
+<section id="perform-classification-of-empirical-data-and-view-results" class="level3" data-number="10.3.6">
+<h3 data-number="10.3.6" class="anchored" data-anchor-id="perform-classification-of-empirical-data-and-view-results"><span class="header-section-number">10.3.6</span> Perform classification of empirical data and view results</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p_emp <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">1</span>, ], <span class="at">type=</span><span class="st">"prob"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>p_emp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  competition filtering neutral</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>1       0.016      0.04   0.944</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="key-points" class="level2" data-number="10.4">
