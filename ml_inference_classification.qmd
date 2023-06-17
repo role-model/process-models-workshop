@@ -2,28 +2,78 @@
 
 ## Key questions
 
+1. What do I **do** with all these MESS simulations?
 1. How do I perform a inference using MESS simulations in R?
 
 ## Lesson objectives
 
 After this lesson, learners should be able to...
 
-1. Use RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference
-1. Interpret results in terms of story
-1. Brainstorm applications to real data
+1. Use MESS simulations and RandomForest ML to perform community assembly model selection (classification)
+1. Evaluate uncertainty in classification accuracy using confusion matrices
+1. Apply ML Classification to empirical data and interpret results in terms of story
+1. Brainstorm applications to other systems/empirical datasets
 
 ## Planned exercises
 
-
 * Lecture: How does ML work with MESS simulations?
+* Motivating community assembly model classification
 * Run MESS model simulations
-* ML assembly model classification
-* ML parameter estimation
-* Posterior predictive simulations (if time)
+* Overview of major steps of machine learning process
+* Implement ML assembly model classification
 * Free time to experiment with other example datasets
 
 ### Lecture: How does ML work with MESS simulations?
 Lecture: [How does machine learning work with MESS simulations?](https://docs.google.com/presentation/d/12fVO8Jzxvdm5nxcvITtpn3re8VJm4j1J96Y3zmBh6ZY/edit?usp=sharing)
+
+### Motivating community assembly model classification
+
+The first step is now to assess the model of community assembly that best
+fits the data. The three models are `neutral`, in which all individuals are
+ecologically equivalent; `competition`, in which species have traits, and
+differential survival probability is weighted by distance of traits from
+the trait mean in the local community (closer to the trait mean == higher
+probability of death); and `filtering`, in which there is an environmental
+optimum, and proximity of trait values to this optimum is positively
+correlated with survival probability.
+
+Basically we want to know, are individuals in the local community ecologically
+equivalent, and if not are they interacting more with each other or more
+with the local environment.
+
+### Run MESS simulations
+Ok, so now we know what we want to know: Are the "data" (the Hill # summary
+statistics for abundance, traits, and genetics) sufficient to distinguish among
+community assembly models? How do we go about evaluating this question? Well, the
+first step is to generate a large number simuations under each of the three
+assembly models, so we have a representative sample of patterns in the data
+characteristic of each assembly model.
+
+**Coding exercise:** Create a new `MESS$Core` object and use a `for` loop
+to run 2 simulations for each of the three community assembly models: `neutral`,
+`competition`, and `filtering`.
+
+::: {.callout-note collapse="true"}
+## Solution: Running a loop over assembly models to generate simulations
+
+```R
+MESS <- import("iBioGen", as="MESS")
+core = MESS$Core("watdo")
+
+## Set all the parameters common to all simulations
+core$set_param("ntaxa", "300")
+core$set_param("J", "40000-150000")
+core$set_param("colrate", "0.0001-0.005")
+core$set_param("ecological_strength", "0.1-10.0")
+core$set_param("local_stop_criterion", "equilibrium")
+core$set_param("local_stop_time", "0.5-1.0")
+
+for (model in c("neutral", "competition", "filtering")){
+  core$set_param("assembly_model", model)
+  core$simulate(nsims=2)
+}
+```
+:::
 
 #### Download the pre-baked simulations
 Since it can take quite some time to run a number of simulations sufficient for
@@ -49,7 +99,6 @@ pwd
 ```default
 /home/rstudio/MESS-inference
 ```
-
 :::
 
 Once you are in the `/home/rstudio/MESS-inference` directory, you may fetch
@@ -70,19 +119,33 @@ The `wc` command counts the number of lines if you pass it the `-l` flag.
 You can see this series of 3000 simulations is about 35MB gzipped.
 :::
 
-### ML assembly model classification
-The first step is now to assess the model of community assembly that best
-fits the data. The three models are `neutral`, in which all individuals are
-ecologically equivalent; `competition`, in which species have traits, and
-differential survival probability is weighted by distance of traits from
-the trait mean in the local community (closer to the trait mean == higher
-probability of death); and `filtering`, in which there is an environmental
-optimum, and proximity of trait values to this optimum is positively
-correlated with survival probability.
+### Overview of major steps of simulation-based machine learning process
+Before we dive in, it's maybe useful to have an idea of the roadmap of what we'll
+be doing. The *major* steps of implementing simulation-based machine learning are:
+* **Get the simulations:** Simulation results are composed of 'parameters' and 'data'.
+Parameters are what goes in to the simulation model and data is what comes out.
+* **Transform the simulations:** In some cases parameters/data must be reshaped in
+some way to make it more appropriate for the ML approach.
+* **Split the data into training/testing sets:** If you train a machine learning model
+with **all** of your data, then you won't have any way to really evaluate its
+performance. It's very common to split data into 'training' and 'testing' sets, where
+the training data used to train the model and the testing data is used to evaluate
+how well it performs.
+* **Tuning model parameters, feature selection, iterating performance evaluation:**
+There is a *LOT* of fancy stuff that we are *NOT* going to do in this workshop, so
+please don't imagine we are giving you the full picture. We are doing enough to give
+a **flavor** of how this works, and to show that even when done 'quick and dirty' it
+still works pretty okay.
+* **Train the model on the training set:** Learn a mapping between patterns in the
+data and community assembly model.
+* **Test the model on the testing set:** How well does the trained model recover the
+'known' assembly model in simulations that it hasn't seen yet.
+* **Evaluate variable importance:** Which axes of data contribute most to distinguishing
+assembly models?
+* **Predict assembly model of empirical data:** And embrace the uncertainty in the
+model classification.
 
-Basically we want to know, are individuals in the local community ecologically
-equivalent, and if not are they interacting more with each other or more
-with the local environment.
+### Implement ML assembly model classification
 
 Looking in the "Files" tab, double click on the new "MESS-inference" folder and
 you should see your new "MESS-SIMOUT.csv.gz" file. Now you can create a "New
@@ -105,10 +168,25 @@ install.packages(pkgs = "caret", dependencies = c("Depends", "Imports"))
 library(randomForest)
 library(caret)
 ```
-
+#### Load the simulated data
+Before, we had used `core$load_sims()` to load the simulations generated by
+a specific MESS `Core` object, but here we have a *file* that we got from the
+internet. There was a `Core` objec that created this somewhere, but we don't
+have access to it. Luckily, there is a utility function (`MESS$load_local_sims()`)
+which allows us to load data from an external file. Let's use it now:
 ```R
 simdata = MESS$load_local_sims("MESS-SIMOUT.csv")[[1]]
+```
+The simulated data is in the form that we have already looked at previously, so
+we don't need to look at it again here now, there's just a lot more of it.
 
+One constraint of the `randomForest` classification process is that the "target"
+variable (or "response" variable) must be an R `factor`, which is essentially a
+categorical variable. We can convert the `assembly_model` column in our `simdata`
+data.frame to a factor, and then count the number of elements in each `level` with
+`table()`.
+
+```R
 simdata$assembly_model <- as.factor(simdata$assembly_model)
 table(simdata$assembly_model)
 ```
@@ -116,6 +194,11 @@ table(simdata$assembly_model)
 competition     filtering   neutral
        1000          1000       999
 ```
+::: {.callout-caution collapse="true"}
+## A perfectly reasonable explanation
+
+If anyone can guess why this is, I will buy you dinner tonight.
+:::
 
 #### Train the ML classifier
 
@@ -215,15 +298,6 @@ p_emp
 ```
 
 
-### ML parameter estimation
-Now that we have identified the neutral model as the most probable, we can
-estimate parameters of the emipirical data given this model. Essentially,
-we are asking the question "What are the parameters of the model that
-generate summary statistics most similar to those of the empirical data?"
-
-#### Train the ML regressor
-#### Plot cross-validation results
-#### Perform regression to predict dispersal_prob of empirical data and view results
 
 ## Key points
 * Key
