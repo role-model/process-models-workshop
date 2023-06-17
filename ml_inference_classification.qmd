@@ -308,9 +308,28 @@ new simulated data file which contains 20 mystery simulations with random
 `assembly_model` values. Choose one of these and try to re-run the classification
 procedure we just completed.
 
+First go into your terminal and download the mystery simulations:
 ```bash
+cd /home/rstudio/MESS-inference
 wget https://github.com/role-model/process-models-workshop/raw/main/data/Mystery-data.csv
 ```
+Now see if you can load the mystery simulations and do the classification inference
+on one or a couple of them. Try to do this on your own, but if you get stuck you can
+check the hint here:
+
+::: {.callout-tip collapse="true"}
+## Hints: Loading the mystery sims and making predictions
+
+```R
+## Importing the mystery data
+mystery_sims = read.csv("/home/rstudio/MESS-inference/Mystery-data.csv")
+
+## Predict for mystery sim 1
+myst_sim = 1
+mystery_pred = predict(rf, mystery_sims[myst_sim, ], type="prob")
+print(mystery_pred)
+```
+:::
 
 A link to the key containing the true `assembly_model` values is hidden below.
 Don’t peek until you have a guess for your simulated data! How close did you get?
