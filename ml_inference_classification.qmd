@@ -292,6 +292,20 @@ heatmap(cm$table, Rowv=NA, Colv=NA, margins=c(12, 12), xlab="Prediction", ylab="
 ### **Predict assembly model of empirical data**
 And embrace the uncertainty in the model classification.
 
+Fetch the empirical data from Noguerales et al 2021
+
+In the terminal `wget` the data for one habitat type from the workshop repository:
+```default
+wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Qa_hills.txt
+```
+```R
+## FIXME: This requires reconfiguring the fitting, so either change what's above (easier)
+## or move this down to introduce fitting different features
+rf <- randomForest(assembly_model ~ local_S + pi_h1 + pi_h2 + pi_h3, data=train, proximity=TRUE)
+Qa_emp <- read.csv("/home/rstudio/MESS-inference/Qa_hills.txt")
+predict(rf, Qa_emp, type="prob")
+```
+
 ```R
 p_emp <- predict(rf, test[1, ], type="prob")
 p_emp
@@ -300,6 +314,16 @@ p_emp
   competition filtering neutral
 1       0.016      0.04   0.944
 ```
+
+::: {.callout-tip collapse="true"}
+## Other empirical data from Noguerales et al 2021
+
+```
+wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Cb_hills.txt
+wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Pb_hills.txt
+wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Pn_hills.txt
+```
+:::
 
 ### Hands-on Exercise: Predicting `assembly_model` of mystery simulations
 Time allowing, you may wish to try to classify some simulated multi-dimensional
