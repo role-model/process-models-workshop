@@ -12,22 +12,9 @@ After this lesson, learners should be able to...
 
 1.  Identify (personal) takeaways from the workshop
 2.  Know where to look for help from the instructors and the internet post-workshop
-3.  Send us feedback!
-
-## Planned exercises
-
-## Supporting materials
-
-*Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.*
-
-*For bonus points organize these according to whether they already exist or we need to create them!*
-
-### Extant
-
-### To create
-
--   Relevant chapters of user guide.
+3.  [Send us feedback!](https://docs.google.com/forms/d/1j0YuEXZNzAbUwDZoA-UzjSHjKPF5VX8R74kVj39duyY/edit)
 
 ## Key points
-
-*List 1-3 key takeaways from this section of the workshop.*
+* wat
+* do
+* Thank you for joining us!!!!!!!!!!!

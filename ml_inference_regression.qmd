@@ -2,33 +2,44 @@
 
 ## Key questions
 
-1. How do I perform a process-inference using RoLE simulations in R?
+1. How do I estimate parameter values for continuous MESS model parameters?
+1. How do I evaluate the uncertainty of ML parameter estimates?
 
 ## Lesson objectives
 
 After this lesson, learners should be able to...
 
-1. Use RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference
-1. Interpret results in terms of story
+1. Use simulations and randomForest ML to perform parameter estimation for
+key MESS model parameters.
+1. Evaluate uncertainty in parameter estimation accuracy using cross-validation
+simulations.
+1. Apply ML parameter estimation to empirical data and interpret results in
+terms of story
 1. Brainstorm applications to real data
 
 ## Planned exercises
 
-* ML parameter estimation
+* Motivating MESS process-model parameter estimation
+* Implement ML parameter estimation
+* Hands-on Exercise: Predicting MESS parameters of mystery simulations
 * Posterior predictive simulations (if time)
-* Free time to experiment with other example datasets
 
-### ML parameter estimation
+### Motivating MESS process-model parameter estimation
+
 Now that we have identified the neutral model as the most probable, we can
 estimate parameters of the emipirical data given this model. Essentially,
 we are asking the question "What are the parameters of the model that
 generate summary statistics most similar to those of the empirical data?"
 
+### Implement ML parameter estimation
+
 #### Train the ML regressor
 #### Plot cross-validation results
-#### Perform regression to predict dispersal_prob of empirical data and view results
-
+#### Perform regression to predict dispersal_prob of empirical data & view results
+### Hands-on Exercise: Predicting MESS parameters of mystery simulations
+### Posterior predictive simulations (if time)
 
 ## Key points
-
-_List 1-3 key takeaways from this section of the workshop._
+* wat
+* do
+* bee

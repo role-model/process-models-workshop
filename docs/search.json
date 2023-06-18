@@ -235,28 +235,28 @@
     "href": "ml_inference_regression.html#key-questions",
     "title": "11  ML parameter estimation with MESS simulations",
     "section": "11.1 Key questions",
-    "text": "11.1 Key questions\n\nHow do I perform a process-inference using RoLE simulations in R?"
+    "text": "11.1 Key questions\n\nHow do I estimate parameter values for continuous MESS model parameters?\nHow do I evaluate the uncertainty of ML parameter estimates?"
   },
   {
     "objectID": "ml_inference_regression.html#lesson-objectives",
     "href": "ml_inference_regression.html#lesson-objectives",
     "title": "11  ML parameter estimation with MESS simulations",
     "section": "11.2 Lesson objectives",
-    "text": "11.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference\nInterpret results in terms of story\nBrainstorm applications to real data"
+    "text": "11.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nUse simulations and randomForest ML to perform parameter estimation for key MESS model parameters.\nEvaluate uncertainty in parameter estimation accuracy using cross-validation simulations.\nApply ML parameter estimation to empirical data and interpret results in terms of story\nBrainstorm applications to real data"
   },
   {
     "objectID": "ml_inference_regression.html#planned-exercises",
     "href": "ml_inference_regression.html#planned-exercises",
     "title": "11  ML parameter estimation with MESS simulations",
     "section": "11.3 Planned exercises",
-    "text": "11.3 Planned exercises\n\nML parameter estimation\nPosterior predictive simulations (if time)\nFree time to experiment with other example datasets\n\n\n11.3.1 ML parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n11.3.1.1 Train the ML regressor\n\n\n11.3.1.2 Plot cross-validation results\n\n\n11.3.1.3 Perform regression to predict dispersal_prob of empirical data and view results"
+    "text": "11.3 Planned exercises\n\nMotivating MESS process-model parameter estimation\nImplement ML parameter estimation\nHands-on Exercise: Predicting MESS parameters of mystery simulations\nPosterior predictive simulations (if time)\n\n\n11.3.1 Motivating MESS process-model parameter estimation\nNow that we have identified the neutral model as the most probable, we can estimate parameters of the emipirical data given this model. Essentially, we are asking the question “What are the parameters of the model that generate summary statistics most similar to those of the empirical data?”\n\n\n11.3.2 Implement ML parameter estimation\n\n11.3.2.1 Train the ML regressor\n\n\n11.3.2.2 Plot cross-validation results\n\n\n11.3.2.3 Perform regression to predict dispersal_prob of empirical data & view results\n\n\n\n11.3.3 Hands-on Exercise: Predicting MESS parameters of mystery simulations\n\n\n11.3.4 Posterior predictive simulations (if time)"
   },
   {
     "objectID": "ml_inference_regression.html#key-points",
     "href": "ml_inference_regression.html#key-points",
     "title": "11  ML parameter estimation with MESS simulations",
     "section": "11.4 Key points",
-    "text": "11.4 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "text": "11.4 Key points\n\nwat\ndo\nbee"
   },
   {
     "objectID": "wrapup.html#key-questions",
@@ -273,24 +273,10 @@
     "text": "12.2 Lesson objectives\nAfter this lesson, learners should be able to…\n\nIdentify (personal) takeaways from the workshop\nKnow where to look for help from the instructors and the internet post-workshop\nSend us feedback!"
   },
   {
-    "objectID": "wrapup.html#planned-exercises",
-    "href": "wrapup.html#planned-exercises",
-    "title": "12  Wrap-up",
-    "section": "12.3 Planned exercises",
-    "text": "12.3 Planned exercises"
-  },
-  {
-    "objectID": "wrapup.html#supporting-materials",
-    "href": "wrapup.html#supporting-materials",
-    "title": "12  Wrap-up",
-    "section": "12.4 Supporting materials",
-    "text": "12.4 Supporting materials\nDescribe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc.\nFor bonus points organize these according to whether they already exist or we need to create them!\n\n12.4.1 Extant\n\n\n12.4.2 To create\n\nRelevant chapters of user guide."
-  },
-  {
     "objectID": "wrapup.html#key-points",
     "href": "wrapup.html#key-points",
     "title": "12  Wrap-up",
-    "section": "12.5 Key points",
-    "text": "12.5 Key points\nList 1-3 key takeaways from this section of the workshop."
+    "section": "12.3 Key points",
+    "text": "12.3 Key points\n\nwat\ndo\nThank you for joining us!!!!!!!!!!!"
   }
 ]
