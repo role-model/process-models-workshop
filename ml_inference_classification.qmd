@@ -214,6 +214,21 @@ test <- simdata[tmp==2,]
 #### **Train the model on the training set**
 Learn a mapping between patterns in the data and community assembly model.
 
+The `randomForest()` function takes two important arguments:
+
+1. The `data` upon which to operate, in this case the `train` set of training data
+2. A `formula` describing the desired model of the relationship between
+dependent variables (on the left of the `~`) and independent variables (on the
+right of the `~`).
+
+The formula below indcates that we wish to express `assembly_model` "as a
+function" of `local_S`, `pi_h1`, `abund_h1`, and `traint_h1`. We chose these
+4 predictor variables to demonstrate a ML model which considers all the axes
+of biodiversity, without being overly complex and including **all** the Hill
+numbers for each axis of data. There's no reason to believe this is the *best*
+model, and you could certainly experiment with manipulating the independent
+variables in this formula.
+
 ```R
 ## Experiment with results for different axes of data!
 rf <- randomForest(assembly_model ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
@@ -247,6 +262,15 @@ workshop in itself, which we would encourage you to look into in the future!
 #### **Test the model on the testing set**
 How well does the trained model recover the 'known' assembly model in simulations
 that it hasn't seen yet.
+
+Now we have trained the `rf` model and it's time to evaluate how well it can
+classify simulations that it hasn't previously seen. This is exactly what the
+testing dataset is **for!** We can use the testing data, which the rf model
+has not encountered, to determine accuracy of classification on *new* data.
+
+We use the built-in R function `predict()` to feed the `test` data to the
+trained `rf` model, and it will record classification predictions for each
+simulation in the training set.
 
 ```R
 test_predictions <- predict(rf, test)
@@ -323,6 +347,8 @@ We can pass in just one simulated dataset and ask `predict` to give us the
 
 ```R
 # Take the first row of testing data as just one simulation to predict
+# `type="prob" indicates that we wish to return the percent probability of
+# each assembly_model, rather than the point estimate.
 p_emp <- predict(rf, test[1, ], type="prob")
 p_emp
 ```
@@ -344,15 +370,18 @@ of simulated data: training the model and calling `predict`.
 For this exercsie we will use genetic data from a soil arthropod metabarcoding
 study published by [Noguerales et al (2021)](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16275). The data is comprised of soil micro-arthropod COI
 sequences sampled from four different habitat types in the montane forests of
-Cyprus. Fetch the empirical data from Noguerales et al 2021:
+Cyprus. Fetch the empirical data from Noguerales et al 2021 (which we have again
+preprocessed and stored on github):
 
 In the terminal `wget` the data for one habitat type from the workshop repository:
 ```default
+## Be sure you are in the right working directory inside the terminal
+cd /home/rstudio/MESS-Inference
 wget https://github.com/role-model/process-models-workshop/raw/main/empirical_data/Qa_hills.txt
 ```
 
 Now go back into the R console and load the data for this sample. It might also
-help to take a quick look at what the dat for this sample looks like, so also
+help to take a quick look at what the data for this sample looks like, so also
 print it to the screen.
 
 ```R
@@ -365,15 +394,16 @@ Qa_emp
 ```
 
 The empirical data was generated from a metabarcoding dataset, and for this
-exercise we provide the data already collapsed into summary statistics, so all the
-imformation we have is number of local species (`local_S`) and the first three
+exercise we provide the data already collapsed into summary statistics: the
+number of species in the local community (`local_S`) and the first three
 Hill numbers of genetic diversity (`pi_h1`, `pi_h2`, `pi_h3`). Earlier when
 we fit the randomForest model we used the first Hill numbers of abundance,
-traits, and genetic data, so before we can call predict community assembly model
-with the real data we need to *re-fit* the rf classifier so it's explanatory
+traits, and genetic data, so before we can `predict()` community assembly model
+with the real data we need to *re-fit* the rf classifier so it's predictor
 variables match those of the empirical data.
 
 ```R
+# Fit the model including only genetic Hill numbers to the training set
 rf <- randomForest(assembly_model ~ local_S + pi_h1 + pi_h2 + pi_h3, data=train, proximity=TRUE)
 predict(rf, Qa_emp, type="prob")
 ```
