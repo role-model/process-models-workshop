@@ -228,7 +228,7 @@
     "href": "ml_inference_classification.html#key-points",
     "title": "10  ML model selection with MESS simulations",
     "section": "10.4 Key points",
-    "text": "10.4 Key points\n\nKey\npoint\none"
+    "text": "10.4 Key points\n\nMachine learning models can be used to “classify” categorical response variables given multi-dimensional input data.\nMajor components of machine learning inference include gathering and transforming data, splitting data into training and testing sets, training the ml model, and evaluating model performance.\nML inference is inherently uncertain, so it is important to evaluate uncertainty in ml prediction accuracy and propagate this into any downstream interpretation when applying ml to empirical data."
   },
   {
     "objectID": "ml_inference_regression.html#key-questions",

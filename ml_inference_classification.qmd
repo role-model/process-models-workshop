@@ -497,6 +497,11 @@ MDSplot(rf, train$assembly_model)
 
 
 ## Key points
-* Key
-* point
-* one
+* Machine learning models can be used to "classify" categorical response
+variables given multi-dimensional input data.
+* Major components of machine learning inference include gathering and
+transforming data, splitting data into training and testing sets, training the
+ml model, and evaluating model performance.
+* ML inference is **inherently** uncertain, so it is important to evaluate
+uncertainty in ml prediction accuracy and propagate this into any downstream
+interpretation when applying ml to empirical data.
