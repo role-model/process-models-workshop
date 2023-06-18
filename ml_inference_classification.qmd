@@ -126,7 +126,8 @@ You can see this series of 3000 simulations is about 35MB gzipped.
 
 Before we dive in, it's maybe useful to have an idea of the roadmap of what we'll
 be doing. The *major* steps of implementing simulation-based machine learning are:
-* Get the simulations and do some set-up
+
+* Load the simulations and do some set-up
 * Transform the simulations
 * Train the ML model
 * Evaluate how well it trained
@@ -158,7 +159,7 @@ library(caret)
 ## Make sure you're _in_ the MESS-inference working directory
 setwd("/home/rstudio/MESS-inference")
 ```
-#### **Get the simulations**
+#### **Load the pre-baked simulations**
 Simulation results are composed of 'parameters' and 'data'. Parameters are what
 goes in to the simulation model and data is what comes out.
 
@@ -283,6 +284,26 @@ Detection Rate                   0.2511           0.2909         0.2662
 Detection Prevalence             0.2996           0.3459         0.3545
 Balanced Accuracy                0.8459           0.8855         0.8363
 ```
+
+The simplest way to evaluate classification accuracy is to look at the
+"Confusion matrix". In the testing set we _know_ the true assembly model
+the data was generated under, and we want to know how often the trained RF model
+is able to recover the known assembly model from the held out testing data. The
+confusion matrix reports the contingency table of reference vs predicted
+assembly model outcomes. With perfect classification you would expect 100%
+agreement between the 'Reference' model and the 'Prediction' model, with all
+values in the confusion matrix falling along the diagonal. Off-diagonal elements
+represent the frequency of mis-classification and the category of the
+mis-classified prediction (e.g. predictions of 'neutral' when the known assembly
+model was 'competition').
+
+Already we can see that classification accuracy is relatively high, with the
+majority of testing simulations being accurately classified, and few (~15%)
+being mis-classified in one way or the other.
+
+It can sometimes be useful to visualize confusion matrices using the `heatmap`
+function in base R, which produces a plot representing exactly the data in the
+contingency table above.
 
 ```R
 heatmap(cm$table, Rowv=NA, Colv=NA, margins=c(12, 12), xlab="Prediction", ylab="Reference")
