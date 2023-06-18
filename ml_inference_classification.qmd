@@ -221,9 +221,9 @@ The `randomForest()` function takes two important arguments:
 dependent variables (on the left of the `~`) and independent variables (on the
 right of the `~`).
 
-The formula below indcates that we wish to express `assembly_model` "as a
-function" of `local_S`, `pi_h1`, `abund_h1`, and `traint_h1`. We chose these
-4 predictor variables to demonstrate a ML model which considers all the axes
+The formula below indicates that we wish to express `assembly_model` as a
+function of `local_S`, `pi_h1`, `abund_h1`, and `trait_h1`. We chose these
+4 predictor variables to demonstrate an ML model which considers all the axes
 of biodiversity, without being overly complex and including **all** the Hill
 numbers for each axis of data. There's no reason to believe this is the *best*
 model, and you could certainly experiment with manipulating the independent
@@ -342,7 +342,7 @@ model with the highest prediction probability as the predicted value (essentiall
 it is a point estimate). Often it is useful (particularly with empirical data)
 to have a more comprehensive view of the prediction probabilities across classes.
 We can pass in just one simulated dataset and ask `predict` to give us the
-`type="prob"`, which will return exactly these;
+`type="prob"`, which will return exactly these.
 
 
 ```R
@@ -358,7 +358,8 @@ p_emp
 ```
 
 **Activity:** Spend a few moments making predictions for several other of the
-simulated datasets, just to get the hang of it.
+simulated datasets by changing the `1` above to `2` or `3` or some other integer
+values, just to get the hang of it.
 
 ### **Predict assembly model of empirical data**
 And "Embrace the uncertainty in the model classification.
