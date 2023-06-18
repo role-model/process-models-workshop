@@ -33,10 +33,49 @@ generate summary statistics most similar to those of the empirical data?"
 
 ### Implement ML parameter estimation
 
-#### Train the ML regressor
-#### Plot cross-validation results
-#### Perform regression to predict dispersal_prob of empirical data & view results
+#### Load libraries, setwd, and load the simulated data
+```R
+library(randomForest)
+library(caret)
+library(reticulate)
+
+setwd("/home/rstudio/MESS-inference")
+simdata = MESS$load_local_sims("MESS-SIMOUT.csv")[[1]]
+```
+
+#### Extract sumulations generated under the 'filtering' assembly model
+```R
+simdata = simdata[simdata$assembly_model == "filtering", ]
+simdata
+```
+
+#### Split train and test data as normal
+```R
+tmp <- sample(2, nrow(simdata), replace = TRUE, prob = c(0.7, 0.3))
+train <- simdata[tmp==1,]
+test <- simdata[tmp==2,]
+```
+
+#### Train the ML regressor as normal
+```R
+rf <- randomForest(colrate ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
+rf
+```
+
+#### Plot results of predictions for colrate of held-out training set
+```R
+preds <- predict(rf, test)
+plot(preds, test$colrate)
+```
+
+#### Predict `colrate` of test simulation and plot distribution of predictions
+```R
+preds <- predict(rf, test[5, ], predict.all=TRUE)
+hist(preds[[2]])
+```
+
 ### Hands-on Exercise: Predicting MESS parameters of mystery simulations
+
 ### Posterior predictive simulations (if time)
 
 ## Key points
