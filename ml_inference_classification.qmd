@@ -3,7 +3,7 @@
 ## Key questions
 
 1. What do I **do** with all these MESS simulations?
-1. How do I perform a inference using MESS simulations in R?
+1. How do I perform ML inference using MESS simulations in R?
 
 ## Lesson objectives
 

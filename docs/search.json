@@ -207,7 +207,7 @@
     "href": "ml_inference_classification.html#key-questions",
     "title": "10  ML model selection with MESS simulations",
     "section": "10.1 Key questions",
-    "text": "10.1 Key questions\n\nWhat do I do with all these MESS simulations?\nHow do I perform a inference using MESS simulations in R?"
+    "text": "10.1 Key questions\n\nWhat do I do with all these MESS simulations?\nHow do I perform ML inference using MESS simulations in R?"
   },
   {
     "objectID": "ml_inference_classification.html#lesson-objectives",
