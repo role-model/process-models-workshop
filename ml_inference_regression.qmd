@@ -35,6 +35,7 @@ generate summary statistics most similar to those of the empirical data?"
 
 Let's start with a new clean Rscript, so create a new file and save it as
 "MESS-Regression.R", then load the necessary libraries and simulated data.
+
 #### Load libraries, setwd, and load the simulated data
 ```R
 library(randomForest)
@@ -173,11 +174,27 @@ ml model and evaluating the impact on performance. For example, try only using
 abundance Hill numbers, or only genetics Hill numbers. Try using *all* the Hill
 numbers for all the data axes. How does the composition of the predictor
 variables change the ml parameter estimation accuracy?
-:::
 
 ### Posterior predictive simulations (if time)
 
+Posterior predictive simulations are a good practice to assess the goodness
+of fit of the model to the data. Essentially this involves running new simulations
+setting MESS model parameters to the most probable estimates from the ML
+inference, and then evaluating the fit of the new simulations to the empirical
+data, typically by projecting summary statistics of the simulated and observed
+data and checking that they all fall within a point cloud.
+
+We probably won't have time to get to this, but it's a good practice in fitting
+ml models to real data.
+:::
+
+
 ## Key points
-* wat
-* do
-* bee
+* Machine learning models can be used to "estimate parameters" of continuous
+response variables given multi-dimensional input data.
+* Major components of machine learning inference include gathering and
+transforming data, splitting data into training and testing sets, training the
+ml model, and evaluating model performance.
+* ML inference is **inherently** uncertain, so it is important to evaluate
+uncertainty in ml prediction accuracy and propagate this into any downstream
+interpretation when applying ml to empirical data.

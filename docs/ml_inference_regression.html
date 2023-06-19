@@ -222,7 +222,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#motivating-mess-process-model-parameter-estimation" id="toc-motivating-mess-process-model-parameter-estimation" class="nav-link" data-scroll-target="#motivating-mess-process-model-parameter-estimation"><span class="header-section-number">11.3.1</span> Motivating MESS process-model parameter estimation</a></li>
   <li><a href="#implement-ml-parameter-estimation" id="toc-implement-ml-parameter-estimation" class="nav-link" data-scroll-target="#implement-ml-parameter-estimation"><span class="header-section-number">11.3.2</span> Implement ML parameter estimation</a></li>
   <li><a href="#hands-on-exercise-predicting-mess-parameters-of-mystery-simulations" id="toc-hands-on-exercise-predicting-mess-parameters-of-mystery-simulations" class="nav-link" data-scroll-target="#hands-on-exercise-predicting-mess-parameters-of-mystery-simulations"><span class="header-section-number">11.3.3</span> Hands-on Exercise: Predicting MESS parameters of mystery simulations</a></li>
-  <li><a href="#posterior-predictive-simulations-if-time" id="toc-posterior-predictive-simulations-if-time" class="nav-link" data-scroll-target="#posterior-predictive-simulations-if-time"><span class="header-section-number">11.3.4</span> Posterior predictive simulations (if time)</a></li>
   </ul></li>
   <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points"><span class="header-section-number">11.4</span> Key points</a></li>
   </ul>
@@ -279,34 +278,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="implement-ml-parameter-estimation" class="level3" data-number="11.3.2">
 <h3 data-number="11.3.2" class="anchored" data-anchor-id="implement-ml-parameter-estimation"><span class="header-section-number">11.3.2</span> Implement ML parameter estimation</h3>
-<p>Let’s start with a new clean Rscript, so create a new file and save it as “MESS-Regression.R”, then load the necessary libraries and simulated data. #### Load libraries, setwd, and load the simulated data</p>
+<p>Let’s start with a new clean Rscript, so create a new file and save it as “MESS-Regression.R”, then load the necessary libraries and simulated data.</p>
+<section id="load-libraries-setwd-and-load-the-simulated-data" class="level4" data-number="11.3.2.1">
+<h4 data-number="11.3.2.1" class="anchored" data-anchor-id="load-libraries-setwd-and-load-the-simulated-data"><span class="header-section-number">11.3.2.1</span> Load libraries, setwd, and load the simulated data</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/rstudio/MESS-inference"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">=</span> MESS<span class="sc">$</span><span class="fu">load_local_sims</span>(<span class="st">"MESS-SIMOUT.csv"</span>)[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="extract-sumulations-generated-under-the-filtering-assembly-model" class="level4" data-number="11.3.2.1">
-<h4 data-number="11.3.2.1" class="anchored" data-anchor-id="extract-sumulations-generated-under-the-filtering-assembly-model"><span class="header-section-number">11.3.2.1</span> Extract sumulations generated under the ‘filtering’ assembly model</h4>
+</section>
+<section id="extract-sumulations-generated-under-the-filtering-assembly-model" class="level4" data-number="11.3.2.2">
+<h4 data-number="11.3.2.2" class="anchored" data-anchor-id="extract-sumulations-generated-under-the-filtering-assembly-model"><span class="header-section-number">11.3.2.2</span> Extract sumulations generated under the ‘filtering’ assembly model</h4>
 <p>Let’s pretend that the most probable model from the classification procedure was ‘environmental filtering’. If our goal is to estimate parameters under this model then we want to <em>exclude</em> simulations from the ml inference that do not fit our most probable model. This can be achieved by selecting rows in the <code>simdata</code> data.frame that have “filtering” as the <code>assembly_model</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">=</span> simdata[simdata<span class="sc">$</span>assembly_model <span class="sc">==</span> <span class="st">"filtering"</span>, ]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>simdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="split-train-and-test-data-as-normal" class="level4" data-number="11.3.2.2">
-<h4 data-number="11.3.2.2" class="anchored" data-anchor-id="split-train-and-test-data-as-normal"><span class="header-section-number">11.3.2.2</span> Split train and test data as normal</h4>
+<section id="split-train-and-test-data-as-normal" class="level4" data-number="11.3.2.3">
+<h4 data-number="11.3.2.3" class="anchored" data-anchor-id="split-train-and-test-data-as-normal"><span class="header-section-number">11.3.2.3</span> Split train and test data as normal</h4>
 <p>Again, we’ll split the data into training and testing sets.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(simdata), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">1</span>,]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> simdata[tmp<span class="sc">==</span><span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="train-the-ml-regressor-as-normal" class="level4" data-number="11.3.2.3">
-<h4 data-number="11.3.2.3" class="anchored" data-anchor-id="train-the-ml-regressor-as-normal"><span class="header-section-number">11.3.2.3</span> Train the ML regressor as normal</h4>
+<section id="train-the-ml-regressor-as-normal" class="level4" data-number="11.3.2.4">
+<h4 data-number="11.3.2.4" class="anchored" data-anchor-id="train-the-ml-regressor-as-normal"><span class="header-section-number">11.3.2.4</span> Train the ML regressor as normal</h4>
 <p>Train the ml model to perform regression, as our focal dependent variable takes continuous values. The <code>randomForest</code> package auto-detects if the dependent variable is continuous or categorical, so there’s nothing more to do there. We will use the same formula as before, specifying <code>local_S</code> and the first Hill number on each axis of biodiversity as the predictor variables.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(colrate <span class="sc">~</span> local_S <span class="sc">+</span> pi_h1 <span class="sc">+</span> abund_h1 <span class="sc">+</span> trait_h1, <span class="at">data=</span>train, <span class="at">proximity=</span><span class="cn">TRUE</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>rf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="plot-results-of-predictions-for-colrate-of-held-out-training-set" class="level4" data-number="11.3.2.4">
-<h4 data-number="11.3.2.4" class="anchored" data-anchor-id="plot-results-of-predictions-for-colrate-of-held-out-training-set"><span class="header-section-number">11.3.2.4</span> Plot results of predictions for colrate of held-out training set</h4>
+<section id="plot-results-of-predictions-for-colrate-of-held-out-training-set" class="level4" data-number="11.3.2.5">
+<h4 data-number="11.3.2.5" class="anchored" data-anchor-id="plot-results-of-predictions-for-colrate-of-held-out-training-set"><span class="header-section-number">11.3.2.5</span> Plot results of predictions for colrate of held-out training set</h4>
 <p>For a regression analysis we can’t use a confusion matrix because the response is continuous, so instead we evaluate prediction accuracy by making a scatter plot showing predictions as a function of known simulated values. With perfect prediction accuracy the points in the scatter plot would fall along the identity line.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(preds, test<span class="sc">$</span>colrate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -349,8 +351,8 @@ Prediction accuracy should be quantified with a formal method.
 </div>
 </div>
 </section>
-<section id="predict-colrate-of-test-simulation-and-plot-distribution-of-predictions" class="level4" data-number="11.3.2.5">
-<h4 data-number="11.3.2.5" class="anchored" data-anchor-id="predict-colrate-of-test-simulation-and-plot-distribution-of-predictions"><span class="header-section-number">11.3.2.5</span> Predict <code>colrate</code> of test simulation and plot distribution of predictions</h4>
+<section id="predict-colrate-of-test-simulation-and-plot-distribution-of-predictions" class="level4" data-number="11.3.2.6">
+<h4 data-number="11.3.2.6" class="anchored" data-anchor-id="predict-colrate-of-test-simulation-and-plot-distribution-of-predictions"><span class="header-section-number">11.3.2.6</span> Predict <code>colrate</code> of test simulation and plot distribution of predictions</h4>
 <p>Now we can practice making predictions for a <em>single</em> simulation and looking at uncertainty in the prediction. Like we did before we can select one simulation by using the <code>test [#, ]</code> row selection strategy on our <code>test</code> data.frame.</p>
 <p>When we ask for <code>predict.all=TRUE</code> this will return the prediction value for each tree in the rf, and we can plot the aggregation of these predictions using <code>hist</code> to show a histogram.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">5</span>, ], <span class="at">predict.all=</span><span class="cn">TRUE</span>)</span>
@@ -419,20 +421,22 @@ More to explore if you are ahead of the group
 <div class="callout-body-container callout-body">
 <p>If you are ahead of the group you will see that the “key” also contains the true values of <code>J</code> and <code>ecological_strength</code> so you might try performing the regression inference on these as well. Are either of these parameters harder or easier to estimate than <code>colrate</code>? Why do you think that is?</p>
 <p>You might also try manipulating the predictor variables before training the ml model and evaluating the impact on performance. For example, try only using abundance Hill numbers, or only genetics Hill numbers. Try using <em>all</em> the Hill numbers for all the data axes. How does the composition of the predictor variables change the ml parameter estimation accuracy?</p>
-</div>
-</div>
-</div>
-</section>
 <section id="posterior-predictive-simulations-if-time" class="level3" data-number="11.3.4">
 <h3 data-number="11.3.4" class="anchored" data-anchor-id="posterior-predictive-simulations-if-time"><span class="header-section-number">11.3.4</span> Posterior predictive simulations (if time)</h3>
+<p>Posterior predictive simulations are a good practice to assess the goodness of fit of the model to the data. Essentially this involves running new simulations setting MESS model parameters to the most probable estimates from the ML inference, and then evaluating the fit of the new simulations to the empirical data, typically by projecting summary statistics of the simulated and observed data and checking that they all fall within a point cloud.</p>
+<p>We probably won’t have time to get to this, but it’s a good practice in fitting ml models to real data.</p>
+</section>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="key-points" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="key-points"><span class="header-section-number">11.4</span> Key points</h2>
 <ul>
-<li>wat</li>
-<li>do</li>
-<li>bee</li>
+<li>Machine learning models can be used to “estimate parameters” of continuous response variables given multi-dimensional input data.</li>
+<li>Major components of machine learning inference include gathering and transforming data, splitting data into training and testing sets, training the ml model, and evaluating model performance.</li>
+<li>ML inference is <strong>inherently</strong> uncertain, so it is important to evaluate uncertainty in ml prediction accuracy and propagate this into any downstream interpretation when applying ml to empirical data.</li>
 </ul>
 
 
