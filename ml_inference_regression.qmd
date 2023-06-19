@@ -130,6 +130,7 @@ to show a histogram.
 ## Return values of `predict()` for regression
 
 When `predict.all=TRUE` the `predict()` function returns a list with 2 elements:
+
 * The predicted value (point estimate)
 * A vector of predicted values for each tree in the forest
 :::
