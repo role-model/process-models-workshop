@@ -126,12 +126,29 @@ When we ask for `predict.all=TRUE` this will return the prediction value for eac
 tree in the rf, and we can plot the aggregation of these predictions using `hist`
 to show a histogram.
 
+::: {.callout-tip collapse="true"}
+## Return values of `predict()` for regression
+
+When `predict.all=TRUE` the `predict()` function returns a list with 2 elements:
+* The predicted value (point estimate)
+* A vector of predicted values for each tree in the forest
+:::
+
 ```R
-preds <- predict(rf, test[5, ], predict.all=TRUE)
+preds <- predict(rf, test[2, ], predict.all=TRUE)
+# The predicted value is element [[1]]
+print(preds[[1]])
+# A vector of predictions for each tree in the forest [[2]]
 hist(preds[[2]])
+```
+```default
+0.001191852
 ```
 
 ![Distribution of colonization rate predictions for a single simulation](images/MESS-Regression-EmpiricalUncertainty.png)
+
+**What can we say about the uncertainty on parameter estimation for this one
+simulation?**
 
 ### Hands-on Exercise: Predicting MESS parameters of mystery simulations
 Now see if you can load the mystery simulations and do the regression inference

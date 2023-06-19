@@ -355,21 +355,42 @@ Prediction accuracy should be quantified with a formal method.
 <h4 data-number="11.3.2.6" class="anchored" data-anchor-id="predict-colrate-of-test-simulation-and-plot-distribution-of-predictions"><span class="header-section-number">11.3.2.6</span> Predict <code>colrate</code> of test simulation and plot distribution of predictions</h4>
 <p>Now we can practice making predictions for a <em>single</em> simulation and looking at uncertainty in the prediction. Like we did before we can select one simulation by using the <code>test [#, ]</code> row selection strategy on our <code>test</code> data.frame.</p>
 <p>When we ask for <code>predict.all=TRUE</code> this will return the prediction value for each tree in the rf, and we can plot the aggregation of these predictions using <code>hist</code> to show a histogram.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">5</span>, ], <span class="at">predict.all=</span><span class="cn">TRUE</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(preds[[<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Return values of <code>predict()</code> for regression
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When <code>predict.all=TRUE</code> the <code>predict()</code> function returns a list with 2 elements: * The predicted value (point estimate) * A vector of predicted values for each tree in the forest</p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, test[<span class="dv">2</span>, ], <span class="at">predict.all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The predicted value is element [[1]]</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(preds[[<span class="dv">1</span>]])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A vector of predictions for each tree in the forest [[2]]</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(preds[[<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>0.001191852</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MESS-Regression-EmpiricalUncertainty.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Distribution of colonization rate predictions for a single simulation</figcaption>
 </figure>
 </div>
+<p><strong>What can we say about the uncertainty on parameter estimation for this one simulation?</strong></p>
 </section>
 </section>
 <section id="hands-on-exercise-predicting-mess-parameters-of-mystery-simulations" class="level3" data-number="11.3.3">
 <h3 data-number="11.3.3" class="anchored" data-anchor-id="hands-on-exercise-predicting-mess-parameters-of-mystery-simulations"><span class="header-section-number">11.3.3</span> Hands-on Exercise: Predicting MESS parameters of mystery simulations</h3>
 <p>Now see if you can load the mystery simulations and do the regression inference on one or a couple of them. Try to do this on your own, but if you get stuck you can check the hint here:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -378,21 +399,21 @@ Hints: Loading the mystery sims and making predictions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Importing the mystery data</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mystery_sims <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"/home/rstudio/MESS-inference/Mystery-data.csv"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Predict for mystery sim 1</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>myst_sim <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mystery_pred <span class="ot">=</span> <span class="fu">predict</span>(rf, mystery_sims[myst_sim, ])</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mystery_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Importing the mystery data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mystery_sims <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"/home/rstudio/MESS-inference/Mystery-data.csv"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Predict for mystery sim 1</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>myst_sim <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>mystery_pred <span class="ot">=</span> <span class="fu">predict</span>(rf, mystery_sims[myst_sim, ])</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mystery_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <p>A link to the key containing the true <code>colrate</code> values is hidden below. Don’t peek until you have a guess for your simulated data! How close did you get?</p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -401,14 +422,14 @@ The Key is here
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><a href="data/Mystery-key.csv">Assembly models per mystery simulation are in this file</a></p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -417,7 +438,7 @@ More to explore if you are ahead of the group
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you are ahead of the group you will see that the “key” also contains the true values of <code>J</code> and <code>ecological_strength</code> so you might try performing the regression inference on these as well. Are either of these parameters harder or easier to estimate than <code>colrate</code>? Why do you think that is?</p>
 <p>You might also try manipulating the predictor variables before training the ml model and evaluating the impact on performance. For example, try only using abundance Hill numbers, or only genetics Hill numbers. Try using <em>all</em> the Hill numbers for all the data axes. How does the composition of the predictor variables change the ml parameter estimation accuracy?</p>
