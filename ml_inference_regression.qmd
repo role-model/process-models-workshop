@@ -33,6 +33,8 @@ generate summary statistics most similar to those of the empirical data?"
 
 ### Implement ML parameter estimation
 
+Let's start with a new clean Rscript, so create a new file and save it as
+"MESS-Regression.R", then load the necessary libraries and simulated data.
 #### Load libraries, setwd, and load the simulated data
 ```R
 library(randomForest)
@@ -44,12 +46,19 @@ simdata = MESS$load_local_sims("MESS-SIMOUT.csv")[[1]]
 ```
 
 #### Extract sumulations generated under the 'filtering' assembly model
+Let's pretend that the most probable model from the classification procedure
+was 'environmental filtering'. If our goal is to estimate parameters under this
+model then we want to _exclude_ simulations from the ml inference that do not
+fit our most probable model. This can be achieved by selecting rows in the
+`simdata` data.frame that have "filtering" as the `assembly_model`.
 ```R
 simdata = simdata[simdata$assembly_model == "filtering", ]
 simdata
 ```
 
 #### Split train and test data as normal
+Again, we'll split the data into training and testing sets.
+
 ```R
 tmp <- sample(2, nrow(simdata), replace = TRUE, prob = c(0.7, 0.3))
 train <- simdata[tmp==1,]
@@ -57,24 +66,114 @@ test <- simdata[tmp==2,]
 ```
 
 #### Train the ML regressor as normal
+Train the ml model to perform regression, as our focal dependent variable takes
+continuous values. The `randomForest` package auto-detects if the dependent
+variable is continuous or categorical, so there's nothing more to do there. We
+will use the same formula as before, specifying `local_S` and the first Hill
+number on each axis of biodiversity as the predictor variables.
+
 ```R
 rf <- randomForest(colrate ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
 rf
 ```
 
 #### Plot results of predictions for colrate of held-out training set
+For a regression analysis we can't use a confusion matrix because the response
+is continuous, so instead we evaluate prediction accuracy by making a scatter
+plot showing predictions as a function of known simulated values. With perfect
+prediction accuracy the points in the scatter plot would fall along the identity
+line.
+
 ```R
 preds <- predict(rf, test)
 plot(preds, test$colrate)
 ```
 
+![Simulated and predicted colonization rates](images/MESS-Regression-PredictionScatter.png)
+
+::: {.callout-tip}
+## What can we say about the accuracy of ml prediction of colonization rate?
+
+:::
+
+::: {.callout-warning collapse="true"}
+## Prediction accuracy should be quantified with a formal method.
+
+What we are doing here is a very qualitative, ad hoc evaluation of prediction
+accuracy. This is another case where the full details of performing ml inference
+are slightly out of scope for this workshop, given the amount of time we have.
+In a real analysis one should more formally quantify this with mean squared
+error, or mean absolute error, or pseudo-R^2, some of which are provided in
+the `randomForest` package, e.g.:
+
+```R
+rf <- randomForest(colrate ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
+mean(rf$rsq)
+```
+```default
+0.6219401
+```
+
+:::
+
 #### Predict `colrate` of test simulation and plot distribution of predictions
+Now we can practice making predictions for a _single_ simulation and looking
+at uncertainty in the prediction. Like we did before we can select one simulation
+by using the `test [#, ]` row selection strategy on our `test` data.frame.
+
+When we ask for `predict.all=TRUE` this will return the prediction value for each
+tree in the rf, and we can plot the aggregation of these predictions using `hist`
+to show a histogram.
+
 ```R
 preds <- predict(rf, test[5, ], predict.all=TRUE)
 hist(preds[[2]])
 ```
 
+![Distribution of colonization rate predictions for a single simulation](images/MESS-Regression-EmpiricalUncertainty.png)
+
 ### Hands-on Exercise: Predicting MESS parameters of mystery simulations
+Now see if you can load the mystery simulations and do the regression inference
+on one or a couple of them. Try to do this on your own, but if you get stuck
+you can check the hint here:
+
+::: {.callout-tip collapse="true"}
+## Hints: Loading the mystery sims and making predictions
+
+```R
+## Importing the mystery data
+mystery_sims = read.csv("/home/rstudio/MESS-inference/Mystery-data.csv")
+
+## Predict for mystery sim 1
+myst_sim = 1
+mystery_pred = predict(rf, mystery_sims[myst_sim, ])
+print(mystery_pred)
+```
+:::
+
+A link to the key containing the true `colrate` values is hidden below.
+Don’t peek until you have a guess for your simulated data! How close did you get?
+
+::: {.callout-warning collapse="true"}
+## The Key is here
+
+[Assembly models per mystery simulation are in this file](data/Mystery-key.csv)
+:::
+
+::: {.callout-tip collapse="true"}
+## More to explore if you are ahead of the group
+
+If you are ahead of the group you will see that the "key" also contains the
+true values of `J` and `ecological_strength` so you might try performing
+the regression inference on these as well. Are either of these parameters
+harder or easier to estimate than `colrate`? Why do you think that is?
+
+You might also try manipulating the predictor variables before training the
+ml model and evaluating the impact on performance. For example, try only using
+abundance Hill numbers, or only genetics Hill numbers. Try using *all* the Hill
+numbers for all the data axes. How does the composition of the predictor
+variables change the ml parameter estimation accuracy?
+:::
 
 ### Posterior predictive simulations (if time)
 
