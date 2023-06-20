@@ -46,7 +46,7 @@
     "href": "coding_neutral_theory.html#lesson-outline",
     "title": "3  Coding exercise: A simple neutral model of biodiversity",
     "section": "3.3 Lesson outline",
-    "text": "3.3 Lesson outline\nSlides\n\n3.3.1 (Group project) Code up UNTB in R!\n\n\n3.3.2 (Backup)\nSource the pre-coded UNTB located at https://github.com/role-model/process-models-workshop/neut_mod/neutral_mod.R.\n\n\n3.3.3 (Breakout groups or individual) Change parameter settings manually and visualize outcomes."
+    "text": "3.3 Lesson outline\n\n3.3.1 (Group project) Code up UNTB in R!\n\n\n3.3.2 (Backup)\nSource the pre-coded UNTB located here\n\n\n3.3.3 (Breakout groups or individual) Change parameter settings manually and visualize outcomes."
   },
   {
     "objectID": "neutral_theory_sims.html",

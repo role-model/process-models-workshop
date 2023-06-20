@@ -12,13 +12,12 @@
 
 ## Lesson outline
 
-[Slides](slides/day1_slides.pdf)
 
 ### (Group project) Code up UNTB in R!
 
 ### (Backup) 
 
-Source the pre-coded UNTB located at https://github.com/role-model/process-models-workshop/neut_mod/neutral_mod.R. 
+Source the pre-coded UNTB located [here](https://github.com/role-model/process-models-workshop/blob/main/neut_mod/neutral_mod.R)
 
 ### (Breakout groups or individual) Change parameter settings manually and visualize outcomes. 
 
