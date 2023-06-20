@@ -2,112 +2,217 @@
 
 ## Key questions
 
-1. How do I perform a process-inference using RoLE simulations in R?
+1. How do I estimate parameter values for continuous MESS model parameters?
+1. How do I evaluate the uncertainty of ML parameter estimates?
 
 ## Lesson objectives
 
 After this lesson, learners should be able to...
 
-1. Use RoLE simulations and RandomForest ML (w/ tidymodels) to perform inference
-1. Interpret results in terms of story
+1. Use simulations and randomForest ML to perform parameter estimation for
+key MESS model parameters.
+1. Evaluate uncertainty in parameter estimation accuracy using cross-validation
+simulations.
+1. Apply ML parameter estimation to empirical data and interpret results in
+terms of story
 1. Brainstorm applications to real data
 
 ## Planned exercises
 
-* Create and parameterize a new RoLE Experiment
-* Run RoLE model simulations
-* ML assembly model classification
-* ML parameter estimation
+* Motivating MESS process-model parameter estimation
+* Implement ML parameter estimation
+* Hands-on Exercise: Predicting MESS parameters of mystery simulations
 * Posterior predictive simulations (if time)
-* Free time to experiment with other example datasets
 
-### Create a new RoLE Experiment
-#### Create a new roleParams(), modifying a few default values
-These are all the parameters of the model. The defaults are chosen to reflect
-a typical oceanic island arthropod community. Don't worry at this point about
-all the parameters, lets focus for now on the degree of neutrality (`neut_delta`), the
-size of the local community (`individuals_local`), and the rate of migration from the metacommunity
-to the local community (`dispersal_prob`). We will set parameter ranges for these, and each
-simulation will sample a random value from this range. In a new cell use the
-we'll create some new `roleParams` objects to reflect neutral, competition, and
-environmental filtering assembly models.
+### Motivating MESS process-model parameter estimation
 
-```r
-p_neutral <- roleParams()
-p_comp <- roleParams()
-p_filt <- roleParams()
-```
-#### Run the role experiment encapsulating these different models
-Now we can run a bunch of simulations given our new parameterization using the
-`runRole()` method. runRole takes one argument (`nsims`) which indicates the number
-of independent community assembly realizations to perform.
-
-```r
-exp <- roleExperiment(list(p_neutral, p_comp, p_filt))
-exp <- runRole(exp)
-```
-
-#### Download the pre-baked simulations
-Since it can take quite some time to run a number of simulations sufficient for
-model selection and parameter estimation we will use a suite of pre-baked
-simulations generated ahead of time. Go to the terminal tab in Rstudio and fetch
-them with `wget` from the workshop site:
-```
-\# FIXME
-# Make sure you're in the role-workshop directory
-cd ~/role-workshop
-wget https://compphylo.github.io/Oslo2019/MESS_files/MESS_simulations/SIMOUT.txt
-wc -l SIMOUT.txt
-```
-    100%[======================================>] 14,234,338  50.0M/s   in 0.3s
-    2019-08-11 01:25:27 (50.0 MB/s) - "SIMOUT.txt.1" saved [14234338/14234338]
-    24440 SIMOUT.txt
-
-:::{.callout-note}
-The `wc` command counts the number of lines if you pass it the `-l` flag.
-You can see this series of ~25k simulations is about 14MB.
-:::
-
-### ML assembly model classification
-The first step is now to assess the model of community assembly that best
-fits the data. The three models are `neutral`, in which all individuals are
-ecologically equivalent; `competition`, in which species have traits, and
-differential survival probability is weighted by distance of traits from
-the trait mean in the local community (closer to the trait mean == higher
-probability of death); and `filtering`, in which there is an environmental
-optimum, and proximity of trait values to this optimum is positively
-correlated with survival probability.
-
-Basically we want to know, are individuals in the local community ecologically
-equivalent, and if not are they interacting more with each other or more
-with the local environment.
-
-#### Train the ML classifier
-#### Plot confusion matrix
-#### Perform classification of empirical data and view results
-
-### ML parameter estimation
 Now that we have identified the neutral model as the most probable, we can
 estimate parameters of the emipirical data given this model. Essentially,
 we are asking the question "What are the parameters of the model that
 generate summary statistics most similar to those of the empirical data?"
 
-#### Train the ML regressor
-#### Plot cross-validation results
-#### Perform regression to predict dispersal_prob of empirical data and view results
+### Implement ML parameter estimation
 
-## Supporting materials
+Let's start with a new clean Rscript, so create a new file and save it as
+"MESS-Regression.R", then load the necessary libraries and simulated data.
 
-_Describe, and where possible link to, lesson materials that will be needed for this section of the workshop. These could include code for live coding, code documentation, book chapters, videos/animations, etc._
+#### Load libraries, setwd, and load the simulated data
+```R
+library(randomForest)
+library(caret)
+library(reticulate)
 
-_For bonus points organize these according to whether they already exist or we need to create them!_
+setwd("/home/rstudio/MESS-inference")
+simdata = MESS$load_local_sims("MESS-SIMOUT.csv")[[1]]
+```
 
-### Extant
+#### Extract sumulations generated under the 'filtering' assembly model
+Let's pretend that the most probable model from the classification procedure
+was 'environmental filtering'. If our goal is to estimate parameters under this
+model then we want to _exclude_ simulations from the ml inference that do not
+fit our most probable model. This can be achieved by selecting rows in the
+`simdata` data.frame that have "filtering" as the `assembly_model`.
+```R
+simdata = simdata[simdata$assembly_model == "filtering", ]
+simdata
+```
 
-### To create
+#### Split train and test data as normal
+Again, we'll split the data into training and testing sets.
 
-* Relevant chapters of user guide.
+```R
+tmp <- sample(2, nrow(simdata), replace = TRUE, prob = c(0.7, 0.3))
+train <- simdata[tmp==1,]
+test <- simdata[tmp==2,]
+```
+
+#### Train the ML regressor as normal
+Train the ml model to perform regression, as our focal dependent variable takes
+continuous values. The `randomForest` package auto-detects if the dependent
+variable is continuous or categorical, so there's nothing more to do there. We
+will use the same formula as before, specifying `local_S` and the first Hill
+number on each axis of biodiversity as the predictor variables.
+
+```R
+rf <- randomForest(colrate ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
+rf
+```
+
+#### Plot results of predictions for colrate of held-out training set
+For a regression analysis we can't use a confusion matrix because the response
+is continuous, so instead we evaluate prediction accuracy by making a scatter
+plot showing predictions as a function of known simulated values. With perfect
+prediction accuracy the points in the scatter plot would fall along the identity
+line.
+
+```R
+preds <- predict(rf, test)
+plot(preds, test$colrate)
+```
+
+![Simulated and predicted colonization rates](images/MESS-Regression-PredictionScatter.png)
+
+::: {.callout-tip}
+## What can we say about the accuracy of ml prediction of colonization rate?
+
+:::
+
+::: {.callout-warning collapse="true"}
+## Prediction accuracy should be quantified with a formal method.
+
+What we are doing here is a very qualitative, ad hoc evaluation of prediction
+accuracy. This is another case where the full details of performing ml inference
+are slightly out of scope for this workshop, given the amount of time we have.
+In a real analysis one should more formally quantify this with mean squared
+error, or mean absolute error, or pseudo-R^2, some of which are provided in
+the `randomForest` package, e.g.:
+
+```R
+rf <- randomForest(colrate ~ local_S + pi_h1 + abund_h1 + trait_h1, data=train, proximity=TRUE)
+mean(rf$rsq)
+```
+```default
+0.6219401
+```
+
+:::
+
+#### Predict `colrate` of test simulation and plot distribution of predictions
+Now we can practice making predictions for a _single_ simulation and looking
+at uncertainty in the prediction. Like we did before we can select one simulation
+by using the `test [#, ]` row selection strategy on our `test` data.frame.
+
+When we ask for `predict.all=TRUE` this will return the prediction value for each
+tree in the rf, and we can plot the aggregation of these predictions using `hist`
+to show a histogram.
+
+::: {.callout-tip collapse="true"}
+## Return values of `predict()` for regression
+
+When `predict.all=TRUE` the `predict()` function returns a list with 2 elements:
+
+* The predicted value (point estimate)
+* A vector of predicted values for each tree in the forest
+:::
+
+```R
+preds <- predict(rf, test[2, ], predict.all=TRUE)
+# The predicted value is element [[1]]
+print(preds[[1]])
+# A vector of predictions for each tree in the forest [[2]]
+hist(preds[[2]])
+```
+```default
+0.001191852
+```
+
+![Distribution of colonization rate predictions for a single simulation](images/MESS-Regression-EmpiricalUncertainty.png)
+
+**What can we say about the uncertainty on parameter estimation for this one
+simulation?**
+
+### Hands-on Exercise: Predicting MESS parameters of mystery simulations
+Now see if you can load the mystery simulations and do the regression inference
+on one or a couple of them. Try to do this on your own, but if you get stuck
+you can check the hint here:
+
+::: {.callout-tip collapse="true"}
+## Hints: Loading the mystery sims and making predictions
+
+```R
+## Importing the mystery data
+mystery_sims = read.csv("/home/rstudio/MESS-inference/Mystery-data.csv")
+
+## Predict for mystery sim 1
+myst_sim = 1
+mystery_pred = predict(rf, mystery_sims[myst_sim, ])
+print(mystery_pred)
+```
+:::
+
+A link to the key containing the true `colrate` values is hidden below.
+Don’t peek until you have a guess for your simulated data! How close did you get?
+
+::: {.callout-warning collapse="true"}
+## The Key is here
+
+[Assembly models per mystery simulation are in this file](data/Mystery-key.csv)
+:::
+
+::: {.callout-tip collapse="true"}
+## More to explore if you are ahead of the group
+
+If you are ahead of the group you will see that the "key" also contains the
+true values of `J` and `ecological_strength` so you might try performing
+the regression inference on these as well. Are either of these parameters
+harder or easier to estimate than `colrate`? Why do you think that is?
+
+You might also try manipulating the predictor variables before training the
+ml model and evaluating the impact on performance. For example, try only using
+abundance Hill numbers, or only genetics Hill numbers. Try using *all* the Hill
+numbers for all the data axes. How does the composition of the predictor
+variables change the ml parameter estimation accuracy?
+
+### Posterior predictive simulations (if time)
+
+Posterior predictive simulations are a good practice to assess the goodness
+of fit of the model to the data. Essentially this involves running new simulations
+setting MESS model parameters to the most probable estimates from the ML
+inference, and then evaluating the fit of the new simulations to the empirical
+data, typically by projecting summary statistics of the simulated and observed
+data and checking that they all fall within a point cloud.
+
+We probably won't have time to get to this, but it's a good practice in fitting
+ml models to real data.
+:::
+
 
 ## Key points
-
-_List 1-3 key takeaways from this section of the workshop._
+* Machine learning models can be used to "estimate parameters" of continuous
+response variables given multi-dimensional input data.
+* Major components of machine learning inference include gathering and
+transforming data, splitting data into training and testing sets, training the
+ml model, and evaluating model performance.
+* ML inference is **inherently** uncertain, so it is important to evaluate
+uncertainty in ml prediction accuracy and propagate this into any downstream
+interpretation when applying ml to empirical data.
