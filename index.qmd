@@ -17,3 +17,7 @@
 ## Script from June 20
 
 Copy-paste from [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/script_to_share.R)
+
+
+
+To run and do hill numbers [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/source_script.R)
