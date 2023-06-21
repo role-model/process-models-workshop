@@ -4,14 +4,14 @@
 
 | Time | Day 1 | Day 2 |
 |------|-------|-------|
-| 9-9:30 | Review of part I and follow-up questions | Review of previous days topics |
+| 9-9:30 | Review of part I and follow-up questions | Review of previous days topics (Discuss dreamed of ideas) |
 | 9:30-10:30 | [Finding multidimensional biodiversity data and](https://role-model.github.io/multidim-biodiv-data/finding_data.html) and [Theory/conceptual motivation for process models](slides/day1_slides.pdf) | [Intro to the MESS model](intro_mess.html) & [Getting started with MESS simulations](mess_getting_started.html) |
 | 10:30-10:45 | Coffee Break | Coffee Break |
 | 10:45-12 | [Coding exercise: A simple neutral model of biodiversity](slides/day1_slides.pdf) | [Simulation exercise: Using MESS API mode in RStudio to develop and test theoretical intuition](mess_simulations.html) |
 | 12-1 | Lunch Break | Lunch Break |
 | 1-2:30 | [Simulation Exercise: Exploring neutral model behavior](slides/day1_slides.pdf) | [Simulation based machine learning inference (Classification)](ml_inference_classification.html) |
 | 2:30-2:45 | Coffee Break | Coffee Break | 
-| 2:45-4:00 | [Intro to machine learning inference with neutral simulations](slides/day1_slides.pdf) | [Simulation based machine learning inference (Regression)](ml_inference_regression.html) & [Wrap-up](wrapup.qmd) |
+| 2:45-4:00 | [Intro to machine learning inference with neutral simulations](slides/day1_slides.pdf) | [Simulation based machine learning inference (Regression)](ml_inference_regression.html), small group discussions about empirical applications & [Wrap-up](wrapup.qmd) |
 
 
 ## Script from June 20
