@@ -23,9 +23,7 @@ This is the first part of the full tutorial for the MESS model. In this tutorial
 we’ll focus on the command line interface (CLI), because this is the simplest way
 to get started, and it will also more likely be how one would run MESS on an HPC.
 This is meant as a broad introduction to familiarize users with the general
-workflow, and some of the parameters and terminology. We will use as an example
-in this tutorial the spider community data set from La Reunion published by
-Emerson et al (2017).
+workflow, and some of the parameters and terminology.
 
 * Installation
 * Getting started with the MESS CLI
