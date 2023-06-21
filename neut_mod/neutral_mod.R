@@ -16,7 +16,9 @@ untb <- function(Jm, # num individuals in the metacomm
   # Logseries metaSAD - this is important because of the weighting for the odds of which species does the immigrating. 
   # For our purposes we can use roleR.
   # this is an sad stored as relative abundances. 
-  meta_species_ids <- roleR:::.lseriesFromSN(Sm, Jm)
+  # meta_species_ids <- roleR:::.lseriesFromSN(Sm, Jm)
+  
+   meta_species_ids <- rep(1/Sm, times = Sm)
   
   # And a local community
   # local_species_ids is a vector to keep track of the species ID of each individual in the local community.
