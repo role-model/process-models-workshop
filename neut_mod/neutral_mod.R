@@ -18,7 +18,7 @@ untb <- function(Jm, # num individuals in the metacomm
   # this is an sad stored as relative abundances. 
   # meta_species_ids <- roleR:::.lseriesFromSN(Sm, Jm)
   
-   meta_species_ids <- rep(1/Sm, times = Jm)
+   meta_species_ids <- rep(1/Sm, times = Sm)
   
   # And a local community
   # local_species_ids is a vector to keep track of the species ID of each individual in the local community.
