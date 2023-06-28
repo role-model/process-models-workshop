@@ -13,11 +13,7 @@
 | 2:30-2:45 | Coffee Break | Coffee Break | 
 | 2:45-4:00 | [Intro to machine learning inference with neutral simulations](slides/day1_slides.pdf) | [Simulation based machine learning inference (Regression)](ml_inference_regression.html), small group discussions about empirical applications & [Wrap-up](wrapup.qmd) |
 
+## Group Photo
 
-## Script from June 20
+![RoLE Workshop Group Photo](images/RoLE-Workshop-GroupPhoto.jpeg)
 
-Copy-paste from [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/script_to_share.R)
-
-
-
-To run and do hill numbers [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/source_script.R)
