@@ -1,5 +1,11 @@
 # Introduction
 
+## Notes for asychronous use
+
+These are the materials for the second 2 days of the "Multidimensional Biodiversity Data" workshop first offered in Albequerque, NM in June 2023 by the RoLE Model team. For the first two days' materials, see [the course website here.](https://role-model.github.io/multidim-biodiv-data) 
+
+To work through these materials asynchronously, you will need some software packages installed on your computer. We have provided a Docker image with the necessary packages already set up. To get going with this, see the setup instructions. 
+
 ## Workshop outline
 
 | Time | Day 1 | Day 2 |
