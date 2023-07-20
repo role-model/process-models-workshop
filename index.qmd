@@ -4,7 +4,16 @@
 
 These are the materials for the second 2 days of the "Multidimensional Biodiversity Data" workshop first offered in Albequerque, NM in June 2023 by the RoLE Model team. For the first two days' materials, see [the course website here.](https://role-model.github.io/multidim-biodiv-data) 
 
-To work through these materials asynchronously, you will need some software packages installed on your computer. We have provided a Docker image with the necessary packages already set up. To get going with this, see the setup instructions. 
+To work through these materials asynchronously, you will need some software packages installed on your computer. We have provided a Docker image with the necessary packages already set up. To get going with this, see the [setup instructions](software_setup.qmd).
+
+The first days' materials (from "Theory/conceptual motivation for process models" through to "Intro to machine learning inference with neutral simulations") are also available as video lectures on YouTube:
+
+1. [Theory and motivation of process modeling](https://youtu.be/s6RwgGlIop8)
+2. [The Unified Neutral Theory of Biodiversity as a process model](https://youtu.be/fuijMa_hTwo)
+3. [Inferring the parameters of neutral theory from model outcomes](https://youtu.be/F8T007EdiHQ)
+
+Code to run UNTB interactively on your own is available [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/souce_script.R). 
+
 
 ## Workshop outline
 
@@ -22,4 +31,6 @@ To work through these materials asynchronously, you will need some software pack
 ## Group Photo
 
 ![RoLE Workshop Group Photo](images/RoLE-Workshop-GroupPhoto.jpeg)
+## Funding acknowledgements
 
+We gratefully acknowledge funding support from NSF awards DBI-2208901 to Renata Diaz and DBI-2104147 to the RoLE model team. 
