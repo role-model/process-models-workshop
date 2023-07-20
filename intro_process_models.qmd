@@ -19,6 +19,13 @@ After this lesson, learners should be able to...
 
 [Slides](slides/day1_slides.pdf)
 
+Video lectures:
+
+
+1. [Theory and motivation of process modeling](https://youtu.be/s6RwgGlIop8)
+2. [The Unified Neutral Theory of Biodiversity as a process model](https://youtu.be/fuijMa_hTwo)
+
+
 ### (Lecture + discussion) What do we _mean_ by process modeling, anyway?
 
 Key points:

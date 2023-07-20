@@ -16,6 +16,8 @@
 
 [Slides](slides/day1_slides.pdf)
 
+Video lecture: [Inferring the parameters of neutral theory from model outcomes](https://youtu.be/F8T007EdiHQ)
+
 ### (Lecture/discussion) Going from outcome to parameters
 
 Key question:

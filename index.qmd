@@ -12,7 +12,6 @@ The first days' materials (from "Theory/conceptual motivation for process models
 2. [The Unified Neutral Theory of Biodiversity as a process model](https://youtu.be/fuijMa_hTwo)
 3. [Inferring the parameters of neutral theory from model outcomes](https://youtu.be/F8T007EdiHQ)
 
-Code to run UNTB interactively on your own is available [here](https://raw.githubusercontent.com/role-model/process-models-workshop/main/neut_mod/souce_script.R). 
 
 
 ## Workshop outline
