@@ -30,6 +30,7 @@ The first days' materials (from "Theory/conceptual motivation for process models
 ## Group Photo
 
 ![RoLE Workshop Group Photo](images/RoLE-Workshop-GroupPhoto.jpeg)
+
 ## Funding acknowledgements
 
 We gratefully acknowledge funding support from NSF awards DBI-2208901 to Renata Diaz and DBI-2104147 to the RoLE model team. 
