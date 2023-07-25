@@ -24,6 +24,7 @@ Video lectures:
 
 1. [Theory and motivation of process modeling](https://youtu.be/s6RwgGlIop8)
 2. [The Unified Neutral Theory of Biodiversity as a process model](https://youtu.be/fuijMa_hTwo)
+3. [Video on playing neutral theory as a game, and in R](https://www.youtube.com/watch?v=P0llru92YsU)
 
 
 ### (Lecture + discussion) What do we _mean_ by process modeling, anyway?
